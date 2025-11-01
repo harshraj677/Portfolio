@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { HiMenu, HiX } from 'react-icons/hi';
+import { HiMenu, HiX, HiSun, HiMoon } from 'react-icons/hi';
 import { useTheme } from '../context/ThemeContext';
 import { ThemeToggleButton2 } from './ui/ThemeToggleButtons';
 

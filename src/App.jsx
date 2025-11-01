@@ -14,33 +14,15 @@ import ThemeProvider from './context/ThemeContext'
 
 function App() {
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
 
   useEffect(() => {
-    try {
-      // Simulate loading time
-      setTimeout(() => {
-        setLoading(false)
-      }, 1500)
-    } catch (err) {
-      setError(err.message)
+    setTimeout(() => {
       setLoading(false)
-    }
+    }, 1500)
   }, [])
 
   if (loading) {
     return <Preloader />
-  }
-
-  if (error) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-red-50">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-red-600">Error Loading App</h1>
-          <p className="text-gray-700">{error}</p>
-        </div>
-      </div>
-    )
   }
 
   return (
