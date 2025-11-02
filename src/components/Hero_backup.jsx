@@ -25,63 +25,63 @@ const Hero = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Optimized Gradient Background - Professional Theme */}
+      {/* 3D Animated Background with Balanced Gradients */}
       <div className="absolute inset-0">
-        {/* Base gradient - deep blue to dark */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#030509] via-[#0a0f1e] to-[#030509]"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-[#1a0a00] to-black"></div>
         
-        {/* Layered gradient orbs - cyan and purple tones */}
-        <div className="absolute inset-0">
+        {/* Floating 3D Orbs - Enhanced Orange Theme */}
+        <div className="absolute inset-0 opacity-60">
           <motion.div 
             animate={{ 
-              x: [0, 100, 0],
+              x: [0, 120, 0],
               y: [0, -80, 0],
-              scale: [1, 1.2, 1],
+              scale: [1, 1.3, 1],
+              rotate: [0, 180, 360]
             }}
             transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-gradient-radial from-cyan-500/25 via-blue-600/12 to-transparent rounded-full filter blur-3xl"
+            className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-gradient-to-r from-orange-600/40 to-red-600/30 rounded-full filter blur-[100px]"
+            style={{ transform: 'translateZ(50px)' }}
           />
           <motion.div 
             animate={{ 
               x: [0, -80, 0],
               y: [0, 100, 0],
-              scale: [1.2, 1, 1.2],
+              scale: [1, 1.4, 1],
+              rotate: [360, 180, 0]
             }}
             transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-1/3 right-1/4 w-[450px] h-[450px] bg-gradient-radial from-purple-500/20 via-fuchsia-600/10 to-transparent rounded-full filter blur-3xl"
+            className="absolute top-1/3 right-1/4 w-[550px] h-[550px] bg-gradient-to-r from-orange-500/35 to-amber-600/25 rounded-full filter blur-[110px]"
+            style={{ transform: 'translateZ(30px)' }}
           />
           <motion.div 
             animate={{ 
               x: [0, 60, 0],
               y: [0, -60, 0],
-              scale: [1, 1.15, 1],
+              scale: [1, 1.2, 1],
+              rotate: [0, -180, -360]
             }}
-            transition={{ duration: 28, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-1/3 left-1/2 w-[380px] h-[380px] bg-gradient-radial from-blue-500/22 via-cyan-600/11 to-transparent rounded-full filter blur-3xl"
+            transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-1/4 left-1/2 w-[450px] h-[450px] bg-gradient-to-r from-red-600/30 to-orange-600/35 rounded-full filter blur-[95px]"
+            style={{ transform: 'translateZ(20px)' }}
           />
         </div>
 
-        {/* Subtle animated grid */}
+        {/* Animated Grid Pattern */}
         <motion.div 
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage: 'linear-gradient(rgba(14,165,233,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(217,70,239,0.4) 1px, transparent 1px)',
-            backgroundSize: '50px 50px',
-            maskImage: 'radial-gradient(ellipse 80% 60% at 50% 50%, black 40%, transparent 80%)'
-          }}
+          className="absolute inset-0 bg-[linear-gradient(rgba(249,115,22,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(249,115,22,0.08)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]"
           animate={{
             backgroundPosition: ['0px 0px', '50px 50px'],
           }}
           transition={{
-            duration: 30,
+            duration: 20,
             repeat: Infinity,
             ease: "linear"
           }}
         />
       </div>
 
-      {/* Refined gradient overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#030509]/50 via-transparent to-[#030509]/70" />
+      {/* Enhanced Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-orange-500/5 to-black/50" />
 
       {/* Content */}
       <motion.div
@@ -95,12 +95,12 @@ const Hero = () => {
           <div className="flex-1 text-center lg:text-left">
             <motion.div variants={itemVariants} className="mb-4">
               <motion.span 
-                whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(14, 165, 233, 0.6)" }}
-                className="inline-block px-6 py-3 glass-effect border border-cyan-500/40 rounded-full text-cyan-400 font-semibold text-sm mb-4 shadow-lg shadow-cyan-500/30"
+                whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(249, 115, 22, 0.5)" }}
+                className="inline-block px-6 py-3 glass-effect border border-orange-500/30 rounded-full text-orange-400 font-semibold text-sm mb-4 shadow-lg shadow-orange-500/20"
               >
                 <span className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
-                  MERN Stack Specialist �
+                  <span className="w-2 h-2 bg-orange-400 rounded-full animate-pulse"></span>
+                  MERN Stack Specialist 🚀
                 </span>
               </motion.span>
             </motion.div>
@@ -114,7 +114,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="block text-blue-100 mb-2"
+                className="block text-gray-200 mb-2"
               >
                 Hi, I'm
               </motion.span>
@@ -124,13 +124,13 @@ const Hero = () => {
                 transition={{ duration: 1, type: "spring", stiffness: 100 }}
                 whileHover={{ 
                   scale: 1.03, 
-                  rotateZ: 1,
+                  rotateZ: 2,
                   transition: { duration: 0.3 }
                 }}
-                className="block bg-gradient-to-r from-cyan-300 via-blue-500 to-purple-600 bg-clip-text text-transparent font-black"
+                className="block bg-gradient-to-r from-orange-300 via-orange-500 to-red-600 bg-clip-text text-transparent font-black"
                 style={{ 
-                  filter: "drop-shadow(0 0 40px rgba(14, 165, 233, 0.6))",
-                  textShadow: "0 0 80px rgba(217, 70, 239, 0.4)"
+                  filter: "drop-shadow(0 0 40px rgba(249, 115, 22, 0.6))",
+                  textShadow: "0 0 80px rgba(249, 115, 22, 0.3)"
                 }}
               >
                 Harsh Raj
@@ -139,19 +139,36 @@ const Hero = () => {
 
             <motion.div
               variants={itemVariants}
-              className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-4"
+              className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-6"
             >
               <motion.span 
-                className="block bg-gradient-to-r from-cyan-200 to-blue-400 bg-clip-text text-transparent font-bold"
-                whileHover={{ scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300 }}
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+                className="block text-gray-300 mb-2"
               >
-                MERN Stack Developer
+                Full Stack Developer
               </motion.span>
               <motion.span 
-                className="bg-gradient-to-r from-purple-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent"
-                whileHover={{ scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300 }}
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.6, duration: 0.6 }}
+                className="bg-gradient-to-r from-orange-400 via-orange-500 to-red-500 bg-clip-text text-transparent font-bold"
+              >
+                CSE Student | Innovator
+              </motion.span>
+            </motion.div>
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3 }}
+                className="block text-gray-400"
+              >
+                Full Stack Developer
+              </motion.span>
+              <motion.span 
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.5 }}
+                className="bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent"
               >
                 CSE Student | Innovator
               </motion.span>
@@ -159,10 +176,9 @@ const Hero = () => {
 
             <motion.p
               variants={itemVariants}
-              className="text-lg md:text-xl text-blue-100/90 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
-              style={{ textShadow: "0 2px 10px rgba(14, 165, 233, 0.2)" }}
+              className="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0"
             >
-              Transforming ideas into interactive digital realities with cutting-edge technologies and creative solutions.
+              Crafting cutting-edge web applications with the power of MongoDB, Express, React, and Node.js
             </motion.p>
 
             <motion.div
@@ -171,23 +187,29 @@ const Hero = () => {
             >
               <motion.a
                 href="#projects"
-                className="btn-primary inline-flex items-center justify-center gap-2 group"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className="btn-primary inline-flex items-center justify-center gap-2 group relative overflow-hidden"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
               >
-                View Projects
-                <HiArrowRight className="group-hover:translate-x-1 transition-transform" />
+                <span className="relative z-10">View My Work</span>
+                <HiArrowRight className="group-hover:translate-x-1 transition-transform relative z-10" />
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-red-600 to-orange-600"
+                  initial={{ x: "-100%" }}
+                  whileHover={{ x: 0 }}
+                  transition={{ duration: 0.3 }}
+                />
               </motion.a>
 
               <motion.a
                 href="/resume.pdf"
                 download
-                className="btn-secondary inline-flex items-center justify-center gap-2"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className="btn-secondary inline-flex items-center justify-center gap-2 group"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <HiDownload />
-                Download Resume
+                <HiDownload className="group-hover:animate-bounce" />
+                <span>Download Resume</span>
               </motion.a>
             </motion.div>
 
@@ -204,15 +226,15 @@ const Hero = () => {
                 <motion.div
                   key={stat.label}
                   className="text-center"
-                  whileHover={{ scale: 1.1, y: -5 }}
+                  whileHover={{ scale: 1.1 }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.8 + index * 0.1, type: "spring", stiffness: 200 }}
+                  transition={{ delay: 0.8 + index * 0.1 }}
                 >
-                  <div className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-1 drop-shadow-[0_0_15px_rgba(14,165,233,0.5)]">
+                  <div className="text-3xl font-bold text-orange-500 mb-1">
                     {stat.number}
                   </div>
-                  <div className="text-sm text-blue-200/80">
+                  <div className="text-sm text-gray-400">
                     {stat.label}
                   </div>
                 </motion.div>
@@ -227,7 +249,7 @@ const Hero = () => {
           >
             <motion.div
               animate={{
-                y: [0, -15, 0],
+                y: [0, -10, 0],
                 rotateZ: [0, 2, 0, -2, 0]
               }}
               transition={{
@@ -237,32 +259,32 @@ const Hero = () => {
               }}
               className="relative w-full max-w-lg mx-auto aspect-square"
             >
-              {/* Enhanced Glowing Background */}
+              {/* Glowing Background */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <motion.div 
                   animate={{
-                    scale: [1, 1.3, 1],
+                    scale: [1, 1.2, 1],
+                    opacity: [0.3, 0.5, 0.3]
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  className="absolute w-80 h-80 bg-orange-500/30 rounded-full blur-3xl"
+                />
+                <motion.div 
+                  animate={{
+                    scale: [1.2, 1, 1.2],
                     opacity: [0.2, 0.4, 0.2]
                   }}
                   transition={{
                     duration: 5,
                     repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                  className="absolute w-80 h-80 bg-gradient-radial from-cyan-500/30 via-cyan-600/15 to-transparent rounded-full blur-3xl"
-                />
-                <motion.div 
-                  animate={{
-                    scale: [1.3, 1, 1.3],
-                    opacity: [0.15, 0.35, 0.15]
-                  }}
-                  transition={{
-                    duration: 6,
-                    repeat: Infinity,
                     ease: "easeInOut",
                     delay: 1
                   }}
-                  className="absolute w-64 h-64 bg-gradient-radial from-purple-500/25 via-purple-600/12 to-transparent rounded-full blur-2xl"
+                  className="absolute w-64 h-64 bg-red-500/30 rounded-full blur-2xl"
                 />
               </div>
 
@@ -271,12 +293,12 @@ const Hero = () => {
                 <StudentAvatar />
               </div>
 
-              {/* Floating MERN Stack Labels */}
+              {/* Floating Code Snippets */}
               {[
-                { text: 'MongoDB', x: '-15%', y: '15%', delay: 0 },
-                { text: 'Express', x: '105%', y: '25%', delay: 0.8 },
-                { text: 'React', x: '105%', y: '70%', delay: 1.6 },
-                { text: 'Node.js', x: '-15%', y: '75%', delay: 2.4 }
+                { text: '<React />', top: '10%', left: '-10%', delay: 0 },
+                { text: 'MongoDB', top: '20%', right: '-15%', delay: 0.5 },
+                { text: 'Node.js', bottom: '20%', left: '-15%', delay: 1 },
+                { text: 'Express', bottom: '15%', right: '-10%', delay: 1.5 }
               ].map((item, i) => (
                 <motion.div
                   key={i}
@@ -284,18 +306,20 @@ const Hero = () => {
                   animate={{ 
                     opacity: [0, 1, 1, 0],
                     scale: [0, 1, 1, 0],
-                    y: [0, -25, -50, -75]
+                    y: [0, -20, -40, -60]
                   }}
                   transition={{
-                    duration: 5,
+                    duration: 4,
                     repeat: Infinity,
                     delay: item.delay,
                     ease: "easeOut"
                   }}
-                  className="absolute px-4 py-2 bg-gradient-to-r from-cyan-500/25 to-purple-500/20 border border-cyan-500/40 rounded-xl text-cyan-400 text-sm font-bold backdrop-blur-md shadow-lg shadow-cyan-500/20"
+                  className="absolute px-3 py-1.5 bg-orange-500/20 border border-orange-500/30 rounded-lg text-orange-400 text-sm font-mono backdrop-blur-sm"
                   style={{
-                    left: item.x,
-                    top: item.y
+                    top: item.top,
+                    bottom: item.bottom,
+                    left: item.left,
+                    right: item.right
                   }}
                 >
                   {item.text}
@@ -316,9 +340,9 @@ const Hero = () => {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-cyan-500 rounded-full flex justify-center pt-2 shadow-lg shadow-cyan-500/30"
+          className="w-6 h-10 border-2 border-orange-500 rounded-full flex justify-center pt-2"
         >
-          <div className="w-1 h-3 bg-cyan-500 rounded-full shadow-[0_0_10px_rgba(14,165,233,0.8)]" />
+          <div className="w-1 h-3 bg-orange-500 rounded-full" />
         </motion.div>
       </motion.div>
     </section>

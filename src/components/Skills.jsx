@@ -129,7 +129,7 @@ const Skills = () => {
                   key={skill.name}
                   initial={{ opacity: 0, scale: 0, rotate: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: true, amount: 0.3 }}
                   animate={{
                     y: [y - 10, y + 10, y - 10],
                     x: [x - 5, x + 5, x - 5],
@@ -137,7 +137,13 @@ const Skills = () => {
                   }}
                   transition={{
                     opacity: { delay: index * 0.08, duration: 0.6 },
-                    scale: { delay: index * 0.08, duration: 0.6, type: "spring" },
+                    scale: { 
+                      delay: index * 0.08, 
+                      duration: 0.8, 
+                      type: "spring",
+                      stiffness: 100,
+                      damping: 10
+                    },
                     y: {
                       duration: skill.speed,
                       repeat: Infinity,
@@ -155,9 +161,8 @@ const Skills = () => {
                     }
                   }}
                   whileHover={{
-                    scale: 1.5,
+                    scale: 1.8,
                     zIndex: 999,
-                    y: y - 20,
                     transition: { duration: 0.3, type: "spring", stiffness: 400, damping: 15 }
                   }}
                   className="absolute cursor-pointer group"
@@ -173,9 +178,9 @@ const Skills = () => {
                   }}
                 >
                   <div className="relative w-full h-full">
-                    {/* Icon Container */}
+                    {/* Icon Container - Full Circle */}
                     <div 
-                      className="absolute inset-0 rounded-2xl glass-effect-dark border-2 flex items-center justify-center transition-all duration-300 group-hover:border-primary-400 group-hover:shadow-2xl group-hover:scale-105"
+                      className="absolute inset-0 rounded-full glass-effect-dark border-2 flex items-center justify-center transition-all duration-300 group-hover:border-primary-400 group-hover:shadow-2xl group-hover:scale-110"
                       style={{
                         borderColor: `${skill.color}50`,
                         boxShadow: `0 4px 20px ${skill.color}30, 0 8px 25px rgba(0,0,0,0.2)`,
@@ -201,7 +206,7 @@ const Skills = () => {
 
                     {/* Glow Effect */}
                     <div 
-                      className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-2xl -z-10"
+                      className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-2xl -z-10"
                       style={{
                         background: `radial-gradient(circle, ${skill.color}60, transparent 70%)`
                       }}
@@ -246,9 +251,12 @@ const Skills = () => {
                     <div className="p-6 rounded-2xl glass-effect hover:shadow-xl transition-all cursor-pointer border border-transparent hover:border-primary-500/30">
                       <div className="flex items-center gap-4 mb-4">
                         <motion.div
-                          whileHover={{ rotate: 360, scale: 1.2 }}
+                          initial={{ scale: 0 }}
+                          whileInView={{ scale: 1 }}
+                          viewport={{ once: true, amount: 0.5 }}
+                          whileHover={{ rotate: 360, scale: 1.3 }}
                           transition={{ duration: 0.6 }}
-                          className="p-3 bg-gradient-to-br from-primary-500/20 to-accent-500/20 rounded-xl"
+                          className="w-16 h-16 flex items-center justify-center bg-gradient-to-br from-primary-500/20 to-accent-500/20 rounded-full"
                         >
                           <skill.icon 
                             className="w-8 h-8" 
