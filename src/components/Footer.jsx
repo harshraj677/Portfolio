@@ -91,12 +91,12 @@ const Footer = () => {
               </span>
             </motion.h3>
             <p className="text-gray-300 mb-6 text-lg leading-relaxed max-w-md">
-              Full Stack MERN Developer passionate about creating stunning web applications with modern technologies and best practices.
+              MERN Stack Developer building modern web applications while learning AI, Machine Learning, and Deep Learning technologies.
             </p>
 
             {/* MERN Stack Icons 3D */}
             <div className="flex items-center gap-4 mb-6">
-              <span className="text-sm font-semibold text-gray-400">Specialized in:</span>
+              <span className="text-sm font-semibold text-gray-400">Tech Stack:</span>
               <div className="flex gap-3">
                 {mernStack.map((tech, index) => (
                   <motion.div

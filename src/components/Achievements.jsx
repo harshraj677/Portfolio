@@ -8,10 +8,10 @@ const Achievements = () => {
   const achievements = [
     {
       id: 1,
-      title: 'Anveasana Student Ambassador',
-      year: '2024',
-      description: 'Recognized as an official student ambassador for Anveasana platform',
-      image: 'https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=800&h=600&fit=crop',
+      title: 'Anveasana Campus Ambassador',
+      year: '2025',
+      description: 'Recognized as an official campus ambassador for Anvesana Innovation & Entrepreneurial Forum',
+      image: '/port photo/workshop.jpeg',
       category: 'Leadership'
     },
     {
@@ -19,72 +19,72 @@ const Achievements = () => {
       title: 'Hackathon Finalist',
       year: '2024',
       description: 'Secured top position in regional tech hackathon',
-      image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=600&fit=crop',
+      image: '/port photo/Foss Hackthon.jpeg',
       category: 'Competition'
     },
     {
       id: 3,
-      title: 'AI & ML Workshop Certificate',
-      year: '2023',
-      description: 'Completed intensive AI and Machine Learning data science workshop',
-      image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=600&fit=crop',
-      category: 'Learning'
+      title: 'Google Cloud Agentic AI Day Certificate',
+      year: '2025',
+      description: 'Participated in Google Cloud Agentic AI Day, exploring next-gen AI innovations.',
+      image: '/port photo/Agentic AI day certificate (1).jpeg',
+      category: 'Participated'
     },
     {
       id: 4,
       title: 'Best Project Award',
       year: '2024',
-      description: 'Awarded for outstanding MERN stack project implementation',
-      image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=600&fit=crop',
-      category: 'Achievement'
+      description: 'Our project was shortlisted in top five out of fifty teams',
+      image: '/port photo/foss.jpeg',
+      category: 'Presentation'
     },
     {
       id: 5,
-      title: 'Web Development Bootcamp',
-      year: '2023',
-      description: 'Successfully completed full-stack web development intensive course',
-      image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop',
+      title: 'HANDS-ON WORKSHOP ON RAG MODEL',
+      year: '2025',
+      description: 'Participated in a hands-on RAG model workshop enhancing AI skills.',
+      image: '/port photo/Rag workshop.jpeg',
       category: 'Learning'
     },
     {
       id: 6,
-      title: 'Community Contributor',
-      year: '2024',
-      description: 'Active open-source contributor with multiple merged PRs',
-      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop',
-      category: 'Community'
+      title: 'Hackathon',
+      year: '2025',
+      description: 'Selected as a top 40 finalist team in Monaithon Hackathon 2025.',
+      image: '/port photo/Monaithon Hackthon (2).jpeg',
+      category: 'Participated'
     },
     {
       id: 7,
-      title: 'Tech Talk Speaker',
-      year: '2024',
-      description: 'Delivered technical presentation on modern web development',
-      image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&h=600&fit=crop',
-      category: 'Speaking'
+      title: 'Leadership Talk ',
+      year: '2025',
+      description: 'Was part of a leadership session with Zoho Global HeadKuppulakshmi Krishnamoorthy ',
+      image: '/port photo/Leadership Talk.jpeg',
+      category: 'Learning    '
     },
     {
       id: 8,
-      title: 'Coding Competition Winner',
-      year: '2023',
-      description: 'First place in college-level coding competition',
-      image: 'https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=800&h=600&fit=crop',
-      category: 'Competition'
+      title: 'Advaya Hackathon',
+      year: '2025',
+      description: 'Represented college nationally by participating in the Advaya Pan-India Hackathon',
+      image: '/port photo/Advaya  Hackathon.jpeg',
+      category: 'Participated'
     },
     {
       id: 9,
-      title: 'Innovation Challenge',
+      title: 'Presentation',
       year: '2024',
-      description: 'Won innovation challenge with AI-powered solution',
-      image: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&h=600&fit=crop',
-      category: 'Competition'
+      description: 'Earned the opportunity to showcase my project in a college presentation.',
+      image: '/port photo/presentation.jpeg',
+      category: 'Presenting'
     },
     {
       id: 10,
-      title: 'Full Stack Certification',
-      year: '2023',
-      description: 'Certified full-stack developer with honors',
-      image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop',
-      category: 'Learning'
+      title: 'Project Exhibition Certification',
+      year: '2024',
+      description: 'Earned first prize at the college project exhibition for exceptional performance.',
+      image: '/port photo/Project Exhibition certificate.jpeg',
+      category: 'Achievement'
     }
   ];
 
@@ -110,7 +110,7 @@ const Achievements = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="columns-2 md:columns-3 lg:columns-4 gap-3 space-y-3"
+          className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-3 sm:gap-4 space-y-3 sm:space-y-4"
         >
           {achievements.map((achievement, index) => {
             // Vary heights for organic look like the reference image
@@ -128,38 +128,36 @@ const Achievements = () => {
                 className="break-inside-avoid group relative overflow-hidden cursor-pointer"
                 onClick={() => setSelectedImage(achievement)}
               >
-                <div className={`relative ${randomHeight} w-full overflow-hidden rounded-3xl shadow-lg`}>
+                <div className={`relative ${randomHeight} w-full overflow-hidden rounded-2xl sm:rounded-3xl shadow-lg`}>
                   <img
                     src={achievement.image}
                     alt={achievement.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                   />
                   
-                  {/* Gradient Overlay - Always visible like reference */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent">
-                    <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="px-2.5 py-0.5 bg-primary-500/90 backdrop-blur-sm text-white text-xs rounded-full font-semibold shadow-lg">
+                  {/* Minimal Overlay - Only badge and year visible */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+                      <div className="flex items-center gap-2 mb-1.5">
+                        <span className="px-2 sm:px-2.5 py-0.5 bg-gradient-to-r from-cyan-500 to-purple-600 backdrop-blur-sm text-white text-xs rounded-full font-semibold shadow-lg">
                           {achievement.category}
                         </span>
                         <span className="text-white/95 text-xs font-bold">{achievement.year}</span>
                       </div>
-                      <h3 className="text-white font-bold text-sm leading-tight mb-1 line-clamp-2 drop-shadow-lg">
+                      {/* Title only shows on hover */}
+                      <h3 className="text-white font-bold text-sm sm:text-base leading-tight opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-lg">
                         {achievement.title}
                       </h3>
-                      <p className="text-white/90 text-xs leading-snug line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        {achievement.description}
-                      </p>
                     </div>
                     
                     {/* Zoom Icon */}
-                    <div className="absolute top-3 right-3 p-1.5 bg-white/20 backdrop-blur-md rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute top-2 right-2 sm:top-3 sm:right-3 p-1.5 bg-white/20 backdrop-blur-md rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <HiZoomIn className="w-4 h-4 text-white drop-shadow" />
                     </div>
                   </div>
 
                   {/* Subtle glow on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-500/0 to-accent-500/0 group-hover:from-primary-500/10 group-hover:to-accent-500/10 transition-all duration-300 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-cyan-500/0 to-purple-500/0 group-hover:from-cyan-500/10 group-hover:to-purple-500/10 transition-all duration-300 pointer-events-none" />
                 </div>
               </motion.div>
             );
@@ -175,9 +173,9 @@ const Achievements = () => {
           className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16"
         >
           {[
-            { number: '10+', label: 'Achievements', icon: '🏆' },
+            { number: '2+', label: 'Achievements', icon: '🏆' },
             { number: '8+', label: 'Certifications', icon: '📜' },
-            { number: '5+', label: 'Competitions', icon: '🎯' },
+            { number: '3+', label: 'Hackathons', icon: '🎯' },
             { number: '3+', label: 'Workshops', icon: '🎓' }
           ].map((stat, index) => (
             <motion.div
@@ -187,10 +185,10 @@ const Achievements = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.6 + index * 0.1 }}
               whileHover={{ scale: 1.05, y: -5 }}
-              className="text-center p-6 bg-white dark:bg-dark-400 rounded-2xl shadow-lg hover:shadow-xl transition-all"
+              className="text-center p-6 bg-white dark:bg-dark-400 rounded-2xl shadow-lg hover:shadow-cyan-500/20 border border-cyan-500/20 transition-all"
             >
               <div className="text-4xl mb-3">{stat.icon}</div>
-              <div className="text-3xl font-bold text-primary-600 dark:text-primary-400 mb-2">
+              <div className="text-3xl font-bold bg-gradient-to-r from-cyan-600 to-purple-600 bg-clip-text text-transparent mb-2">
                 {stat.number}
               </div>
               <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">
@@ -208,7 +206,7 @@ const Achievements = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 flex items-center justify-center p-4 sm:p-6 md:p-8"
             onClick={() => setSelectedImage(null)}
           >
             <motion.div
@@ -216,48 +214,83 @@ const Achievements = () => {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ type: "spring", damping: 25 }}
-              className="relative max-w-4xl w-full"
+              className="relative max-w-5xl w-full max-h-[90vh] flex flex-col"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Back Button - Left side */}
-              <button
-                onClick={() => setSelectedImage(null)}
-                className="absolute -top-12 left-0 flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full transition-all hover:scale-105 group"
-              >
-                <HiArrowLeft className="w-5 h-5 text-white group-hover:-translate-x-1 transition-transform" />
-                <span className="text-white font-semibold text-sm">Back</span>
-              </button>
+              {/* Header with Back and Close buttons */}
+              <div className="flex items-center justify-between mb-4 sm:mb-6">
+                {/* Back Button */}
+                <button
+                  onClick={() => setSelectedImage(null)}
+                  className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full transition-all hover:scale-105 group backdrop-blur-md"
+                >
+                  <HiArrowLeft className="w-5 h-5 text-white group-hover:-translate-x-1 transition-transform" />
+                  <span className="text-white font-semibold text-sm sm:text-base">Back</span>
+                </button>
 
-              {/* Close Button - Right side */}
-              <button
-                onClick={() => setSelectedImage(null)}
-                className="absolute -top-12 right-0 p-2 bg-white/10 hover:bg-red-500/80 rounded-full transition-colors group"
-                title="Close"
-              >
-                <HiX className="w-6 h-6 text-white group-hover:rotate-90 transition-transform" />
-              </button>
+                <div className="flex items-center gap-2 sm:gap-3">
+                  {/* Open in New Tab Button */}
+                  <a
+                    href={selectedImage.image}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-3 sm:px-4 py-2 bg-cyan-500/20 hover:bg-cyan-500/40 rounded-full transition-all hover:scale-105 group backdrop-blur-md"
+                    title="Open in new tab"
+                  >
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                    <span className="text-white font-semibold text-sm sm:text-base hidden sm:inline">Open</span>
+                  </a>
 
-              {/* Image */}
-              <img
-                src={selectedImage.image}
-                alt={selectedImage.title}
-                className="w-full h-auto rounded-2xl shadow-2xl"
-              />
-
-              {/* Info Overlay */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-8 rounded-b-2xl">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="px-4 py-1.5 bg-primary-500 text-white text-sm rounded-full font-semibold">
-                    {selectedImage.category}
-                  </span>
-                  <span className="text-white font-semibold">{selectedImage.year}</span>
+                  {/* Close Button */}
+                  <button
+                    onClick={() => setSelectedImage(null)}
+                    className="p-2 sm:p-2.5 bg-white/10 hover:bg-red-500/80 rounded-full transition-colors group backdrop-blur-md"
+                    title="Close"
+                  >
+                    <HiX className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:rotate-90 transition-transform" />
+                  </button>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-2">
-                  {selectedImage.title}
-                </h3>
-                <p className="text-white/80">
-                  {selectedImage.description}
-                </p>
+              </div>
+
+              {/* Image Container */}
+              <div 
+                className="relative flex-1 overflow-hidden rounded-xl sm:rounded-2xl shadow-2xl cursor-pointer group/image"
+                onClick={() => window.open(selectedImage.image, '_blank')}
+                title="Click to open in new tab"
+              >
+                <img
+                  src={selectedImage.image}
+                  alt={selectedImage.title}
+                  className="w-full h-full object-contain bg-black/50 group-hover/image:scale-105 transition-transform duration-300"
+                />
+
+                {/* Click hint overlay */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 bg-black/20">
+                  <div className="px-4 py-2 bg-white/10 backdrop-blur-md rounded-full flex items-center gap-2">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                    <span className="text-white font-semibold text-sm">Click to open</span>
+                  </div>
+                </div>
+
+                {/* Info Overlay - Bottom */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 via-black/80 to-transparent p-4 sm:p-6 md:p-8">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                    <span className="px-3 sm:px-4 py-1 sm:py-1.5 bg-gradient-to-r from-cyan-500 to-purple-600 text-white text-xs sm:text-sm rounded-full font-semibold shadow-lg">
+                      {selectedImage.category}
+                    </span>
+                    <span className="text-white font-semibold text-sm sm:text-base">{selectedImage.year}</span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 sm:mb-3">
+                    {selectedImage.title}
+                  </h3>
+                  <p className="text-white/90 text-sm sm:text-base leading-relaxed max-w-3xl">
+                    {selectedImage.description}
+                  </p>
+                </div>
               </div>
             </motion.div>
           </motion.div>

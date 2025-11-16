@@ -41,16 +41,16 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'E-Commerce Platform',
-      description: 'Full-stack MERN e-commerce application with payment integration and admin dashboard.',
-      image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop',
-      tags: ['MongoDB', 'Express', 'React', 'Node.js'],
+      title: 'PDF Maker',
+      description: 'Full-featured PDF creation and editing application with template support and export options.',
+      image: '/port photo/PDF maker2.png',
+      tags: ['Html', 'Css', 'javascript'],
       category: 'MERN Stack',
-      liveLink: '#',
-      githubLink: '#',
+      liveLink: 'https://pdfdesigner.blogspot.com/?m=1',
+      githubLink: 'https://github.com/harshraj677/PDFDesigner..git',
       featured: true,
-      features: ['Payment Gateway', 'Admin Dashboard', 'Cart Management', 'Order Tracking'],
-      techStack: ['MongoDB', 'Express.js', 'React.js', 'Node.js']
+      features: ['PDF Creation', 'Template Management', 'Export Options', 'Rich Text Editor'],
+      techStack: ['javascript', 'HTML', 'CSS']
     },
     {
       id: 2,
@@ -128,33 +128,6 @@ const Projects = () => {
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Explore my portfolio of full-stack applications built with modern technologies
           </p>
-        </motion.div>
-
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }} 
-          whileInView={{ opacity: 1, y: 0 }} 
-          viewport={{ once: true }} 
-          className="flex flex-wrap justify-center gap-4 mb-12"
-        >
-          {filters.map((f, i) => (
-            <motion.button
-              key={f}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              onClick={() => setFilter(f)}
-              className={`px-6 py-3 rounded-full font-semibold transition-all ${
-                filter === f
-                  ? 'bg-gradient-to-r from-primary-500 to-accent-500 text-white shadow-lg shadow-primary-500/30'
-                  : 'bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-primary-500/50 hover:text-primary-500'
-              }`}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {f}
-            </motion.button>
-          ))}
         </motion.div>
 
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

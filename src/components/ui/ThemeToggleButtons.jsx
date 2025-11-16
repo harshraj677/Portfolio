@@ -46,21 +46,37 @@ export const ThemeToggleButton2 = ({ className = "" }) => {
   const isDark = theme === 'dark';
   
   return (
-    <button
+    <motion.button
       type="button"
       className={cn(
-        "rounded-full transition-all duration-300 active:scale-95",
-        isDark ? "bg-black text-white" : "bg-white text-black border border-gray-300",
+        "rounded-full transition-all duration-300 active:scale-95 relative overflow-hidden",
+        isDark 
+          ? "bg-gradient-to-br from-slate-900 to-slate-800 text-cyan-400 border-2 border-cyan-500/30" 
+          : "bg-gradient-to-br from-white to-cyan-50 text-purple-600 border-2 border-purple-300/50 shadow-lg",
         className
       )}
       onClick={toggleTheme}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
     >
+      {/* Animated Background Glow */}
+      <motion.div
+        className="absolute inset-0 opacity-30"
+        animate={{
+          background: isDark 
+            ? ["radial-gradient(circle, rgba(14,165,233,0.3) 0%, transparent 70%)", "radial-gradient(circle, rgba(217,70,239,0.3) 0%, transparent 70%)"]
+            : ["radial-gradient(circle, rgba(217,70,239,0.2) 0%, transparent 70%)", "radial-gradient(circle, rgba(14,165,233,0.2) 0%, transparent 70%)"]
+        }}
+        transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
+      />
+      
       <svg
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
         fill="currentColor"
         strokeLinecap="round"
         viewBox="0 0 32 32"
+        className="relative z-10"
       >
         <clipPath id="skiper-btn-2">
           <motion.path
@@ -97,7 +113,7 @@ export const ThemeToggleButton2 = ({ className = "" }) => {
           </motion.g>
         </g>
       </svg>
-    </button>
+    </motion.button>
   );
 };
 

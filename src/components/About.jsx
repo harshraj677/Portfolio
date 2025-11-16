@@ -52,30 +52,24 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative"
+            className="relative -mt-4 mb-8 lg:mb-0"
           >
-            <div className="relative z-10">
+            <div className="relative z-10 px-4 sm:px-0">
               {/* Main Image Container */}
-              <div className="relative w-full max-w-md mx-auto aspect-square rounded-3xl overflow-hidden glass-effect-dark border-2 border-primary-500/30 shadow-2xl">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-accent-500/20 flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <div className="text-9xl mb-4">🚀</div>
-                    <p className="text-white text-xl font-semibold">Harsh Raj</p>
-                    <p className="text-white/60">Developer & Innovator</p>
-                  </div>
-                </div>
+              <div className="relative w-full max-w-xs sm:max-w-md lg:max-w-xl mx-auto aspect-square flex items-center justify-center">
+                <img 
+                  src="/port photo/photo3.png" 
+                  alt="Harsh Raj - Developer & Innovator" 
+                  className="w-full h-full object-contain scale-110 sm:scale-125 lg:scale-150"
+                  style={{ mixBlendMode: 'normal' }}
+                />
               </div>
 
-              {/* Floating Elements */}
+              {/* Subtle Glow Effects */}
               <motion.div
-                animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
+                animate={{ opacity: [0.3, 0.5, 0.3] }}
                 transition={{ duration: 3, repeat: Infinity }}
-                className="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-br from-primary-500 to-accent-500 rounded-2xl opacity-20 blur-xl"
-              />
-              <motion.div
-                animate={{ y: [0, 10, 0], rotate: [0, -5, 0] }}
-                transition={{ duration: 4, repeat: Infinity }}
-                className="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-br from-accent-500 to-primary-500 rounded-2xl opacity-20 blur-xl"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-radial from-primary-500/20 via-accent-500/10 to-transparent rounded-full blur-3xl -z-10"
               />
             </div>
           </motion.div>
@@ -108,8 +102,8 @@ const About = () => {
                 className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed"
               >
                 I specialize in <span className="font-semibold text-accent-600 dark:text-accent-400">MERN Stack Development</span>, 
-                creating dynamic and responsive web applications. My journey in tech has been driven by curiosity 
-                and a desire to build solutions that make a difference.
+                creating dynamic and responsive web applications. Currently expanding my expertise by learning 
+                <span className="font-semibold text-primary-600 dark:text-primary-400"> Artificial Intelligence, Machine Learning, and Deep Learning</span> to build intelligent, data-driven solutions.
               </motion.p>
 
               <motion.p
@@ -119,8 +113,8 @@ const About = () => {
                 transition={{ delay: 0.4 }}
                 className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed"
               >
-                Beyond coding, I'm exploring AI & Machine Learning, participating in hackathons, 
-                and serving as an Anvesana College Ambassador, helping bridge innovation and education.
+                My journey combines full-stack development with cutting-edge AI technologies. I'm actively participating in hackathons, 
+                and serving as an Anvesana College Ambassador, bridging innovation and education.
               </motion.p>
             </div>
 

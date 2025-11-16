@@ -5,8 +5,16 @@ const Experience = () => {
   const experiences = [
     {
       type: 'work',
-      title: 'Anveasana Student Ambassador',
-      organization: 'Anveasana Platform',
+      title: 'AI/ML & Deep Learning Enthusiast',
+      organization: 'Self-Learning & Research',
+      duration: '2025 - Present',
+      description: 'Deeply focused on mastering Artificial Intelligence, Machine Learning, and Deep Learning technologies. Exploring neural networks, computer vision, NLP, and building intelligent systems with cutting-edge frameworks.',
+      skills: ['TensorFlow', 'PyTorch', 'Neural Networks', 'Computer Vision', 'Data Science']
+    },
+    {
+      type: 'work',
+      title: 'Anvesana Campus Ambassador',
+      organization: 'Anvesana Innovation & Entrepreneurial Forum',
       duration: '2024 - Present',
       description: 'Representing the platform at college level, organizing events, and promoting innovative learning initiatives among students.',
       skills: ['Leadership', 'Event Management', 'Communication']
@@ -14,27 +22,20 @@ const Experience = () => {
     {
       type: 'work',
       title: 'Web Development Intern',
-      organization: 'Tech Startup',
-      duration: 'Summer 2024',
+      organization: 'Future Intern',
+      duration: 'Summer 2025',
       description: 'Developed and maintained web applications using React.js and Node.js. Collaborated with design team to implement responsive UI/UX.',
-      skills: ['React', 'Node.js', 'REST APIs', 'Git']
+      skills: ['React', 'Node.js', 'Mongodb', 'Git']
     },
     {
       type: 'education',
       title: 'B.Tech in Computer Science Engineering',
       organization: 'PES Institute of Technology and Management',
-      duration: '2022 - 2026',
-      description: 'Pursuing Computer Science Engineering with focus on full-stack development, data structures, algorithms, and AI/ML.',
-      skills: ['DSA', 'MERN Stack', 'AI/ML', 'Software Engineering']
-    },
-    {
-      type: 'work',
-      title: 'Freelance Developer',
-      organization: 'Self-Employed',
-      duration: '2023 - Present',
-      description: 'Building custom web solutions for clients, specializing in MERN stack applications with modern UI/UX design.',
-      skills: ['Full Stack', 'Client Management', 'Problem Solving']
+      duration: '2024 - Present',
+      description: 'Pursuing Computer Science Engineering with focus on AI/ML, Deep Learning, data structures, algorithms, and full-stack development.',
+      skills: ['DSA', 'MERN Stack', 'AI/ML', 'Deep Learning', 'Software Engineering']
     }
+    
   ]
 
   return (
@@ -57,7 +58,7 @@ const Experience = () => {
         {/* Timeline */}
         <div className="relative max-w-4xl mx-auto">
           {/* Timeline Line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary-500 via-accent-500 to-primary-500 hidden md:block" />
+          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-cyan-500 via-purple-500 to-cyan-500 hidden md:block" />
 
           {/* Timeline Items */}
           <div className="space-y-12">
@@ -77,17 +78,17 @@ const Experience = () => {
                   whileHover={{ scale: 1.02 }}
                   className="flex-1"
                 >
-                  <div className="glass-effect p-6 rounded-2xl border-l-4 border-primary-500 hover:shadow-2xl transition-all">
+                  <div className="glass-effect p-6 rounded-2xl border-l-4 border-cyan-500 hover:shadow-2xl hover:shadow-cyan-500/20 transition-all">
                     {/* Icon & Type */}
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="p-2 bg-gradient-to-br from-primary-500 to-accent-500 rounded-lg">
+                      <div className="p-2 bg-gradient-to-br from-cyan-500 to-purple-600 rounded-lg shadow-lg">
                         {exp.type === 'work' ? (
                           <HiBriefcase className="w-5 h-5 text-white" />
                         ) : (
                           <HiAcademicCap className="w-5 h-5 text-white" />
                         )}
                       </div>
-                      <span className="px-3 py-1 bg-primary-500/10 text-primary-600 dark:text-primary-400 rounded-full text-xs font-semibold">
+                      <span className="px-3 py-1 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 text-cyan-700 dark:text-cyan-400 border border-cyan-500/30 rounded-full text-xs font-semibold">
                         {exp.type === 'work' ? 'Experience' : 'Education'}
                       </span>
                     </div>
@@ -96,7 +97,7 @@ const Experience = () => {
                     <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-1">
                       {exp.title}
                     </h3>
-                    <p className="text-primary-600 dark:text-primary-400 font-semibold mb-2">
+                    <p className="text-cyan-600 dark:text-cyan-400 font-semibold mb-2">
                       {exp.organization}
                     </p>
                     <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
@@ -113,7 +114,7 @@ const Experience = () => {
                       {exp.skills.map((skill) => (
                         <span
                           key={skill}
-                          className="px-3 py-1 bg-gray-100 dark:bg-dark-400 text-gray-700 dark:text-gray-300 rounded-full text-xs"
+                          className="px-3 py-1 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/30 text-cyan-700 dark:text-cyan-300 rounded-full text-xs font-medium"
                         >
                           {skill}
                         </span>
@@ -129,7 +130,7 @@ const Experience = () => {
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.2 + 0.3 }}
-                    className="w-6 h-6 bg-gradient-to-br from-primary-500 to-accent-500 rounded-full border-4 border-white dark:border-dark-400 shadow-lg z-10"
+                    className="w-6 h-6 bg-gradient-to-br from-cyan-500 to-purple-600 rounded-full border-4 border-white dark:border-gray-900 shadow-lg z-10"
                   />
                 </div>
 
@@ -142,8 +143,8 @@ const Experience = () => {
       </div>
 
       {/* Background Effects */}
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl -z-10" />
-      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-accent-500/5 rounded-full blur-3xl -z-10" />
+      <div className="absolute top-1/4 left-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl -z-10" />
+      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl -z-10" />
     </section>
   )
 }

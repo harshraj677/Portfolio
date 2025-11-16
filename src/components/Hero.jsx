@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { HiDownload, HiArrowRight } from 'react-icons/hi'
-import StudentAvatar from './StudentAvatar'
+import { FaCode, FaLaptopCode, FaRocket } from 'react-icons/fa'
 
 const Hero = () => {
   const containerVariants = {
@@ -88,11 +88,11 @@ const Hero = () => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="container mx-auto px-6 z-10"
+        className="container mx-auto px-6 lg:px-8 xl:px-12 z-10"
       >
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16 xl:gap-20">
           {/* Text Content */}
-          <div className="flex-1 text-center lg:text-left">
+          <div className="flex-1 text-center lg:text-left lg:pr-8">
             <motion.div variants={itemVariants} className="mb-4">
               <motion.span 
                 whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(14, 165, 233, 0.6)" }}
@@ -100,7 +100,7 @@ const Hero = () => {
               >
                 <span className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
-                  MERN Stack Specialist �
+                  MERN Stack Developer | AI/ML Enthusiast
                 </span>
               </motion.span>
             </motion.div>
@@ -153,7 +153,7 @@ const Hero = () => {
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                CSE Student | Innovator
+                Learning AI/ML & Deep Learning
               </motion.span>
             </motion.div>
 
@@ -162,7 +162,7 @@ const Hero = () => {
               className="text-lg md:text-xl text-blue-100/90 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
               style={{ textShadow: "0 2px 10px rgba(14, 165, 233, 0.2)" }}
             >
-              Transforming ideas into interactive digital realities with cutting-edge technologies and creative solutions.
+              Building full-stack web applications with MERN stack while exploring the frontiers of AI, Machine Learning, and Deep Learning.
             </motion.p>
 
             <motion.div
@@ -197,9 +197,9 @@ const Hero = () => {
               className="grid grid-cols-3 gap-6 mt-12 max-w-md mx-auto lg:mx-0"
             >
               {[
-                { number: '15+', label: 'Projects' },
-                { number: '5+', label: 'Technologies' },
-                { number: '10+', label: 'Achievements' }
+                { number: '5+', label: 'Projects' },
+                { number: '4+', label: 'Technologies' },
+                { number: '2+', label: 'Achievements' }
               ].map((stat, index) => (
                 <motion.div
                   key={stat.label}
@@ -220,63 +220,38 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* 3D Student Avatar */}
+          {/* Professional Photo Section */}
           <motion.div
             variants={itemVariants}
-            className="flex-1 relative"
+            className="flex-1 relative -mt-8 sm:-mt-16 lg:-mt-40"
           >
-            <motion.div
-              animate={{
-                y: [0, -15, 0],
-                rotateZ: [0, 2, 0, -2, 0]
-              }}
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className="relative w-full max-w-lg mx-auto aspect-square"
-            >
-              {/* Enhanced Glowing Background */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <motion.div 
-                  animate={{
-                    scale: [1, 1.3, 1],
-                    opacity: [0.2, 0.4, 0.2]
-                  }}
-                  transition={{
-                    duration: 5,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
-                  className="absolute w-80 h-80 bg-gradient-radial from-cyan-500/30 via-cyan-600/15 to-transparent rounded-full blur-3xl"
-                />
-                <motion.div 
-                  animate={{
-                    scale: [1.3, 1, 1.3],
-                    opacity: [0.15, 0.35, 0.15]
-                  }}
-                  transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 1
-                  }}
-                  className="absolute w-64 h-64 bg-gradient-radial from-purple-500/25 via-purple-600/12 to-transparent rounded-full blur-2xl"
-                />
+            <div className="relative w-full max-w-xs sm:max-w-md lg:max-w-2xl mx-auto aspect-square px-6 sm:px-8 lg:px-0">
+              {/* Subtle Static Background Glow - Blends with hero background */}
+              <div className="absolute inset-0 flex items-center justify-center opacity-40">
+                <div className="absolute w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-gradient-radial from-cyan-500/20 via-purple-500/10 to-transparent rounded-full blur-3xl" />
+                <div className="absolute w-48 h-48 sm:w-64 sm:h-64 lg:w-72 lg:h-72 bg-gradient-radial from-blue-500/15 via-transparent to-transparent rounded-full blur-2xl" />
               </div>
 
-              {/* Student Avatar Component */}
-              <div className="relative z-10 w-full h-full">
-                <StudentAvatar />
+              {/* Photo Container - Static */}
+              <div className="relative z-10 w-full h-full flex items-center justify-center">
+                {/* Main Photo - No Border */}
+                <div className="relative w-full h-full max-w-[280px] max-h-[280px] sm:max-w-[400px] sm:max-h-[400px] lg:max-w-[700px] lg:max-h-[700px]">
+                  <img 
+                    src="/port photo/photo3.png" 
+                    alt="Harsh Raj - MERN Stack Developer" 
+                    className="w-full h-full object-contain scale-110 sm:scale-125 lg:scale-150"
+                  />
+                </div>
               </div>
 
-              {/* Floating MERN Stack Labels */}
+              {/* Floating Tech Stack Labels */}
               {[
                 { text: 'MongoDB', x: '-15%', y: '15%', delay: 0 },
                 { text: 'Express', x: '105%', y: '25%', delay: 0.8 },
                 { text: 'React', x: '105%', y: '70%', delay: 1.6 },
-                { text: 'Node.js', x: '-15%', y: '75%', delay: 2.4 }
+                { text: 'Node.js', x: '-15%', y: '75%', delay: 2.4 },
+                { text: 'Python', x: '-10%', y: '45%', delay: 3.2 },
+                { text: 'Java', x: '100%', y: '50%', delay: 4.0 }
               ].map((item, i) => (
                 <motion.div
                   key={i}
@@ -301,7 +276,7 @@ const Hero = () => {
                   {item.text}
                 </motion.div>
               ))}
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </motion.div>
