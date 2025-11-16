@@ -180,7 +180,7 @@ const Hero = () => {
               </motion.a>
 
               <motion.a
-                href="/resume.pdf"
+                href="https://drive.google.com/file/d/1YKZhJEInOZ2rLprRrcRD28KA-KztsygO/view?usp=drivesdk"
                 download
                 className="btn-secondary inline-flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.05 }}

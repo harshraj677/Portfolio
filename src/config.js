@@ -93,9 +93,9 @@ export const EXPERIENCE = [
 // 📧 EMAIL JS CONFIGURATION
 // Sign up at https://www.emailjs.com/ and add your credentials
 export const EMAILJS_CONFIG = {
-  serviceId: 'YOUR_SERVICE_ID',
-  templateId: 'YOUR_TEMPLATE_ID',
-  publicKey: 'YOUR_PUBLIC_KEY'
+  serviceId: 'service_50mn4th',
+  templateId: 'template_svhhre8',
+  publicKey: 'N4x7EQ9nFvFViVyeP'
 }
 
 // 🎨 THEME COLORS (Edit tailwind.config.js for custom colors)
@@ -110,5 +110,5 @@ export const SEO = {
   title: "Harsh Raj - MERN Stack Developer | Portfolio",
   description: "Professional portfolio showcasing web development projects and achievements",
   keywords: "Harsh Raj, MERN Stack, Web Developer, React, Node.js, Portfolio, CSE Student",
-  ogImage: "/og-image.jpg" // Add your OG image to public folder
+  ogImage: "/og-image.jpg" //YOUR_TEM Add your OG image to public folder
 }

@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import emailjs from '@emailjs/browser'
 import { HiMail, HiPhone, HiLocationMarker, HiCheckCircle } from 'react-icons/hi'
+import { EMAILJS_CONFIG } from '../config'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,11 @@ const Contact = () => {
   })
   const [status, setStatus] = useState({ type: '', message: '' })
   const [loading, setLoading] = useState(false)
+
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init(EMAILJS_CONFIG.publicKey)
+  }, [])
 
   const contactInfo = [
     {
@@ -45,20 +51,37 @@ const Contact = () => {
     setLoading(true)
     setStatus({ type: '', message: '' })
 
+    // Validation
+    if (!formData.name || !formData.email || !formData.message) {
+      setStatus({
+        type: 'error',
+        message: 'Please fill in all fields.'
+      })
+      setLoading(false)
+      return
+    }
+
     try {
-      // EmailJS Configuration (Replace with your actual EmailJS credentials)
-      // Visit https://www.emailjs.com/ to get your credentials
-      await emailjs.send(
-        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
+      console.log('Sending email with config:', {
+        serviceId: EMAILJS_CONFIG.serviceId,
+        templateId: EMAILJS_CONFIG.templateId,
+        publicKey: EMAILJS_CONFIG.publicKey ? 'Present' : 'Missing'
+      })
+
+      // Send email using EmailJS
+      const response = await emailjs.send(
+        EMAILJS_CONFIG.serviceId,
+        EMAILJS_CONFIG.templateId,
         {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
-          to_name: 'Harsh Raj'
-        },
-        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+          to_name: 'Harsh Raj',
+          reply_to: formData.email
+        }
       )
+
+      console.log('EmailJS Response:', response)
 
       setStatus({
         type: 'success',
@@ -66,14 +89,14 @@ const Contact = () => {
       })
       setFormData({ name: '', email: '', message: '' })
     } catch (error) {
-      console.error('EmailJS Error:', error)
+      console.error('EmailJS Error Details:', error)
       setStatus({
         type: 'error',
-        message: 'Oops! Something went wrong. Please try again or email me directly.'
+        message: `Failed to send message: ${error.text || error.message || 'Unknown error'}. Please try again or email me directly.`
       })
     } finally {
       setLoading(false)
-      setTimeout(() => setStatus({ type: '', message: '' }), 5000)
+      setTimeout(() => setStatus({ type: '', message: '' }), 8000)
     }
   }
 
