@@ -15,7 +15,12 @@ const Contact = () => {
 
   // Initialize EmailJS
   useEffect(() => {
-    emailjs.init(EMAILJS_CONFIG.publicKey)
+    try {
+      emailjs.init(EMAILJS_CONFIG.publicKey)
+      console.log('EmailJS initialized successfully')
+    } catch (error) {
+      console.error('Failed to initialize EmailJS:', error)
+    }
   }, [])
 
   const contactInfo = [
@@ -23,7 +28,7 @@ const Contact = () => {
       icon: HiMail,
       title: 'Email',
       value: 'rajharsh7070@gmail.com',
-      link: 'mailto:rajharsh7070@gmail'
+      link: 'mailto:rajharsh7070@gmail.com'
     },
     {
       icon: HiLocationMarker,
@@ -283,21 +288,34 @@ const Contact = () => {
               <motion.button
                 type="submit"
                 disabled={loading}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={{ scale: loading ? 1 : 1.02 }}
+                whileTap={{ scale: loading ? 1 : 0.98 }}
                 className={`w-full btn-primary ${
                   loading ? 'opacity-70 cursor-not-allowed' : ''
                 }`}
               >
                 {loading ? (
                   <span className="flex items-center justify-center gap-2">
-                    <div className="loader w-5 h-5 border-2" />
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
                     Sending...
                   </span>
                 ) : (
                   'Send Message'
                 )}
               </motion.button>
+
+              {/* Alternative Contact Method */}
+              <div className="mt-4 text-center">
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  Or email directly at{' '}
+                  <a
+                    href="mailto:rajharsh7070@gmail.com"
+                    className="text-primary-600 dark:text-primary-400 hover:underline font-semibold"
+                  >
+                    rajharsh7070@gmail.com
+                  </a>
+                </p>
+              </div>
             </form>
           </motion.div>
         </div>
