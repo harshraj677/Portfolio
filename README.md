@@ -242,7 +242,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 👨‍💻 Author
 
 **Harsh Raj**
-- Email: harshraj@gmail.com
+- Email: rajharsh7070@gmail.com
 - GitHub: [@harshraj](https://github.com/harshraj)
 - LinkedIn: [Harsh Raj](https://linkedin.com/in/harshraj)
 
@@ -256,7 +256,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 📞 Support
 
-For support, email harshraj@gmail.com or open an issue in the repository.
+For support, email rajharsh7070@gmail.com or open an issue in the repository.
 
 ---
 
