@@ -73,7 +73,13 @@ const Contact = () => {
         publicKey: EMAILJS_CONFIG.publicKey ? 'Present' : 'Missing'
       })
 
-      // Send email using EmailJS
+      console.log('Form data being sent:', {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message
+      })
+
+      // Send email using EmailJS - method 1
       const response = await emailjs.send(
         EMAILJS_CONFIG.serviceId,
         EMAILJS_CONFIG.templateId,
@@ -82,22 +88,46 @@ const Contact = () => {
           from_email: formData.email,
           message: formData.message,
           to_name: 'Harsh Raj',
-          reply_to: formData.email
+          reply_to: formData.email,
+          to_email: 'rajharsh7070@gmail.com'
         }
       )
 
       console.log('EmailJS Response:', response)
 
-      setStatus({
-        type: 'success',
-        message: 'Message sent successfully! I\'ll get back to you soon.'
-      })
-      setFormData({ name: '', email: '', message: '' })
+      if (response.status === 200) {
+        setStatus({
+          type: 'success',
+          message: '✅ Message sent successfully! I\'ll get back to you soon.'
+        })
+        setFormData({ name: '', email: '', message: '' })
+      } else {
+        throw new Error('Failed to send email')
+      }
     } catch (error) {
       console.error('EmailJS Error Details:', error)
+      
+      let errorMessage = 'Failed to send message. '
+      
+      if (error.text) {
+        errorMessage += error.text
+      } else if (error.message) {
+        errorMessage += error.message
+      } else if (error.status === 400) {
+        errorMessage += 'Invalid request. Please check your EmailJS configuration.'
+      } else if (error.status === 401) {
+        errorMessage += 'Authentication failed. Please verify your EmailJS public key.'
+      } else if (error.status === 404) {
+        errorMessage += 'Service or template not found. Please check your EmailJS IDs.'
+      } else {
+        errorMessage += 'Unknown error occurred.'
+      }
+      
+      errorMessage += ' Please try again or email me directly at rajharsh7070@gmail.com'
+      
       setStatus({
         type: 'error',
-        message: `Failed to send message: ${error.text || error.message || 'Unknown error'}. Please try again or email me directly.`
+        message: errorMessage
       })
     } finally {
       setLoading(false)
