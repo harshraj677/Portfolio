@@ -244,7 +244,7 @@ This project is open source and available under the [MIT License](LICENSE).
 **Harsh Raj**
 - Email: rajharsh7070@gmail.com
 - GitHub: [@harshraj677](https://github.com/harshraj677)
-- LinkedIn: [Harsh Raj]((https://www.linkedin.com/in/harsh-raj-697858228?utm_source=share_via&utm_content=profile&utm_medium=member_android))
+- LinkedIn: [@Harsh Raj]((https://www.linkedin.com/in/harsh-raj-697858228?utm_source=share_via&utm_content=profile&utm_medium=member_android))
 
 ## 🙏 Acknowledgments
 
