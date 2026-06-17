@@ -1,18 +1,8 @@
-import { readFileSync } from 'fs'
-import { join, dirname } from 'path'
-import { fileURLToPath } from 'url'
 import { search, buildMessages, callLLM } from '../lib/chatCore.js'
+import chunksRaw from '../../data/chunks.json'
 
-// ── Load knowledge chunks at cold-start ───────────────────────────────────────
-const __dir = dirname(fileURLToPath(import.meta.url))
-
-let chunks = []
-for (const p of [
-  join(__dir, 'data/chunks.json'),        // Netlify bundles included_files here
-  join(__dir, '../../data/chunks.json'),  // local fallback
-]) {
-  try { chunks = JSON.parse(readFileSync(p, 'utf-8')); break } catch { /* try next */ }
-}
+// esbuild inlines the JSON at bundle time — no runtime filesystem access needed
+const chunks = Array.isArray(chunksRaw) ? chunksRaw : []
 
 // ── CORS ──────────────────────────────────────────────────────────────────────
 const CORS = {
