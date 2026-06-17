@@ -1,263 +1,180 @@
-# 🚀 Harsh Raj - Professional 3D MERN Stack Portfolio
+# Harsh Raj — Portfolio
 
-A stunning, fully animated, and interactive personal portfolio website built with React.js, Tailwind CSS, Framer Motion, and React Three Fiber.
+A modern, 3D-animated personal portfolio for **Harsh Raj**, MERN Stack Developer and CSE student. Built with React, Tailwind CSS, Framer Motion, and React Three Fiber, and featuring an integrated **RAG-based AI assistant** that answers visitor questions about my background, skills, and projects.
 
-![Portfolio Preview](https://img.shields.io/badge/Status-Complete-success)
-![React](https://img.shields.io/badge/React-18.2.0-blue)
-![Tailwind](https://img.shields.io/badge/Tailwind-3.3.6-cyan)
-![Framer Motion](https://img.shields.io/badge/Framer_Motion-10.16-purple)
+![Status](https://img.shields.io/badge/Status-Live-success)
+![React](https://img.shields.io/badge/React-18.2.0-61DAFB?logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-5.0-646CFF?logo=vite&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind-3.3.6-06B6D4?logo=tailwindcss&logoColor=white)
+![Framer Motion](https://img.shields.io/badge/Framer_Motion-10.18-EF008F?logo=framer&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
-## ✨ Features
+## Overview
 
-- 🎨 **3D Animations** - Interactive 3D elements using React Three Fiber
-- 🌓 **Dark/Light Mode** - Smooth theme switching with persistent storage
-- 📱 **Fully Responsive** - Perfect on all devices
-- ⚡ **Smooth Animations** - Beautiful Framer Motion transitions
-- 🎯 **Modern UI/UX** - Glassmorphism and gradient effects
-- 📧 **Contact Form** - Integrated with EmailJS
-- 🖼️ **Masonry Gallery** - Dynamic achievements showcase with lightbox
-- 🎭 **Custom Cursor** - Interactive cursor animation (desktop)
-- 🔄 **Animated Preloader** - Engaging loading experience
-- 🎪 **Project Filtering** - Dynamic project category filtering
-- 📊 **Skill Progress** - Animated skill bars and cards
-- ⏰ **Timeline Layout** - Beautiful experience and education timeline
+This repository contains the source code for my personal portfolio website — a single-page application showcasing my projects, skills, achievements, and experience through smooth scroll-triggered animations and interactive 3D visuals. It also includes a custom AI chat assistant that retrieves relevant context from my profile data and answers questions in real time.
 
-## 📁 Project Structure
+## Features
+
+- **3D Hero Animation** — Interactive 3D visuals powered by React Three Fiber and Three.js
+- **AI Assistant (RAG)** — Floating chat widget backed by a retrieval-augmented generation pipeline that answers questions about me using my own portfolio data
+- **Dark / Light Mode** — Theme toggle with persisted preference via Context API + localStorage
+- **Fully Responsive** — Mobile-first layout that adapts cleanly across devices
+- **Smooth Animations** — Scroll-triggered transitions, hover effects, and staggered reveals via Framer Motion
+- **Project Showcase** — Filterable project gallery by category
+- **Achievements Gallery** — Masonry layout with lightbox viewer
+- **Experience Timeline** — Combined work and education timeline
+- **Animated Skill Indicators** — Visual proficiency bars per technology
+- **Contact Form** — Client-side validated form integrated with EmailJS
+- **Custom Cursor** — Interactive cursor effect on desktop
+
+## Tech Stack
+
+| Layer | Technologies |
+|---|---|
+| Frontend | React 18, React Router, Tailwind CSS, Framer Motion |
+| 3D / Graphics | Three.js, React Three Fiber, React Three Drei |
+| AI Assistant | Netlify Functions, Groq / OpenRouter / Cerebras LLM APIs, custom retrieval pipeline |
+| Build Tooling | Vite, PostCSS, Autoprefixer, ESLint |
+| Integrations | EmailJS, Embla Carousel |
+| Hosting | Netlify (functions + static hosting) |
+
+## Project Structure
 
 ```
 harx/
-├── public/
-│   └── (static assets)
+├── netlify/
+│   ├── functions/
+│   │   └── chat.js            # Serverless endpoint for the AI assistant
+│   └── lib/
+│       └── chatCore.js        # Retrieval + prompt building + LLM calling logic
+├── scripts/
+│   ├── generateChunks.mjs     # Builds the knowledge base used by the assistant
+│   └── generateVectors.mjs    # Generates embeddings for semantic search
+├── data/
+│   └── chunks.json            # Generated knowledge base (build artifact)
 ├── src/
 │   ├── components/
-│   │   ├── About.jsx
-│   │   ├── Achievements.jsx
-│   │   ├── Contact.jsx
-│   │   ├── CustomCursor.jsx
-│   │   ├── Experience.jsx
-│   │   ├── Footer.jsx
-│   │   ├── Hero.jsx
-│   │   ├── Navbar.jsx
-│   │   ├── Preloader.jsx
-│   │   ├── Projects.jsx
-│   │   └── Skills.jsx
-│   ├── context/
-│   │   └── ThemeContext.jsx
+│   │   ├── chat/              # AI chat widget UI (window, input, messages, etc.)
+│   │   ├── ui/                # Shared UI primitives
+│   │   ├── Hero.jsx, About.jsx, Skills.jsx, Projects.jsx, ...
+│   ├── context/                # Theme context
+│   ├── hooks/
+│   ├── lib/
+│   ├── config.js               # Centralized personal/profile content
 │   ├── App.jsx
-│   ├── index.css
 │   └── main.jsx
+├── public/
 ├── index.html
-├── package.json
-├── postcss.config.js
-├── tailwind.config.js
-└── vite.config.js
+├── netlify.toml
+├── vite.config.js
+└── tailwind.config.js
 ```
 
-## 🛠️ Technologies Used
-
-### Frontend
-- **React 18** - UI library
-- **Tailwind CSS** - Utility-first CSS framework
-- **Framer Motion** - Animation library
-- **React Three Fiber** - 3D graphics with Three.js
-- **React Icons** - Icon library
-
-### Build Tools
-- **Vite** - Fast build tool and dev server
-- **PostCSS** - CSS processing
-- **Autoprefixer** - CSS vendor prefixing
-
-### Additional
-- **EmailJS** - Contact form integration
-- **React Three Drei** - Useful helpers for React Three Fiber
-
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
-- Node.js (v16 or higher)
-- npm or yarn
+- Node.js v18 or higher
+- npm
 
 ### Installation
 
-1. **Navigate to project directory**
-   ```bash
-   cd harx
-   ```
+```bash
+git clone https://github.com/harshraj677/Portfolio.git
+cd Portfolio
+npm install
+```
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+### Run the dev server
 
-3. **Start development server**
-   ```bash
-   npm run dev
-   ```
+```bash
+npm run dev
+```
 
-4. **Open browser**
-   - Navigate to `http://localhost:3000`
+Visit `http://localhost:5173` (Vite's default port).
 
-### Build for Production
+### Build for production
 
 ```bash
 npm run build
 ```
 
-The optimized build will be in the `dist/` folder.
+The optimized build runs `scripts/generateChunks.mjs` (to regenerate the AI assistant's knowledge base) and outputs static assets to `dist/`.
 
-### Preview Production Build
+### Preview the production build
 
 ```bash
 npm run preview
 ```
 
-## 📧 EmailJS Configuration
+## AI Assistant Setup
 
-To enable the contact form:
+The chat assistant runs as a Netlify Function (`netlify/functions/chat.js`) backed by a small retrieval pipeline (`netlify/lib/chatCore.js`):
 
-1. Sign up at [EmailJS](https://www.emailjs.com/)
-2. Create an email service
-3. Create an email template
-4. Get your credentials
-5. Update `src/components/Contact.jsx`:
+1. Portfolio content is chunked into a knowledge base via `npm run generate:chunks`.
+2. A user query is embedded/matched against those chunks to retrieve relevant context (`npm run generate:vectors` for semantic search data).
+3. The retrieved context is passed to an LLM (Groq, OpenRouter, or Cerebras — whichever key is configured) to generate a grounded answer with cited sources.
 
-```javascript
-await emailjs.send(
-  'YOUR_SERVICE_ID',    // Replace with your service ID
-  'YOUR_TEMPLATE_ID',   // Replace with your template ID
-  {
-    from_name: formData.name,
-    from_email: formData.email,
-    message: formData.message,
-    to_name: 'Harsh Raj'
-  },
-  'YOUR_PUBLIC_KEY'     // Replace with your public key
-)
+To enable it locally or in deployment, set one or more of the following environment variables:
+
+```
+GROQ_API_KEY=your_key
+OPENROUTER_API_KEY=your_key
+CEREBRAS_API_KEY=your_key
 ```
 
-## 🎨 Customization
+## Contact Form Setup (EmailJS)
 
-### Colors
-
-Edit `tailwind.config.js` to customize colors:
+1. Create an account at [EmailJS](https://www.emailjs.com/) and set up a service + template.
+2. Update the credentials in `src/config.js` under `EMAILJS_CONFIG`:
 
 ```javascript
-colors: {
-  primary: {
-    // Your primary color shades
-  },
-  accent: {
-    // Your accent color shades
-  }
+export const EMAILJS_CONFIG = {
+  serviceId: 'your_service_id',
+  templateId: 'your_template_id',
+  publicKey: 'your_public_key'
 }
 ```
 
-### Content
+## Customization
 
-Update the following files with your information:
+Most personal content (name, bio, skills, projects, experience, social links, SEO metadata) is centralized in [src/config.js](src/config.js) for easy editing without touching component logic. Theme colors can be adjusted in `tailwind.config.js`.
 
-- **Hero Section**: `src/components/Hero.jsx`
-- **About Section**: `src/components/About.jsx`
-- **Skills**: `src/components/Skills.jsx`
-- **Projects**: `src/components/Projects.jsx`
-- **Achievements**: `src/components/Achievements.jsx`
-- **Experience**: `src/components/Experience.jsx`
-- **Contact Info**: `src/components/Contact.jsx`
+## Deployment
 
-### Images
+This project is configured for **Netlify** out of the box (see `netlify.toml`):
 
-Replace placeholder images with your own:
-- Add your photos to `public/` folder
-- Update image paths in components
+- Build command: `node scripts/generateChunks.mjs && vite build`
+- Publish directory: `dist`
+- Serverless functions directory: `netlify/functions`
+- API requests to `/api/*` are routed to Netlify Functions; all other routes fall back to the SPA.
 
-## 🌐 Deployment
+It can also be deployed to Vercel or any static host, though the AI assistant function requires a Netlify Functions–compatible (or equivalent serverless) environment.
 
-### Deploy to Vercel
+## Available Scripts
 
-1. Push code to GitHub
-2. Import repository on [Vercel](https://vercel.com)
-3. Deploy with one click
+| Command | Description |
+|---|---|
+| `npm run dev` | Start the Vite dev server |
+| `npm run build` | Generate the AI knowledge base and build for production |
+| `npm run preview` | Preview the production build locally |
+| `npm run lint` | Run ESLint across the project |
+| `npm run generate:chunks` | Rebuild the AI assistant's knowledge base |
+| `npm run generate:vectors` | Regenerate embeddings for semantic search |
 
-### Deploy to Netlify
-
-1. Push code to GitHub
-2. Import repository on [Netlify](https://netlify.com)
-3. Build command: `npm run build`
-4. Publish directory: `dist`
-
-## 📱 Sections
-
-1. **Hero** - Animated introduction with 3D elements
-2. **About** - Personal information and highlights
-3. **Skills** - Technology stack with progress indicators
-4. **Projects** - Portfolio showcase with filtering
-5. **Achievements** - Masonry gallery with lightbox
-6. **Experience** - Timeline of work and education
-7. **Contact** - Contact form and information
-8. **Footer** - Social links and copyright
-
-## 🎯 Key Features Explained
-
-### 3D Hero Animation
-Uses React Three Fiber to create an interactive 3D sphere that rotates and responds to user interaction.
-
-### Dark Mode
-Implemented using React Context API with localStorage persistence for theme preferences.
-
-### Smooth Scroll
-CSS `scroll-behavior: smooth` for seamless navigation between sections.
-
-### Framer Motion Animations
-- Scroll-triggered animations
-- Hover effects
-- Page transitions
-- Staggered children animations
-
-### Responsive Design
-Mobile-first approach with Tailwind's responsive utilities ensuring perfect display on all devices.
-
-## 🐛 Troubleshooting
-
-### CSS Tailwind Warnings
-The `@apply` and `@tailwind` warnings in VSCode are normal - they're processed by PostCSS during build.
-
-### 3D Performance
-If 3D elements lag, consider:
-- Reducing polygon count
-- Disabling auto-rotate
-- Using lower-quality materials
-
-### EmailJS Not Working
-Ensure you've:
-- Created an account
-- Configured service and template
-- Updated credentials in Contact.jsx
-- Verified email template variables
-
-## 📄 License
+## License
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 👨‍💻 Author
+## Author
 
 **Harsh Raj**
+MERN Stack Developer · CSE Student · PES Institute of Technology and Management
+
 - Email: rajharsh7070@gmail.com
 - GitHub: [@harshraj677](https://github.com/harshraj677)
-- LinkedIn: [HarshRaj]((https://www.linkedin.com/in/harsh-raj-697858228?utm_source=share_via&utm_content=profile&utm_medium=member_android))
-
-## 🙏 Acknowledgments
-
-- Design inspiration from modern portfolio trends
-- Icons from React Icons
-- Images from Unsplash
-- Animations powered by Framer Motion
-- 3D graphics by Three.js
-
-## 📞 Support
-
-For support, email rajharsh7070@gmail.com or open an issue in the repository.
+- LinkedIn: [Harsh Raj](https://www.linkedin.com/in/harsh-raj-697858228)
 
 ---
 
-**Made with ❤️ by Harsh Raj | © 2025 All Rights Reserved**
+© 2026 Harsh Raj. All rights reserved.
