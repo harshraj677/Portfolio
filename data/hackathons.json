@@ -1,0 +1,101 @@
+{
+  "hackathons": [
+    {
+      "id": 1,
+      "name": "Hack for Hire 2026",
+      "year": 2026,
+      "organizer": "Vulcan Learning Collective / Anvesana & IT-BT Karnataka",
+      "duration": "36 hours",
+      "location": "Karnataka, India",
+      "team": "Harsh Raj Gupta (Team Lead)",
+      "problem_statement": "Build a real-world software solution for Vulcan Learning Collective's platform challenges.",
+      "solution": "Developed a solution addressing the company's platform needs in a 36-hour sprint.",
+      "position": "1st Place (Winner)",
+      "teams_competed": "50+",
+      "tech_stack": [],
+      "outcomes": [
+        "1st place out of 50+ teams",
+        "Received internship offer from Vulcan Learning Collective LLP",
+        "Currently working as Software Engineer Intern at Vulcan Learning Collective"
+      ],
+      "category": "Industry Hackathon"
+    },
+    {
+      "id": 2,
+      "name": "FOSS Hackathon (localhost)",
+      "year": 2025,
+      "organizer": "localhost / FOSS Community",
+      "duration": null,
+      "location": "Shivamogga / PESITM",
+      "team": "Harsh Raj Gupta",
+      "problem_statement": "Build an open-source solution that benefits the developer/tech community.",
+      "solution": "Built Xrepo – an open-source collaborative platform for developing, sharing, and iterating on quantum algorithms with real-time collaboration and AI-powered documentation.",
+      "position": "1st Place (Winner)",
+      "teams_competed": "50+",
+      "tech_stack": ["React", "Node.js", "MongoDB", "Firebase", "Gemini API"],
+      "outcomes": [
+        "1st place out of 50+ teams",
+        "Represented PESITM at Pan-India ADVAYA Hackathon at BGSCET Bengaluru",
+        "Built Xrepo – a quantum circuit collaborative platform"
+      ],
+      "category": "Open Source Hackathon"
+    },
+    {
+      "id": 3,
+      "name": "HACK MALENADU National Hackathon",
+      "year": 2025,
+      "organizer": "HACK MALENADU",
+      "duration": null,
+      "location": "India (National)",
+      "team": "Harsh Raj Gupta",
+      "problem_statement": "National-level tech hackathon with open problem statements.",
+      "solution": "Developed a competitive solution that reached the final 150 teams.",
+      "position": "4th of 150 Finalist Teams",
+      "teams_competed": "2346+ registered nationally, 150 finalist teams",
+      "tech_stack": [],
+      "outcomes": [
+        "4th place among 150 finalists",
+        "Selected from 2,346+ national registrations",
+        "Top national hackathon recognition"
+      ],
+      "category": "National Hackathon"
+    },
+    {
+      "id": 4,
+      "name": "ADVAYA Pan-India Hackathon",
+      "year": 2025,
+      "organizer": "ADVAYA / BGSCET Bengaluru",
+      "duration": null,
+      "location": "BGSCET, Bengaluru",
+      "team": "Harsh Raj Gupta (PESITM Representative)",
+      "problem_statement": "Pan-India open innovation hackathon.",
+      "solution": "Represented PESITM with the Xrepo quantum circuit platform.",
+      "position": "Participant / College Representative",
+      "teams_competed": "Pan-India",
+      "tech_stack": ["React", "Node.js", "MongoDB", "Firebase", "Gemini API"],
+      "outcomes": [
+        "Represented PESITM at national level",
+        "Gained exposure to top teams from across India"
+      ],
+      "category": "Pan-India Hackathon"
+    },
+    {
+      "id": 5,
+      "name": "Monaithon Hackathon 2025",
+      "year": 2025,
+      "organizer": "Monaithon",
+      "duration": null,
+      "location": "India",
+      "team": "Harsh Raj Gupta",
+      "problem_statement": null,
+      "solution": null,
+      "position": "Top 40 Finalist",
+      "teams_competed": null,
+      "tech_stack": [],
+      "outcomes": [
+        "Selected as a top 40 finalist team"
+      ],
+      "category": "Hackathon"
+    }
+  ]
+}

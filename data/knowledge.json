@@ -1,0 +1,412 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-06-17",
+    "subject": "Harsh Raj Gupta – Portfolio Knowledge Base",
+    "purpose": "RAG system knowledge base for portfolio AI assistant",
+    "optimized_for": ["semantic search", "vector embeddings", "AI assistants", "portfolio chatbots"]
+  },
+  "entities": {
+    "person": {
+      "id": "harsh_raj_gupta",
+      "name": "Harsh Raj",
+      "full_name": "Harsh Raj Gupta",
+      "aliases": ["Harsh", "Harsh Raj", "Harsh Raj Gupta", "harshraj677", "harx"],
+      "keywords": ["MERN stack developer", "CS student", "AI enthusiast", "backend engineer", "hackathon winner", "campus mantri", "VTU student", "PESITM student", "software engineer intern"],
+      "headline": "Computer Science & Engineering Student | Junior Software Developer @ Vulcan Learning Collective | AI & Data Analytics Enthusiast | Python & SQL Developer | Campus Mantri @ GeeksforGeeks",
+      "summary": "Second-year CS student (CGPA 8.95) with backend and full-stack experience across React, Next.js, Node.js, FastAPI, and MongoDB. Built projects with real LLM integrations, RBAC, and real-time WebSocket dashboards. Hackathon finalist (4th of 150 nationally) and FOSS hackathon winner.",
+      "bio": "Computer Science Engineering student at PES Institute of Technology & Management (VTU), Shivamogga, Karnataka. Skilled in Python, SQL, Java, React, FastAPI, and MongoDB. Hands-on experience building full-stack projects, REST APIs, real-time dashboards, and LLM-based applications. Active in technical communities through GeeksforGeeks and campus initiatives.",
+      "location": "Shivamogga, Karnataka, India",
+      "email": "rajharsh7070@gmail.com",
+      "phone": "+91-9835251540",
+      "portfolio_url": "https://harx.netlify.app",
+      "github_url": "https://github.com/harshraj677",
+      "linkedin_url": "https://www.linkedin.com/in/harshraj677",
+      "resume_url": "https://drive.google.com/file/d/1YKZhJEInOZ2rLprRrcRD28KA-KztsygO/view?usp=drivesdk",
+      "importance_score": 10,
+      "tags": ["developer", "student", "AI", "backend", "full-stack", "hackathon", "open-source"],
+      "source": "resume, linkedin, portfolio"
+    }
+  },
+  "education": {
+    "current": {
+      "institution": "PES Institute of Technology and Management",
+      "university": "Visvesvaraya Technological University (VTU)",
+      "degree": "B.Tech, Computer Science Engineering",
+      "cgpa": "8.95/10.0",
+      "start_year": 2024,
+      "end_year": 2028,
+      "location": "Shivamogga, Karnataka, India",
+      "year_of_study": "2nd Year",
+      "keywords": ["PESITM", "VTU", "B.Tech", "CSE", "Computer Science", "Shivamogga"],
+      "importance_score": 9,
+      "source": "resume, linkedin"
+    },
+    "school": {
+      "institution": "DAV Public School Chapra Bihar",
+      "degree": "Secondary School Education",
+      "location": "Chapra, Bihar, India",
+      "end_year": 2024,
+      "keywords": ["DAV", "Chapra", "Bihar", "school"],
+      "importance_score": 4,
+      "source": "linkedin"
+    }
+  },
+  "experience": [
+    {
+      "id": "vulcan_intern",
+      "company": "Vulcan Learning Collective LLP",
+      "role": "Software Engineer Intern",
+      "duration": "March 2026 – Present",
+      "type": "internship",
+      "location": "Remote, India",
+      "current": true,
+      "description": "Working on backend services and REST APIs for the company's learning platform. Writing new endpoints, fixing bugs, and adding features alongside the core team. Improving database queries and contributing to code reviews.",
+      "technologies": ["Node.js", "REST APIs", "Git", "GitHub", "CI/CD"],
+      "how_obtained": "Won Hack for Hire 2026 hackathon",
+      "keywords": ["software engineer intern", "backend", "REST API", "Vulcan", "internship", "learning platform"],
+      "importance_score": 9,
+      "source": "resume, linkedin"
+    },
+    {
+      "id": "future_intern",
+      "company": "Future Intern",
+      "role": "Web Development Intern",
+      "duration": "May 2025 – July 2025",
+      "type": "internship",
+      "location": "Remote",
+      "current": false,
+      "description": "Built responsive web applications using React.js and Node.js across multiple client projects, implementing reusable UI components and MongoDB-backed REST APIs.",
+      "technologies": ["React.js", "Node.js", "MongoDB", "Git", "REST APIs"],
+      "keywords": ["web development intern", "React", "Node.js", "MongoDB", "Future Intern"],
+      "importance_score": 7,
+      "source": "resume, linkedin"
+    }
+  ],
+  "leadership": [
+    {
+      "id": "gfg_mantri",
+      "organization": "GeeksforGeeks",
+      "role": "Campus Mantri",
+      "duration": "January 2026 – May 2026",
+      "description": "Promoted coding culture, organized DSA workshops, and built the on-campus tech community at PESITM.",
+      "keywords": ["GeeksforGeeks", "campus mantri", "DSA", "coding workshops", "community"],
+      "importance_score": 7,
+      "source": "resume, linkedin"
+    },
+    {
+      "id": "anvesana_ambassador",
+      "organization": "Anvesana Innovation & Entrepreneurial Forum",
+      "role": "Campus Ambassador",
+      "duration": "August 2025 – Present",
+      "description": "Organized 4+ technical events and workshops with 30+ student participants; coordinated entrepreneurship awareness campaigns.",
+      "keywords": ["Anvesana", "campus ambassador", "entrepreneurship", "innovation", "events"],
+      "importance_score": 7,
+      "source": "resume, linkedin"
+    },
+    {
+      "id": "gemini_ambassador",
+      "organization": "Student-led AI advocacy initiative (PESITM)",
+      "role": "Campus Ambassador – Gemini AI Awareness Program",
+      "duration": "2026 – Present",
+      "description": "Running workshops and campaigns to introduce students to Gemini and generative AI tools.",
+      "keywords": ["Gemini", "AI awareness", "campus ambassador", "generative AI", "workshops"],
+      "importance_score": 6,
+      "source": "resume"
+    }
+  ],
+  "skills": {
+    "languages": ["Python", "Java", "JavaScript", "TypeScript", "C", "SQL", "HTML", "CSS"],
+    "frontend": ["React.js", "Next.js", "Tailwind CSS", "HTML5", "CSS3", "Vite"],
+    "backend": ["Node.js", "Express.js", "FastAPI", "REST APIs", "WebSockets", "Prisma"],
+    "databases": ["MongoDB", "PostgreSQL", "Firebase"],
+    "cloud": ["Google Cloud Platform (GCP)", "Firebase"],
+    "tools": ["Git", "GitHub", "VS Code", "Postman", "npm"],
+    "AI_tools": ["Gemini API", "LLM Integration", "RAG Systems", "Agentic AI"],
+    "data_science": ["Pandas", "NumPy", "Data Cleaning", "Data Visualization"],
+    "concepts": ["DSA", "OOP", "System Design", "Agile", "Authentication", "RBAC"],
+    "soft_skills": ["Team Leadership", "Public Speaking", "Event Management", "Brand Ambassador Training"],
+    "keywords": ["Python developer", "JavaScript developer", "React developer", "Node.js developer", "FastAPI developer", "MongoDB developer", "full-stack", "backend engineer"],
+    "importance_score": 8,
+    "source": "resume, linkedin, portfolio"
+  },
+  "projects": [
+    {
+      "id": "agentvisionx",
+      "name": "AgentVision X",
+      "tagline": "AI Agent Observability Dashboard",
+      "description": "Real-time dashboard that breaks down a Gemini LLM query into 7 pipeline stages and streams progress via WebSockets. Tracks per-step latency, tokens, and cost.",
+      "tech_stack": ["React", "FastAPI", "Python", "WebSockets", "Gemini API"],
+      "year": 2026,
+      "category": "AI / Observability",
+      "status": "completed",
+      "github_url": null,
+      "live_url": null,
+      "aliases": ["AgentVision", "Agent Vision X", "AI Observability Dashboard"],
+      "keywords": ["AI", "LLM", "Gemini", "WebSockets", "FastAPI", "React", "observability", "pipeline", "agentic"],
+      "importance_score": 9,
+      "source": "resume"
+    },
+    {
+      "id": "anvesync",
+      "name": "Anvesync",
+      "tagline": "Workforce Management Platform",
+      "description": "Full-stack HR platform with RBAC, location-aware attendance, leave management, and admin analytics. Built with Next.js, TypeScript, and Prisma.",
+      "tech_stack": ["Next.js", "TypeScript", "Prisma", "Tailwind CSS", "PostgreSQL"],
+      "year": 2026,
+      "category": "Full-Stack / HR",
+      "status": "completed",
+      "github_url": null,
+      "live_url": null,
+      "aliases": ["Anvesync", "Workforce Management", "HR Platform"],
+      "keywords": ["Next.js", "TypeScript", "Prisma", "RBAC", "HR", "workforce", "attendance", "dashboard"],
+      "importance_score": 8,
+      "source": "resume"
+    },
+    {
+      "id": "xrepo",
+      "name": "Xrepo",
+      "tagline": "Quantum Circuit Playground – FOSS Hackathon Winner",
+      "description": "Open-source collaborative platform for developing, sharing, and iterating on quantum algorithms. Real-time multi-user collaboration, versioned repository, and Gemini AI assistant.",
+      "tech_stack": ["React", "Node.js", "MongoDB", "Firebase", "Gemini API"],
+      "year": 2025,
+      "category": "Open Source / Quantum Computing",
+      "status": "completed",
+      "github_url": "https://github.com/harshraj677/Xrepo",
+      "live_url": null,
+      "hackathon": "FOSS Hackathon Winner – 1st of 50+ teams",
+      "aliases": ["Xrepo", "X repo", "quantum circuit"],
+      "keywords": ["quantum computing", "open source", "FOSS", "hackathon winner", "React", "Firebase", "Gemini", "collaboration"],
+      "importance_score": 9,
+      "source": "resume"
+    },
+    {
+      "id": "gatecraft",
+      "name": "GateCraft",
+      "tagline": "Interactive Digital Logic Gate Playground",
+      "description": "Web app for learning and experimenting with digital logic gates. Toggle inputs, see outputs in real-time, with AI explanations powered by Gemini 2.5.",
+      "tech_stack": ["React.js", "TypeScript", "Tailwind CSS", "Gemini 2.5 AI"],
+      "year": 2025,
+      "category": "Education / Frontend",
+      "status": "live",
+      "github_url": "https://github.com/harshraj677/Gatecraft.git",
+      "live_url": "https://gatecraft.netlify.app/",
+      "aliases": ["GateCraft", "Gate Craft", "logic gates app"],
+      "keywords": ["digital logic", "gates", "education", "React", "TypeScript", "Gemini", "interactive"],
+      "importance_score": 7,
+      "source": "portfolio"
+    },
+    {
+      "id": "pdf_designer",
+      "name": "PDF Designer",
+      "tagline": "Free Online PDF Creation Tool",
+      "description": "Browser-based PDF tool for creating, editing, and exporting professional PDF documents. Free, no installation required.",
+      "tech_stack": ["JavaScript", "HTML", "CSS"],
+      "year": 2024,
+      "category": "Productivity / Frontend",
+      "status": "live",
+      "github_url": "https://github.com/harshraj677/PDFDesigner.git",
+      "live_url": "https://pdfdesigner.blogspot.com/?m=1",
+      "aliases": ["PDF Maker", "PDF Designer", "PDF tool"],
+      "keywords": ["PDF", "JavaScript", "HTML", "CSS", "browser tool", "free", "productivity"],
+      "importance_score": 6,
+      "source": "portfolio"
+    },
+    {
+      "id": "portfolio",
+      "name": "Harx Portfolio",
+      "tagline": "Personal Portfolio Website",
+      "description": "Fully responsive personal portfolio at harx.netlify.app, built with React, Tailwind CSS, Framer Motion, and EmailJS.",
+      "tech_stack": ["React.js", "Tailwind CSS", "Framer Motion", "EmailJS", "Vite"],
+      "year": 2024,
+      "category": "Personal / Portfolio",
+      "status": "live",
+      "github_url": "https://github.com/harshraj677/Portfolio.git",
+      "live_url": "https://harx.netlify.app/",
+      "aliases": ["harx", "portfolio", "personal website"],
+      "keywords": ["portfolio", "React", "Tailwind CSS", "Framer Motion", "Netlify", "personal website"],
+      "importance_score": 7,
+      "source": "portfolio"
+    }
+  ],
+  "achievements": [
+    {
+      "id": "hack_for_hire_winner",
+      "title": "Hack for Hire 2026 Winner",
+      "position": "1st Place",
+      "year": 2026,
+      "teams": "50+",
+      "outcome": "Internship offer at Vulcan Learning Collective LLP",
+      "keywords": ["hackathon winner", "Hack for Hire", "Vulcan", "1st place", "internship"],
+      "importance_score": 10,
+      "source": "resume"
+    },
+    {
+      "id": "foss_winner",
+      "title": "FOSS Hackathon Winner – Xrepo",
+      "position": "1st Place",
+      "year": 2025,
+      "teams": "50+",
+      "outcome": "Represented PESITM at ADVAYA Pan-India Hackathon, BGSCET Bengaluru",
+      "keywords": ["FOSS", "hackathon winner", "Xrepo", "1st place", "open source"],
+      "importance_score": 9,
+      "source": "resume"
+    },
+    {
+      "id": "hack_malenadu",
+      "title": "HACK MALENADU National Hackathon – 4th Place",
+      "position": "4th of 150 Finalist Teams",
+      "year": 2025,
+      "teams": "150 finalists from 2346+ national registrations",
+      "outcome": "Top 4 nationally",
+      "keywords": ["HACK MALENADU", "national hackathon", "finalist", "4th place", "2346 registrations"],
+      "importance_score": 8,
+      "source": "resume"
+    },
+    {
+      "id": "math1_perfect",
+      "title": "100/100 in Mathematics-I (VTU)",
+      "position": "Perfect Score",
+      "year": 2024,
+      "keywords": ["100/100", "Mathematics", "VTU", "perfect score", "academic"],
+      "importance_score": 7,
+      "source": "resume"
+    },
+    {
+      "id": "math2_perfect",
+      "title": "100/100 in Mathematics-II (VTU)",
+      "position": "Perfect Score",
+      "year": 2025,
+      "keywords": ["100/100", "Mathematics", "VTU", "perfect score", "academic"],
+      "importance_score": 7,
+      "source": "resume"
+    }
+  ],
+  "certifications": [
+    {
+      "id": "gcp_architect",
+      "name": "Google Cloud Professional Cloud Architect",
+      "issuer": "Google Cloud",
+      "status": "in_progress",
+      "year": 2026,
+      "keywords": ["Google Cloud", "GCP", "cloud architect", "certification"],
+      "importance_score": 8,
+      "source": "resume, linkedin"
+    },
+    {
+      "id": "gemini_academy",
+      "name": "Gemini Academy",
+      "issuer": "Google",
+      "status": "completed",
+      "year": 2025,
+      "keywords": ["Gemini", "Google", "AI", "generative AI", "certification"],
+      "importance_score": 7,
+      "source": "resume, linkedin"
+    },
+    {
+      "id": "adca",
+      "name": "ADCA",
+      "issuer": "ADCA Institute",
+      "status": "completed",
+      "year": 2024,
+      "keywords": ["ADCA", "computer applications", "certification"],
+      "importance_score": 5,
+      "source": "resume"
+    }
+  ],
+  "hackathons": [
+    {
+      "id": "hack_for_hire_2026",
+      "name": "Hack for Hire 2026",
+      "year": 2026,
+      "position": "1st Place Winner",
+      "teams": "50+",
+      "organizer": "Vulcan Learning Collective / Anvesana & IT-BT Karnataka",
+      "duration": "36 hours",
+      "importance_score": 10,
+      "source": "resume"
+    },
+    {
+      "id": "foss_hackathon_2025",
+      "name": "FOSS Hackathon",
+      "year": 2025,
+      "position": "1st Place Winner",
+      "teams": "50+",
+      "project": "Xrepo",
+      "importance_score": 9,
+      "source": "resume"
+    },
+    {
+      "id": "hack_malenadu_2025",
+      "name": "HACK MALENADU National Hackathon",
+      "year": 2025,
+      "position": "4th of 150 Finalist Teams",
+      "registrations": "2346+",
+      "importance_score": 8,
+      "source": "resume"
+    },
+    {
+      "id": "advaya_2025",
+      "name": "ADVAYA Pan-India Hackathon",
+      "year": 2025,
+      "position": "Participant / College Representative",
+      "venue": "BGSCET, Bengaluru",
+      "importance_score": 7,
+      "source": "resume, portfolio"
+    },
+    {
+      "id": "monaithon_2025",
+      "name": "Monaithon Hackathon",
+      "year": 2025,
+      "position": "Top 40 Finalist",
+      "importance_score": 6,
+      "source": "portfolio"
+    }
+  ],
+  "socials": {
+    "github": "https://github.com/harshraj677",
+    "linkedin": "https://www.linkedin.com/in/harshraj677",
+    "portfolio": "https://harx.netlify.app",
+    "email": "rajharsh7070@gmail.com",
+    "resume": "https://drive.google.com/file/d/1YKZhJEInOZ2rLprRrcRD28KA-KztsygO/view?usp=drivesdk"
+  },
+  "contact": {
+    "phone": "+91-9835251540",
+    "email": "rajharsh7070@gmail.com",
+    "location": "Shivamogga, Karnataka, India",
+    "availability": "Open to internship opportunities",
+    "preferred_roles": ["Software Engineer Intern", "Backend Engineer Intern", "AI/ML Engineer Intern", "Full-Stack Developer Intern"]
+  },
+  "current_focus": [
+    "Agentic AI",
+    "RAG Systems",
+    "LLM Applications with Gemini API",
+    "Backend Engineering with FastAPI and Node.js",
+    "Data Analytics with Python",
+    "System Design",
+    "Google Cloud Platform"
+  ],
+  "interests": ["AI", "Generative AI", "RAG", "Agentic AI", "Data Analytics", "Machine Learning", "System Design", "Backend Engineering", "Open Source", "Quantum Computing"],
+  "goals": {
+    "short_term": ["Complete GCP certification", "Build production RAG assistant", "Win more hackathons"],
+    "long_term": ["Full-stack AI engineer at leading tech company", "Build AI SaaS product", "Contribute to open-source AI/ML"],
+    "career": "SWE / AI Engineer role post B.Tech graduation in 2028"
+  },
+  "related_entities": {
+    "companies": ["Vulcan Learning Collective LLP", "Future Intern", "GeeksforGeeks", "Anvesana Innovation & Entrepreneurial Forum", "Google Cloud"],
+    "institutions": ["PESITM", "VTU", "DAV Public School Chapra Bihar"],
+    "technologies": ["React", "Next.js", "Node.js", "FastAPI", "Python", "MongoDB", "PostgreSQL", "Firebase", "Prisma", "Gemini API", "WebSockets", "TypeScript"],
+    "hackathons": ["Hack for Hire 2026", "FOSS Hackathon", "HACK MALENADU", "ADVAYA", "Monaithon"],
+    "projects": ["AgentVision X", "Anvesync", "Xrepo", "GateCraft", "PDF Designer", "Harx Portfolio"]
+  },
+  "faq_answers": {
+    "who_is_harsh": "Harsh Raj Gupta is a 2nd-year B.Tech CSE student at PESITM (VTU), Shivamogga with CGPA 8.95. He is a software engineer intern at Vulcan Learning Collective, a hackathon winner, and an AI enthusiast specializing in backend development and LLM applications.",
+    "what_tech_does_harsh_know": "Harsh knows Python, JavaScript, TypeScript, Java, SQL. He is proficient in React, Next.js, Node.js, FastAPI, Tailwind CSS, Prisma, MongoDB, PostgreSQL, Firebase, and GCP. He also works with the Gemini API and WebSockets.",
+    "what_projects_has_harsh_built": "AgentVision X (AI Observability Dashboard), Anvesync (Workforce Management Platform), Xrepo (Quantum Circuit Playground – FOSS winner), GateCraft (Logic Gate Playground), PDF Designer, and his personal portfolio at harx.netlify.app.",
+    "what_hackathons_has_harsh_won": "Harsh won Hack for Hire 2026 (1st of 50+ teams, led to internship) and the FOSS Hackathon 2025 (1st of 50+ teams with Xrepo). He was also a top 4 finalist at HACK MALENADU from 2346+ national registrations.",
+    "where_does_harsh_intern": "Harsh currently interns at Vulcan Learning Collective LLP as a Software Engineer Intern (March 2026 – Present), working on backend services and REST APIs.",
+    "how_to_contact_harsh": "Email: rajharsh7070@gmail.com | Phone: +91-9835251540 | LinkedIn: linkedin.com/in/harshraj677 | GitHub: github.com/harshraj677 | Portfolio: harx.netlify.app",
+    "what_is_harsh_cgpa": "Harsh's CGPA is 8.95/10.0 at PESITM (VTU). He has scored 100/100 in both Mathematics-I and Mathematics-II.",
+    "what_is_harsh_current_focus": "Harsh is currently focused on Agentic AI, RAG systems, LLM applications (Gemini API), backend engineering (FastAPI, Node.js), and Google Cloud. He is working toward his GCP Professional Cloud Architect certification."
+  }
+}

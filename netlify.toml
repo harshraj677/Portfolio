@@ -1,17 +1,25 @@
 # Netlify Configuration File
 
 [build]
-  # Build command
-  command = "npm run build"
-  
-  # Directory that contains the deploy-ready HTML files and assets
+  command = "node scripts/generateChunks.mjs && vite build"
   publish = "dist"
-  
-  # Environment variables
+
   [build.environment]
     NODE_VERSION = "18"
 
-# Redirect rules for SPA (Single Page Application)
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+  included_files = ["data/chunks.json"]
+
+# API route → Netlify Function (must come before the SPA catch-all)
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+  force = true
+
+# SPA catch-all
 [[redirects]]
   from = "/*"
   to = "/index.html"

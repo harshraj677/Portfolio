@@ -1,0 +1,50 @@
+{
+  "current_focus": {
+    "primary_areas": [
+      {
+        "area": "Agentic AI",
+        "description": "Building and understanding autonomous AI agents that can plan, reason, and execute multi-step tasks using LLMs.",
+        "current_project": "AgentVision X – AI Agent Observability Dashboard"
+      },
+      {
+        "area": "RAG Systems",
+        "description": "Designing and implementing Retrieval-Augmented Generation pipelines for AI assistants and knowledge bases.",
+        "current_project": "Portfolio AI Knowledge Base (this project)"
+      },
+      {
+        "area": "LLM Applications",
+        "description": "Integrating large language models (Gemini, GPT) into production-ready applications via APIs.",
+        "current_project": "AgentVision X, GateCraft, Xrepo"
+      },
+      {
+        "area": "Backend Engineering",
+        "description": "Building scalable, performant backend systems with FastAPI, Node.js, Express.js, and REST/WebSocket APIs.",
+        "current_project": "Vulcan Learning Collective internship"
+      },
+      {
+        "area": "Data Analytics",
+        "description": "Using Python (Pandas, NumPy), SQL, and visualization tools to extract insights from data.",
+        "current_project": "Self-learning and academic projects"
+      },
+      {
+        "area": "System Design",
+        "description": "Learning distributed systems, scalability patterns, and software architecture principles.",
+        "current_project": "Study and architectural decisions in internship projects"
+      }
+    ],
+    "learning_roadmap_2026": [
+      "Complete Google Cloud Professional Cloud Architect certification",
+      "Build 2+ production RAG-based applications",
+      "Deepen expertise in Agentic AI frameworks",
+      "Contribute to open-source AI/ML projects",
+      "Land a full-time SWE or AI engineer role or stronger internship"
+    ],
+    "technologies_actively_learning": [
+      "LangChain / LlamaIndex for RAG",
+      "Google Cloud Platform services",
+      "PostgreSQL advanced patterns",
+      "System design patterns at scale",
+      "Advanced Python for data science"
+    ]
+  }
+}

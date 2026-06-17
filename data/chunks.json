@@ -1,0 +1,741 @@
+[
+  {
+    "id": "about_1",
+    "text": "Harsh Raj Gupta is a Computer Science & Engineering Student | Junior Software Developer @ Vulcan Learning Collective | AI & Data Analytics Enthusiast | Python & SQL Developer | Campus Mantri @ GeeksforGeeks. Second-year CS student (CGPA 8.95) with backend and full-stack experience across React, Next.js, Node.js, FastAPI, and MongoDB. Built projects with real LLM integrations, RBAC, and real-time WebSocket dashboards. Hackathon finalist (4th of 150 nationally) and FOSS hackathon winner. Looking for SWE internships. Computer Science Engineering student at PES Institute of Technology & Management (VTU) interested in software engineering, data analytics, and AI-powered applications. Skilled in Python, SQL, Java, React, FastAPI, and MongoDB, with hands-on experience building full-stack projects, REST APIs, real-time dashboards, and LLM-based applications. Active in technical communities through GeeksforGeeks and campus initiatives, and regularly participates in hackathons and skill-building programs. He is based in Shivamogga, Karnataka, India and currently works as Software Engineer Intern at Vulcan Learning Collective LLP. His portfolio is at https://harx.netlify.app.",
+    "source": "about.json",
+    "category": "about",
+    "tags": [
+      "identity",
+      "profile",
+      "summary"
+    ],
+    "keywords": [
+      "who is harsh",
+      "about harsh",
+      "harsh raj gupta",
+      "bio",
+      "profile",
+      "introduction"
+    ]
+  },
+  {
+    "id": "contact_2",
+    "text": "Contact Harsh Raj Gupta: Email: rajharsh7070@gmail.com | Phone: +91-9835251540 | Portfolio: https://harx.netlify.app | GitHub: https://github.com/harshraj677 | LinkedIn: https://www.linkedin.com/in/harshraj677",
+    "source": "contact.json",
+    "category": "contact",
+    "tags": [
+      "contact",
+      "email",
+      "phone",
+      "reach"
+    ],
+    "keywords": [
+      "contact",
+      "email",
+      "phone",
+      "hire",
+      "reach out",
+      "connect",
+      "linkedin",
+      "github"
+    ]
+  },
+  {
+    "id": "interests_3",
+    "text": "Harsh Raj Gupta is interested in: Agentic AI, Retrieval-Augmented Generation (RAG), LLM Applications, Backend Engineering, Full-Stack Development, Data Analytics, Machine Learning, System Design, Open Source. Currently learning: Agentic AI systems, RAG pipelines, LLM integrations with FastAPI, System Design, Google Cloud Platform, Advanced Data Structures & Algorithms. Mission: To build intelligent, scalable software solutions that solve real-world problems, contribute to open-source communities, and grow as a backend and AI engineer through hands-on projects and collaborative environments.",
+    "source": "about.json",
+    "category": "interests",
+    "tags": [
+      "interests",
+      "learning",
+      "focus"
+    ],
+    "keywords": [
+      "interests",
+      "learning",
+      "focus",
+      "mission",
+      "goals",
+      "passionate about"
+    ]
+  },
+  {
+    "id": "education_4",
+    "text": "Harsh Raj Gupta is pursuing Bachelor of Technology in Computer Science Engineering from PES Institute of Technology and Management affiliated to Visvesvaraya Technological University (VTU), located in Shivamogga, Karnataka, India. CGPA: 8.95/10.0. Duration: 2024–2028. Currently in 2nd Year. Academic highlights: CGPA 8.95/10.0, 100/100 in Mathematics-I (VTU), 100/100 in Mathematics-II (VTU), Active in hackathons, technical workshops, and campus leadership.",
+    "source": "education.json",
+    "category": "education",
+    "tags": [
+      "education",
+      "college",
+      "degree",
+      "cgpa"
+    ],
+    "keywords": [
+      "education",
+      "college",
+      "pesitm",
+      "vtu",
+      "cgpa",
+      "university",
+      "degree",
+      "btech",
+      "computer science"
+    ]
+  },
+  {
+    "id": "experience_5",
+    "text": "Harsh Raj Gupta worked as Software Engineer Intern at Vulcan Learning Collective LLP (March 2026 – Present, Remote, India). Working as a Junior Software Developer Intern, developing and improving backend functionalities, building scalable APIs, and contributing to real-world software development projects on the company's learning platform. Key responsibilities: Working on backend services and REST APIs for the company's learning platform; Writing new endpoints, fixing bugs, and adding features alongside the core team; Improving database queries and contributing to code reviews; Following standard Git workflows and CI checks before deploys; Enhancing application performance and optimizing backend systems; Collaborating with the development team to ensure smooth and efficient product functionality. Technologies used: Node.js, REST APIs, Git, GitHub, CI/CD, Backend Development, Database Management. Achievements: Gained hands-on experience in backend development in an agile environment; Contributed to real-world product development cycles.",
+    "source": "experience.json",
+    "category": "experience",
+    "tags": [
+      "experience",
+      "work",
+      "internship",
+      "job"
+    ],
+    "keywords": [
+      "vulcan",
+      "software engineer intern",
+      "internship",
+      "work experience",
+      "job",
+      "internship"
+    ]
+  },
+  {
+    "id": "experience_6",
+    "text": "Harsh Raj Gupta worked as Web Development Intern at Future Intern (May 2025 – July 2025, Remote). Built responsive web applications using React.js and Node.js across multiple client projects, implementing reusable UI components and MongoDB-backed REST APIs. Key responsibilities: Built responsive web applications using React.js and Node.js across multiple client projects; Implemented reusable UI components and MongoDB-backed REST APIs; Used Git for version control and participated in code reviews; Contributed to a clean, maintainable component architecture. Technologies used: React.js, Node.js, MongoDB, REST APIs, Git, HTML, CSS, JavaScript. Achievements: Delivered multiple client projects with reusable component architectures; Gained practical experience in full-stack MERN development.",
+    "source": "experience.json",
+    "category": "experience",
+    "tags": [
+      "experience",
+      "work",
+      "internship",
+      "job"
+    ],
+    "keywords": [
+      "future",
+      "web development intern",
+      "internship",
+      "work experience",
+      "job",
+      "internship"
+    ]
+  },
+  {
+    "id": "experience_7",
+    "text": "Harsh Raj Gupta worked as Campus Ambassador – Gemini AI Awareness Program at Student-led AI advocacy initiative (PESITM) (2026 – Present, PESITM, Shivamogga, Karnataka). Running workshops and campaigns to introduce students to Gemini and generative AI tools for academic, creative, and problem-solving use cases. Key responsibilities: Running workshops and campaigns on Gemini and generative AI; Introducing students to AI tools for academic and creative use cases; Promoting awareness of LLM capabilities and applications. Technologies used: Gemini API, Generative AI, LLMs. Achievements: Successfully conducted AI awareness sessions on campus.",
+    "source": "experience.json",
+    "category": "experience",
+    "tags": [
+      "experience",
+      "work",
+      "internship",
+      "job"
+    ],
+    "keywords": [
+      "student-led",
+      "campus ambassador – gemini ai awareness program",
+      "internship",
+      "work experience",
+      "job",
+      "campus_role"
+    ]
+  },
+  {
+    "id": "projects_8",
+    "text": "Project: AgentVision X — AI Agent Observability Dashboard that visualizes the internal pipeline of a Gemini LLM query in real-time.. AgentVision X is an advanced AI observability platform that breaks down a Gemini LLM query into 7 distinct pipeline stages — parsing, retrieval, reasoning, generation, validation, and more — and streams the progress to the frontend over WebSockets. It provides deep transparency into how AI agents process and respond to queries, with per-step latency tracking, token cost analysis, and an interactive execution graph. Tech stack: React, FastAPI, Python, WebSockets, Gemini API. Year: 2026. Status: completed. Key features: 7-stage LLM pipeline visualization (parsing, retrieval, reasoning, generation, validation); Real-time WebSocket streaming of pipeline progress; Per-step latency tracking; Prompt, completion, and thinking token tracking; Cost estimation per query; Animated execution graph; Timeline scrubber to replay past runs; Step inspector for inputs and outputs; Failure injection mode to re-run individual steps. Category: AI / Observability.",
+    "source": "projects.json",
+    "category": "projects",
+    "tags": [
+      "AI",
+      "LLM",
+      "Gemini",
+      "WebSockets",
+      "FastAPI",
+      "React",
+      "Observability",
+      "Agentic AI"
+    ],
+    "keywords": [
+      "agentvision x",
+      "react",
+      "fastapi",
+      "python",
+      "websockets",
+      "gemini api",
+      "project",
+      "built",
+      "developed"
+    ]
+  },
+  {
+    "id": "projects_9",
+    "text": "Project: Anvesync — Full-stack workforce management platform with employee records, attendance tracking, leave management, and admin analytics.. Anvesync is a production-grade HR and workforce management platform built with Next.js and TypeScript. It supports multiple roles (admin, manager, employee) with role-based access control backed by Prisma and a relational database. Features include location-aware check-in/check-out attendance, leave request workflows, employee record management, and rich admin analytics dashboards. Tech stack: Next.js, TypeScript, Prisma, Tailwind CSS, PostgreSQL. Year: 2026. Status: completed. Key features: Employee record management; Location-aware check-in/check-out attendance; Leave request and approval workflows; Admin analytics dashboard; Role-based access control (admin, manager, employee); Reusable UI components for tables, filters, and charts; Next.js API routes for auth, attendance, leaves, and reporting. Category: Full-Stack / HR Platform.",
+    "source": "projects.json",
+    "category": "projects",
+    "tags": [
+      "Next.js",
+      "TypeScript",
+      "Prisma",
+      "RBAC",
+      "HR",
+      "Workforce Management",
+      "Dashboard",
+      "Tailwind CSS"
+    ],
+    "keywords": [
+      "anvesync",
+      "next.js",
+      "typescript",
+      "prisma",
+      "tailwind css",
+      "postgresql",
+      "project",
+      "built",
+      "developed"
+    ]
+  },
+  {
+    "id": "projects_10",
+    "text": "Project: Xrepo — Open-source collaborative platform for developing, sharing, and iterating on quantum algorithms. FOSS Hackathon Winner.. Xrepo is a web-based quantum circuit playground and collaborative repository built for the FOSS Hackathon, where it won 1st place out of 50+ teams. It provides a visual quantum circuit designer with real-time multi-user collaboration, a versioned repository system tailored to quantum circuits, and an integrated Gemini-powered learning assistant and documentation generator. Tech stack: React, Node.js, MongoDB, Firebase, Gemini API. Year: 2025. Status: completed. Key features: Web-based quantum circuit designer; Real-time multi-user collaboration; Versioned repository for quantum circuits; Gemini API-powered documentation generation; In-app learning assistant for quantum computing; Open-source architecture. Category: Open Source / Quantum Computing. GitHub: https://github.com/harshraj677/Xrepo",
+    "source": "projects.json",
+    "category": "projects",
+    "tags": [
+      "Quantum Computing",
+      "Open Source",
+      "React",
+      "Node.js",
+      "Firebase",
+      "MongoDB",
+      "Gemini API",
+      "Hackathon Winner",
+      "FOSS"
+    ],
+    "keywords": [
+      "xrepo",
+      "react",
+      "node.js",
+      "mongodb",
+      "firebase",
+      "gemini api",
+      "project",
+      "built",
+      "developed"
+    ]
+  },
+  {
+    "id": "projects_11",
+    "text": "Project: GateCraft — Interactive playground for learning and experimenting with digital logic gates. Select a gate, toggle inputs, and see the output in real time.. GateCraft is an educational web application that provides an interactive environment for learning digital logic gates. Users can select any logic gate (AND, OR, NOT, NAND, NOR, XOR, XNOR), toggle inputs, and instantly see the output. It integrates Gemini 2.5 AI to explain gate behavior and logic concepts in an accessible way. Tech stack: React.js, TypeScript, Tailwind CSS, Gemini 2.5 AI. Year: 2025. Status: live. Key features: Interactive logic gate selection (AND, OR, NOT, NAND, NOR, XOR, XNOR); Real-time input toggling and output visualization; AI-powered explanations via Gemini 2.5; Educational content for each gate type; Responsive design with Tailwind CSS. Category: Education / Frontend. GitHub: https://github.com/harshraj677/Gatecraft.git | Live demo: https://gatecraft.netlify.app/",
+    "source": "projects.json",
+    "category": "projects",
+    "tags": [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Gemini AI",
+      "Digital Logic",
+      "Education",
+      "Interactive",
+      "Netlify"
+    ],
+    "keywords": [
+      "gatecraft",
+      "react.js",
+      "typescript",
+      "tailwind css",
+      "gemini 2.5 ai",
+      "project",
+      "built",
+      "developed"
+    ]
+  },
+  {
+    "id": "projects_12",
+    "text": "Project: PDF Designer — The ultimate free online PDF tool for all your needs — create, edit, and export PDF documents from the browser.. PDF Designer is a browser-based PDF creation and editing tool that allows users to design professional PDF documents without any software installation. It features a rich text editor, template management, and multiple export options, all built with vanilla JavaScript, HTML, and CSS. Tech stack: JavaScript, HTML, CSS. Year: 2024. Status: live. Key features: PDF creation from scratch; Template management; Export options; Rich text editor; Browser-based, no installation required. Category: Productivity / Frontend. GitHub: https://github.com/harshraj677/PDFDesigner.git | Live demo: https://pdfdesigner.blogspot.com/?m=1",
+    "source": "projects.json",
+    "category": "projects",
+    "tags": [
+      "PDF",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Browser Tool",
+      "Free Tool",
+      "Productivity"
+    ],
+    "keywords": [
+      "pdf designer",
+      "javascript",
+      "html",
+      "css",
+      "project",
+      "built",
+      "developed"
+    ]
+  },
+  {
+    "id": "projects_13",
+    "text": "Project: Harx Portfolio — Personal portfolio website showcasing projects, achievements, and technical skills, built with React and Tailwind CSS.. Harx is a fully responsive personal portfolio website built with React.js, Node.js, Tailwind CSS, and EmailJS. It showcases projects, experience, achievements, skills, and a contact form with email delivery integration. Tech stack: React.js, Node.js, Tailwind CSS, EmailJS, Framer Motion, Vite. Year: 2024. Status: live. Key features: Project showcase with filtering; Achievements gallery with lightbox; Animated hero section; Dark/light theme toggle; Working contact form via EmailJS; Skills and experience timeline; Responsive design. Category: Personal / Portfolio. GitHub: https://github.com/harshraj677/Portfolio.git | Live demo: https://harx.netlify.app/",
+    "source": "projects.json",
+    "category": "projects",
+    "tags": [
+      "React",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Portfolio",
+      "Netlify",
+      "EmailJS",
+      "Responsive"
+    ],
+    "keywords": [
+      "harx portfolio",
+      "react.js",
+      "node.js",
+      "tailwind css",
+      "emailjs",
+      "framer motion",
+      "vite",
+      "project",
+      "built",
+      "developed"
+    ]
+  },
+  {
+    "id": "achievements_14",
+    "text": "Harsh Raj Gupta's top achievements: Hack for Hire 2026 Winner (2026) — Won 1st place out of 50+ teams at the Hack for Hire hackathon organized by Vulcan Learning Collective at the Anvesana & IT-BT Karnataka 36-hour hackathon. This win directly led to an internship offer from Vulcan Learning Collective LLP.. Outcome: Led to internship offer at Vulcan Learning Collective LLP | FOSS Hackathon Winner – Xrepo (2025) — Won 1st place out of 50+ teams at the FOSS (localhost) Hackathon for Xrepo, an open-source collaborative quantum circuit platform. Represented PESITM at the Pan-India ADVAYA Hackathon at BGSCET Bengaluru.. Outcome: Represented PESITM at Pan-India ADVAYA Hackathon, BGSCET Bengaluru | HACK MALENADU National Hackathon Finalist (2025) — Secured 4th place among 150 finalist teams selected from 2,346+ national registrations at HACK MALENADU National Hackathon.. Outcome: Top 4 nationally from 2,346+ registrations | 100/100 in Mathematics-I (VTU) (2024) — Achieved a perfect score of 100/100 in Mathematics-I under Visvesvaraya Technological University.. Outcome: Perfect academic score | 100/100 in Mathematics-II (VTU) (2025) — Achieved a perfect score of 100/100 in Mathematics-II under Visvesvaraya Technological University.. Outcome: Perfect academic score",
+    "source": "achievements.json",
+    "category": "achievements",
+    "tags": [
+      "achievements",
+      "awards",
+      "wins"
+    ],
+    "keywords": [
+      "achievement",
+      "award",
+      "winner",
+      "won",
+      "prize",
+      "hack for hire",
+      "foss",
+      "hackathon winner"
+    ]
+  },
+  {
+    "id": "achievements_15",
+    "text": "More achievements: Project Exhibition Certification – First Prize (2024) — Earned first prize at the college project exhibition for exceptional performance. | ADVAYA Pan-India Hackathon Representative (2025) — Represented PESITM at the ADVAYA Pan-India Hackathon held at BGSCET Bengaluru after winning the FOSS Hackathon. | Monaithon Hackathon Top 40 Finalist (2025) — Selected as a top 40 finalist team in Monaithon Hackathon 2025. | Google Cloud Agentic AI Day Certificate (2025) — Participated in Google Cloud Agentic AI Day, exploring next-generation AI innovations and agentic AI systems. | Hands-On Workshop on RAG Model (2025) — Participated in a hands-on workshop on Retrieval-Augmented Generation (RAG) models, enhancing practical AI skills. | Leadership Session with Zoho Global Head (2025) — Part of a leadership session with Zoho Global Head Kuppulakshmi Krishnamoorthy.",
+    "source": "achievements.json",
+    "category": "achievements",
+    "tags": [
+      "achievements",
+      "workshops",
+      "events"
+    ],
+    "keywords": [
+      "workshop",
+      "rag",
+      "google cloud",
+      "agentic ai",
+      "zoho",
+      "leadership"
+    ]
+  },
+  {
+    "id": "hackathons_16",
+    "text": "Hackathon: Hack for Hire 2026 (2026). Position: 1st Place (Winner). Organizer: Vulcan Learning Collective / Anvesana & IT-BT Karnataka. Teams: 50+. Solution: Developed a solution addressing the company's platform needs in a 36-hour sprint. Outcomes: 1st place out of 50+ teams; Received internship offer from Vulcan Learning Collective LLP; Currently working as Software Engineer Intern at Vulcan Learning Collective. Tech: N/A.",
+    "source": "hackathons.json",
+    "category": "hackathons",
+    "tags": [
+      "hackathon",
+      "competition",
+      "winner"
+    ],
+    "keywords": [
+      "hack for hire 2026",
+      "hackathon",
+      "competition",
+      "winner",
+      "finalist"
+    ]
+  },
+  {
+    "id": "hackathons_17",
+    "text": "Hackathon: FOSS Hackathon (localhost) (2025). Position: 1st Place (Winner). Organizer: localhost / FOSS Community. Teams: 50+. Solution: Built Xrepo – an open-source collaborative platform for developing, sharing, and iterating on quantum algorithms with real-time collaboration and AI-powered documentation. Outcomes: 1st place out of 50+ teams; Represented PESITM at Pan-India ADVAYA Hackathon at BGSCET Bengaluru; Built Xrepo – a quantum circuit collaborative platform. Tech: React, Node.js, MongoDB, Firebase, Gemini API.",
+    "source": "hackathons.json",
+    "category": "hackathons",
+    "tags": [
+      "hackathon",
+      "competition",
+      "winner"
+    ],
+    "keywords": [
+      "foss hackathon (localhost)",
+      "hackathon",
+      "competition",
+      "winner",
+      "finalist"
+    ]
+  },
+  {
+    "id": "hackathons_18",
+    "text": "Hackathon: HACK MALENADU National Hackathon (2025). Position: 4th of 150 Finalist Teams. Organizer: HACK MALENADU. Teams: 2346+ registered nationally, 150 finalist teams. Solution: Developed a competitive solution that reached the final 150 teams. Outcomes: 4th place among 150 finalists; Selected from 2,346+ national registrations; Top national hackathon recognition. Tech: N/A.",
+    "source": "hackathons.json",
+    "category": "hackathons",
+    "tags": [
+      "hackathon",
+      "competition",
+      "winner"
+    ],
+    "keywords": [
+      "hack malenadu national hackathon",
+      "hackathon",
+      "competition",
+      "winner",
+      "finalist"
+    ]
+  },
+  {
+    "id": "hackathons_19",
+    "text": "Hackathon: ADVAYA Pan-India Hackathon (2025). Position: Participant / College Representative. Organizer: ADVAYA / BGSCET Bengaluru. Teams: Pan-India. Solution: Represented PESITM with the Xrepo quantum circuit platform. Outcomes: Represented PESITM at national level; Gained exposure to top teams from across India. Tech: React, Node.js, MongoDB, Firebase, Gemini API.",
+    "source": "hackathons.json",
+    "category": "hackathons",
+    "tags": [
+      "hackathon",
+      "competition",
+      "winner"
+    ],
+    "keywords": [
+      "advaya pan-india hackathon",
+      "hackathon",
+      "competition",
+      "winner",
+      "finalist"
+    ]
+  },
+  {
+    "id": "hackathons_20",
+    "text": "Hackathon: Monaithon Hackathon 2025 (2025). Position: Top 40 Finalist. Organizer: Monaithon. Teams: N/A.  Outcomes: Selected as a top 40 finalist team. Tech: N/A.",
+    "source": "hackathons.json",
+    "category": "hackathons",
+    "tags": [
+      "hackathon",
+      "competition",
+      "winner"
+    ],
+    "keywords": [
+      "monaithon hackathon 2025",
+      "hackathon",
+      "competition",
+      "winner",
+      "finalist"
+    ]
+  },
+  {
+    "id": "certifications_21",
+    "text": "Harsh Raj Gupta's certifications: Google Cloud Professional Cloud Architect by Google Cloud (in progress, 2026). Professional-level certification for designing, developing, and managing robust, secure, scalable, highly available, and dynamic solutions on Google Cloud. | Gemini Academy by Google (completed, 2025). Certification from Google's Gemini Academy covering Gemini AI models, generative AI capabilities, and practical applications. | ADCA (Advanced Diploma in Computer Applications) by ADCA Institute (completed, 2024). Advanced Diploma in Computer Applications covering computer fundamentals, programming, and software applications. | Techzonce It Solution – Certification I by Techzonce It Solution (completed, 2024). Technical certification from Techzonce It Solution. | Techzonce It Solution – Certification II by Techzonce It Solution (completed, 2024). Technical certification from Techzonce It Solution. | FOSS Hackathon Participation Certificate by FOSS / localhost (completed, 2025). Certificate for participating and winning the FOSS Hackathon with the Xrepo project.",
+    "source": "certifications.json",
+    "category": "certifications",
+    "tags": [
+      "certifications",
+      "credentials"
+    ],
+    "keywords": [
+      "certification",
+      "certificate",
+      "google cloud",
+      "gemini",
+      "adca",
+      "techzonce",
+      "credential"
+    ]
+  },
+  {
+    "id": "skills_22",
+    "text": "Harsh Raj Gupta's technical skills — Languages: Python, Java, JavaScript, TypeScript, C, SQL, HTML, CSS. Frontend: React.js, Next.js, Tailwind CSS, HTML5, CSS3, JavaScript (ES6+), TypeScript, Vite. Backend: Node.js, Express.js, FastAPI, REST APIs, WebSockets, Prisma. Databases: MongoDB, PostgreSQL, Firebase (Firestore), SQL. Cloud: Google Cloud Platform (GCP), Firebase. AI/ML tools: Gemini API, LLM Integration, Agentic AI, RAG Systems, Generative AI. Data Science: Pandas, NumPy, Data Cleaning, Data Visualization. Developer Tools: Git, GitHub, VS Code, Postman, npm, WebSockets, CI/CD. Concepts: Data Structures & Algorithms (DSA), Object-Oriented Programming (OOP), System Design, Agile Development, Authentication & Authorization, Role-Based Access Control (RBAC), REST API Design, WebSocket Communication, CI/CD Pipelines, Version Control (Git).",
+    "source": "skills.json",
+    "category": "skills",
+    "tags": [
+      "skills",
+      "technologies",
+      "tech stack"
+    ],
+    "keywords": [
+      "skills",
+      "technologies",
+      "tech stack",
+      "programming",
+      "languages",
+      "frameworks",
+      "python",
+      "react",
+      "node",
+      "fastapi",
+      "mongodb"
+    ]
+  },
+  {
+    "id": "soft_skills_23",
+    "text": "Harsh Raj Gupta's soft skills and leadership capabilities: Team Leadership, Public Speaking, Brand Ambassador Training, Event Management, Technical Communication, Collaboration, Problem Solving, Quick Learning. He has demonstrated these through campus leadership roles, event management, and technical community building.",
+    "source": "skills.json",
+    "category": "soft_skills",
+    "tags": [
+      "soft skills",
+      "leadership",
+      "communication"
+    ],
+    "keywords": [
+      "soft skills",
+      "leadership",
+      "communication",
+      "teamwork",
+      "public speaking"
+    ]
+  },
+  {
+    "id": "leadership_24",
+    "text": "Leadership: Harsh served as Campus Mantri at GeeksforGeeks (January 2026 – May 2026, Shivamogga, Karnataka). Served as the official GeeksforGeeks Campus Mantri at PESITM, promoting coding culture and technical learning among students. Responsibilities: Promoted coding culture and technical learning among students; Organized and supported workshops, coding sessions, and awareness events; Helped students access GeeksforGeeks resources, courses, and contests; Built and engaged a strong on-campus tech community; Encouraged participation in DSA practice and skill-development activities; Conducted DSA sessions and technical workshops; Connected students to GeeksforGeeks learning resources. Impact: Built a strong on-campus tech community; Increased student engagement with DSA and competitive programming; Organized multiple coding sessions and workshops. Events organized: DSA Workshops, Coding Sessions, GFG Contest Drives, Technical Awareness Events.",
+    "source": "leadership.json",
+    "category": "leadership",
+    "tags": [
+      "leadership",
+      "community",
+      "ambassador"
+    ],
+    "keywords": [
+      "geeksforgeeks",
+      "campus mantri",
+      "leadership",
+      "campus",
+      "ambassador",
+      "mantri"
+    ]
+  },
+  {
+    "id": "leadership_25",
+    "text": "Leadership: Harsh served as Campus Ambassador at Anvesana Innovation & Entrepreneurial Forum (August 2025 – Present, Shivamogga, Karnataka). Representing Anvesana Innovation & Entrepreneurial Forum on campus, organizing technical events, and driving entrepreneurship awareness among students. Responsibilities: Represented the organization on campus and increased student awareness about innovation and entrepreneurship programs; Promoted events, challenges, and technical initiatives among students; Helped connect interested students with startup and innovation opportunities; Supported outreach and engagement activities through campaigns and peer networking; Encouraged participation in innovation, leadership, and skill-building events; Organized 4+ technical events and workshops with 30+ student participants; Coordinated entrepreneurship awareness campaigns across campus. Impact: Organized 4+ technical events and workshops; Engaged 30+ student participants in events; Increased campus awareness about innovation and entrepreneurship; Connected students with startup opportunities. Events organized: Technical Workshops, Innovation Challenges, Entrepreneurship Campaigns, Anvesana Hackathon Support.",
+    "source": "leadership.json",
+    "category": "leadership",
+    "tags": [
+      "leadership",
+      "community",
+      "ambassador"
+    ],
+    "keywords": [
+      "anvesana",
+      "campus ambassador",
+      "leadership",
+      "campus",
+      "ambassador",
+      "mantri"
+    ]
+  },
+  {
+    "id": "goals_26",
+    "text": "Harsh Raj Gupta's goals — Short-term: Complete Google Cloud Professional Cloud Architect certification; Build a production-ready RAG-based AI assistant for the portfolio; Contribute to open-source AI or backend projects on GitHub; Deepen skills in FastAPI, Next.js, and PostgreSQL; Secure a strong SWE or AI engineer internship for 2026-2027. Long-term: Become a full-stack AI engineer working on production LLM applications; Build and launch an AI-powered SaaS product; Contribute meaningfully to open-source AI/ML communities; Work at a leading tech company or AI startup; Complete B.Tech with distinction (CGPA above 9.0). 2026 goals: Continue growing at Vulcan Learning Collective internship; Ship AgentVision X as a public open-source project; Build and deploy the portfolio RAG AI assistant; Win or place in 2+ national-level hackathons; Complete Google Cloud certification; Reach 10+ public GitHub repositories. Career goal: undefined.",
+    "source": "goals.json",
+    "category": "goals",
+    "tags": [
+      "goals",
+      "future",
+      "career",
+      "ambitions"
+    ],
+    "keywords": [
+      "goals",
+      "future plans",
+      "career",
+      "ambitions",
+      "roadmap",
+      "aspire",
+      "want to"
+    ]
+  },
+  {
+    "id": "current_focus_27",
+    "text": "Harsh Raj Gupta is currently focused on: Agentic AI: Building and understanding autonomous AI agents that can plan, reason, and execute multi-step tasks using LLMs.; RAG Systems: Designing and implementing Retrieval-Augmented Generation pipelines for AI assistants and knowledge bases.; LLM Applications: Integrating large language models (Gemini, GPT) into production-ready applications via APIs.; Backend Engineering: Building scalable, performant backend systems with FastAPI, Node.js, Express.js, and REST/WebSocket APIs.; Data Analytics: Using Python (Pandas, NumPy), SQL, and visualization tools to extract insights from data.; System Design: Learning distributed systems, scalability patterns, and software architecture principles.. Technologies being actively learned: LangChain / LlamaIndex for RAG, Google Cloud Platform services, PostgreSQL advanced patterns, System design patterns at scale, Advanced Python for data science. 2026 learning roadmap: Complete Google Cloud Professional Cloud Architect certification; Build 2+ production RAG-based applications; Deepen expertise in Agentic AI frameworks; Contribute to open-source AI/ML projects; Land a full-time SWE or AI engineer role or stronger internship.",
+    "source": "current_focus.json",
+    "category": "current_focus",
+    "tags": [
+      "current work",
+      "learning now",
+      "focus"
+    ],
+    "keywords": [
+      "current",
+      "focus",
+      "learning",
+      "now",
+      "working on",
+      "agentic",
+      "rag",
+      "llm"
+    ]
+  },
+  {
+    "id": "timeline_28",
+    "text": "Harsh Raj Gupta's chronological journey: pre-2024 (School): Schooling at DAV Public School Chapra Bihar. 2024 (College Start): Joined PESITM for B.Tech CSE, 100/100 in Mathematics-I (VTU), Built PDF Designer, ADCA Certification, Techzonce It Solution Certifications, Project Exhibition First Prize. 2025 (Growth & Hackathons): 100/100 in Mathematics-II (VTU), Web Development Intern at Future Intern, Anvesana Campus Ambassador, Gemini Academy Certification, FOSS Hackathon Winner – Xrepo, ADVAYA Pan-India Hackathon, HACK MALENADU National Hackathon – 4th Place, Monaithon Hackathon Top 40 Finalist, Google Cloud Agentic AI Day, RAG Model Workshop, Built GateCraft, Leadership Talk with Zoho Global Head. 2026 (Professional & AI Focus): GeeksforGeeks Campus Mantri, Hack for Hire Winner – Internship Offer, Software Engineer Intern at Vulcan Learning Collective, Gemini AI Awareness Campus Ambassador, Built AgentVision X, Built Anvesync, Building Portfolio RAG Knowledge Base",
+    "source": "timeline.json",
+    "category": "timeline",
+    "tags": [
+      "timeline",
+      "journey",
+      "history",
+      "when"
+    ],
+    "keywords": [
+      "timeline",
+      "journey",
+      "history",
+      "when",
+      "year",
+      "chronological",
+      "started"
+    ]
+  },
+  {
+    "id": "socials_29",
+    "text": "Harsh Raj Gupta's online presence and social profiles: github: https://github.com/harshraj677 | linkedin: https://www.linkedin.com/in/harshraj677 | portfolio: https://harx.netlify.app | email: rajharsh7070@gmail.com | leetcode: https://leetcode.com/u/harshraj677 | geeksforgeeks: https://www.geeksforgeeks.org/profile/harshraj677 | resume: https://drive.google.com/file/d/1YKZhJEInOZ2rLprRrcRD28KA-KztsygO/view?usp=drivesdk",
+    "source": "socials.json",
+    "category": "socials",
+    "tags": [
+      "social",
+      "links",
+      "profiles"
+    ],
+    "keywords": [
+      "github",
+      "linkedin",
+      "portfolio",
+      "leetcode",
+      "geeksforgeeks",
+      "social",
+      "links",
+      "profiles",
+      "online"
+    ]
+  },
+  {
+    "id": "about_30",
+    "text": "Quick reference: Harsh Raj Gupta — Computer Science & Engineering Student | Junior Software Developer @ Vulcan Learning Collective | AI & Data Analytics Enthusiast | Python & SQL Developer | Campus Mantri @ GeeksforGeeks. Second-year CS student (CGPA 8.95) with backend and full-stack experience across React, Next.js, Node.js, FastAPI, and MongoDB. Built projects with real LLM integrations, RBAC, and real-time WebSocket dashboards. Hackathon finalist (4th of 150 nationally) and FOSS hackathon winner.. Contact: rajharsh7070@gmail.com | +91-9835251540. Portfolio: https://harx.netlify.app. GitHub: https://github.com/harshraj677. LinkedIn: https://www.linkedin.com/in/harshraj677.",
+    "source": "knowledge.json",
+    "category": "about",
+    "tags": [
+      "quick reference",
+      "summary",
+      "contact"
+    ],
+    "keywords": [
+      "summary",
+      "overview",
+      "quick",
+      "tldr",
+      "who",
+      "contact"
+    ]
+  },
+  {
+    "id": "faq_31",
+    "text": "Harsh Raj Gupta is a 2nd-year B.Tech CSE student at PESITM (VTU), Shivamogga with CGPA 8.95. He is a software engineer intern at Vulcan Learning Collective, a hackathon winner, and an AI enthusiast specializing in backend development and LLM applications.",
+    "source": "knowledge.json",
+    "category": "faq",
+    "tags": [
+      "faq",
+      "quick answer"
+    ],
+    "keywords": [
+      "who is harsh"
+    ]
+  },
+  {
+    "id": "faq_32",
+    "text": "Harsh knows Python, JavaScript, TypeScript, Java, SQL. He is proficient in React, Next.js, Node.js, FastAPI, Tailwind CSS, Prisma, MongoDB, PostgreSQL, Firebase, and GCP. He also works with the Gemini API and WebSockets.",
+    "source": "knowledge.json",
+    "category": "faq",
+    "tags": [
+      "faq",
+      "quick answer"
+    ],
+    "keywords": [
+      "what tech does harsh know"
+    ]
+  },
+  {
+    "id": "faq_33",
+    "text": "AgentVision X (AI Observability Dashboard), Anvesync (Workforce Management Platform), Xrepo (Quantum Circuit Playground – FOSS winner), GateCraft (Logic Gate Playground), PDF Designer, and his personal portfolio at harx.netlify.app.",
+    "source": "knowledge.json",
+    "category": "faq",
+    "tags": [
+      "faq",
+      "quick answer"
+    ],
+    "keywords": [
+      "what projects has harsh built"
+    ]
+  },
+  {
+    "id": "faq_34",
+    "text": "Harsh won Hack for Hire 2026 (1st of 50+ teams, led to internship) and the FOSS Hackathon 2025 (1st of 50+ teams with Xrepo). He was also a top 4 finalist at HACK MALENADU from 2346+ national registrations.",
+    "source": "knowledge.json",
+    "category": "faq",
+    "tags": [
+      "faq",
+      "quick answer"
+    ],
+    "keywords": [
+      "what hackathons has harsh won"
+    ]
+  },
+  {
+    "id": "faq_35",
+    "text": "Harsh currently interns at Vulcan Learning Collective LLP as a Software Engineer Intern (March 2026 – Present), working on backend services and REST APIs.",
+    "source": "knowledge.json",
+    "category": "faq",
+    "tags": [
+      "faq",
+      "quick answer"
+    ],
+    "keywords": [
+      "where does harsh intern"
+    ]
+  },
+  {
+    "id": "faq_36",
+    "text": "Email: rajharsh7070@gmail.com | Phone: +91-9835251540 | LinkedIn: linkedin.com/in/harshraj677 | GitHub: github.com/harshraj677 | Portfolio: harx.netlify.app",
+    "source": "knowledge.json",
+    "category": "faq",
+    "tags": [
+      "faq",
+      "quick answer"
+    ],
+    "keywords": [
+      "how to contact harsh"
+    ]
+  },
+  {
+    "id": "faq_37",
+    "text": "Harsh's CGPA is 8.95/10.0 at PESITM (VTU). He has scored 100/100 in both Mathematics-I and Mathematics-II.",
+    "source": "knowledge.json",
+    "category": "faq",
+    "tags": [
+      "faq",
+      "quick answer"
+    ],
+    "keywords": [
+      "what is harsh cgpa"
+    ]
+  },
+  {
+    "id": "faq_38",
+    "text": "Harsh is currently focused on Agentic AI, RAG systems, LLM applications (Gemini API), backend engineering (FastAPI, Node.js), and Google Cloud. He is working toward his GCP Professional Cloud Architect certification.",
+    "source": "knowledge.json",
+    "category": "faq",
+    "tags": [
+      "faq",
+      "quick answer"
+    ],
+    "keywords": [
+      "what is harsh current focus"
+    ]
+  }
+]

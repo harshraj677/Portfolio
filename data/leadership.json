@@ -1,0 +1,58 @@
+{
+  "leadership_roles": [
+    {
+      "id": 1,
+      "organization": "GeeksforGeeks",
+      "role": "Campus Mantri",
+      "duration": "January 2026 – May 2026",
+      "start_date": "2026-01",
+      "end_date": "2026-05",
+      "location": "Shivamogga, Karnataka",
+      "description": "Served as the official GeeksforGeeks Campus Mantri at PESITM, promoting coding culture and technical learning among students.",
+      "responsibilities": [
+        "Promoted coding culture and technical learning among students",
+        "Organized and supported workshops, coding sessions, and awareness events",
+        "Helped students access GeeksforGeeks resources, courses, and contests",
+        "Built and engaged a strong on-campus tech community",
+        "Encouraged participation in DSA practice and skill-development activities",
+        "Conducted DSA sessions and technical workshops",
+        "Connected students to GeeksforGeeks learning resources"
+      ],
+      "impact": [
+        "Built a strong on-campus tech community",
+        "Increased student engagement with DSA and competitive programming",
+        "Organized multiple coding sessions and workshops"
+      ],
+      "communities_managed": ["GeeksforGeeks PESITM Chapter"],
+      "events_organized": ["DSA Workshops", "Coding Sessions", "GFG Contest Drives", "Technical Awareness Events"]
+    },
+    {
+      "id": 2,
+      "organization": "Anvesana Innovation & Entrepreneurial Forum",
+      "role": "Campus Ambassador",
+      "duration": "August 2025 – Present",
+      "start_date": "2025-08",
+      "end_date": null,
+      "location": "Shivamogga, Karnataka",
+      "current": true,
+      "description": "Representing Anvesana Innovation & Entrepreneurial Forum on campus, organizing technical events, and driving entrepreneurship awareness among students.",
+      "responsibilities": [
+        "Represented the organization on campus and increased student awareness about innovation and entrepreneurship programs",
+        "Promoted events, challenges, and technical initiatives among students",
+        "Helped connect interested students with startup and innovation opportunities",
+        "Supported outreach and engagement activities through campaigns and peer networking",
+        "Encouraged participation in innovation, leadership, and skill-building events",
+        "Organized 4+ technical events and workshops with 30+ student participants",
+        "Coordinated entrepreneurship awareness campaigns across campus"
+      ],
+      "impact": [
+        "Organized 4+ technical events and workshops",
+        "Engaged 30+ student participants in events",
+        "Increased campus awareness about innovation and entrepreneurship",
+        "Connected students with startup opportunities"
+      ],
+      "events_organized": ["Technical Workshops", "Innovation Challenges", "Entrepreneurship Campaigns", "Anvesana Hackathon Support"],
+      "student_outreach": "30+ students engaged per event"
+    }
+  ]
+}

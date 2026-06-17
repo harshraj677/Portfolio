@@ -1,0 +1,50 @@
+{
+  "goals": {
+    "short_term": [
+      "Complete Google Cloud Professional Cloud Architect certification",
+      "Build a production-ready RAG-based AI assistant for the portfolio",
+      "Contribute to open-source AI or backend projects on GitHub",
+      "Deepen skills in FastAPI, Next.js, and PostgreSQL",
+      "Secure a strong SWE or AI engineer internship for 2026-2027"
+    ],
+    "long_term": [
+      "Become a full-stack AI engineer working on production LLM applications",
+      "Build and launch an AI-powered SaaS product",
+      "Contribute meaningfully to open-source AI/ML communities",
+      "Work at a leading tech company or AI startup",
+      "Complete B.Tech with distinction (CGPA above 9.0)"
+    ],
+    "goals_2026": [
+      "Continue growing at Vulcan Learning Collective internship",
+      "Ship AgentVision X as a public open-source project",
+      "Build and deploy the portfolio RAG AI assistant",
+      "Win or place in 2+ national-level hackathons",
+      "Complete Google Cloud certification",
+      "Reach 10+ public GitHub repositories"
+    ],
+    "career_goals": [
+      "Land a full-time role as a Software Engineer or AI Engineer after graduation (2028)",
+      "Specialize in Agentic AI and backend systems",
+      "Work on products that use LLMs to solve real-world problems at scale",
+      "Build a strong open-source and professional portfolio"
+    ],
+    "learning_roadmap": [
+      {
+        "phase": "2024-2025",
+        "focus": "Foundation – MERN Stack, DSA, first projects"
+      },
+      {
+        "phase": "2025-2026",
+        "focus": "Growth – Internships, hackathons, LLM integrations, RAG systems"
+      },
+      {
+        "phase": "2026-2027",
+        "focus": "Specialization – Agentic AI, backend engineering, cloud, open source"
+      },
+      {
+        "phase": "2027-2028",
+        "focus": "Mastery – Full-time-ready, production systems, leadership"
+      }
+    ]
+  }
+}

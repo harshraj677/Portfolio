@@ -1,0 +1,276 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "name": "AgentVision X",
+      "slug": "agentvisionx",
+      "description": "AI Agent Observability Dashboard that visualizes the internal pipeline of a Gemini LLM query in real-time.",
+      "long_description": "AgentVision X is an advanced AI observability platform that breaks down a Gemini LLM query into 7 distinct pipeline stages — parsing, retrieval, reasoning, generation, validation, and more — and streams the progress to the frontend over WebSockets. It provides deep transparency into how AI agents process and respond to queries, with per-step latency tracking, token cost analysis, and an interactive execution graph.",
+      "problem_statement": "Lack of transparency in how LLMs process queries makes debugging and optimization difficult for developers.",
+      "solution": "A real-time observability dashboard that visualizes every stage of an LLM pipeline, tracks performance metrics, and allows step-by-step replay and failure injection.",
+      "features": [
+        "7-stage LLM pipeline visualization (parsing, retrieval, reasoning, generation, validation)",
+        "Real-time WebSocket streaming of pipeline progress",
+        "Per-step latency tracking",
+        "Prompt, completion, and thinking token tracking",
+        "Cost estimation per query",
+        "Animated execution graph",
+        "Timeline scrubber to replay past runs",
+        "Step inspector for inputs and outputs",
+        "Failure injection mode to re-run individual steps"
+      ],
+      "tech_stack": ["React", "FastAPI", "Python", "WebSockets", "Gemini API"],
+      "architecture": "Client-server architecture with React frontend, FastAPI backend, WebSocket streaming for real-time updates, and Gemini API integration for LLM pipeline execution.",
+      "apis_used": ["Gemini API (Google)"],
+      "database": null,
+      "deployment": null,
+      "github_url": null,
+      "live_url": null,
+      "category": "AI / Observability",
+      "status": "completed",
+      "year": 2026,
+      "learning_outcomes": [
+        "LLM pipeline architecture",
+        "Real-time WebSocket communication",
+        "FastAPI backend development",
+        "Gemini API integration",
+        "AI observability patterns"
+      ],
+      "future_scope": [
+        "Support for multiple LLM providers",
+        "Persistent run history with database storage",
+        "Comparative analytics across runs",
+        "Team collaboration features"
+      ],
+      "challenges_faced": [
+        "Designing a generalized 7-stage pipeline abstraction for LLM queries",
+        "Handling real-time streaming with WebSockets efficiently"
+      ],
+      "project_type": "AI / Backend / Full-Stack",
+      "tags": ["AI", "LLM", "Gemini", "WebSockets", "FastAPI", "React", "Observability", "Agentic AI"]
+    },
+    {
+      "id": 2,
+      "name": "Anvesync",
+      "slug": "anvesync",
+      "description": "Full-stack workforce management platform with employee records, attendance tracking, leave management, and admin analytics.",
+      "long_description": "Anvesync is a production-grade HR and workforce management platform built with Next.js and TypeScript. It supports multiple roles (admin, manager, employee) with role-based access control backed by Prisma and a relational database. Features include location-aware check-in/check-out attendance, leave request workflows, employee record management, and rich admin analytics dashboards.",
+      "problem_statement": "Organizations need a unified platform to manage employee records, attendance, and leave workflows with role-based access.",
+      "solution": "A full-stack HR platform with RBAC, location-aware attendance, leave management, and analytics, all built on a modern Next.js + Prisma stack.",
+      "features": [
+        "Employee record management",
+        "Location-aware check-in/check-out attendance",
+        "Leave request and approval workflows",
+        "Admin analytics dashboard",
+        "Role-based access control (admin, manager, employee)",
+        "Reusable UI components for tables, filters, and charts",
+        "Next.js API routes for auth, attendance, leaves, and reporting"
+      ],
+      "tech_stack": ["Next.js", "TypeScript", "Prisma", "Tailwind CSS", "PostgreSQL"],
+      "architecture": "Full-stack Next.js application with API routes, Prisma ORM connected to a relational database (PostgreSQL), RBAC middleware, and Tailwind CSS UI.",
+      "apis_used": [],
+      "database": "PostgreSQL (via Prisma ORM)",
+      "deployment": null,
+      "github_url": null,
+      "live_url": null,
+      "category": "Full-Stack / HR Platform",
+      "status": "completed",
+      "year": 2026,
+      "learning_outcomes": [
+        "Next.js API routes and full-stack patterns",
+        "Prisma ORM with relational databases",
+        "RBAC implementation",
+        "TypeScript in production",
+        "Complex dashboard UI architecture"
+      ],
+      "future_scope": [
+        "Mobile app for attendance",
+        "Payroll integration",
+        "Advanced reporting and exports",
+        "Multi-company support"
+      ],
+      "challenges_faced": [
+        "Implementing location-aware attendance securely",
+        "Designing a flexible RBAC system for multiple role types"
+      ],
+      "project_type": "Full-Stack / SaaS",
+      "tags": ["Next.js", "TypeScript", "Prisma", "RBAC", "HR", "Workforce Management", "Dashboard", "Tailwind CSS"]
+    },
+    {
+      "id": 3,
+      "name": "Xrepo",
+      "slug": "xrepo",
+      "description": "Open-source collaborative platform for developing, sharing, and iterating on quantum algorithms. FOSS Hackathon Winner.",
+      "long_description": "Xrepo is a web-based quantum circuit playground and collaborative repository built for the FOSS Hackathon, where it won 1st place out of 50+ teams. It provides a visual quantum circuit designer with real-time multi-user collaboration, a versioned repository system tailored to quantum circuits, and an integrated Gemini-powered learning assistant and documentation generator.",
+      "problem_statement": "Quantum computing lacks accessible, collaborative tools for learning, developing, and sharing quantum algorithms.",
+      "solution": "An open-source web platform combining a visual quantum circuit designer, real-time collaboration, version control, and an AI-powered learning assistant.",
+      "features": [
+        "Web-based quantum circuit designer",
+        "Real-time multi-user collaboration",
+        "Versioned repository for quantum circuits",
+        "Gemini API-powered documentation generation",
+        "In-app learning assistant for quantum computing",
+        "Open-source architecture"
+      ],
+      "tech_stack": ["React", "Node.js", "MongoDB", "Firebase", "Gemini API"],
+      "architecture": "React frontend with Node.js/Express backend, MongoDB for circuit storage and versioning, Firebase for real-time collaboration, and Gemini API for AI features.",
+      "apis_used": ["Gemini API (Google)"],
+      "database": "MongoDB, Firebase (Firestore)",
+      "deployment": null,
+      "github_url": "https://github.com/harshraj677/Xrepo",
+      "live_url": null,
+      "category": "Open Source / Quantum Computing",
+      "status": "completed",
+      "year": 2025,
+      "learning_outcomes": [
+        "Real-time multi-user collaboration architecture",
+        "Firebase Firestore for live data sync",
+        "Gemini API integration",
+        "Open-source project structuring",
+        "Quantum circuit UI design"
+      ],
+      "future_scope": [
+        "Quantum circuit simulation",
+        "Integration with IBM Quantum API",
+        "Community marketplace for circuits",
+        "Educational course integration"
+      ],
+      "challenges_faced": [
+        "Designing a versioning system for non-traditional quantum circuit data",
+        "Implementing real-time collaboration without conflicts"
+      ],
+      "project_type": "Open Source / Full-Stack",
+      "tags": ["Quantum Computing", "Open Source", "React", "Node.js", "Firebase", "MongoDB", "Gemini API", "Hackathon Winner", "FOSS"]
+    },
+    {
+      "id": 4,
+      "name": "GateCraft",
+      "slug": "gatecraft",
+      "description": "Interactive playground for learning and experimenting with digital logic gates. Select a gate, toggle inputs, and see the output in real time.",
+      "long_description": "GateCraft is an educational web application that provides an interactive environment for learning digital logic gates. Users can select any logic gate (AND, OR, NOT, NAND, NOR, XOR, XNOR), toggle inputs, and instantly see the output. It integrates Gemini 2.5 AI to explain gate behavior and logic concepts in an accessible way.",
+      "problem_statement": "Learning digital logic gates is often abstract and textbook-heavy, making it hard for students to develop intuition.",
+      "solution": "An interactive, visual logic gate playground with AI-assisted explanations to make digital logic tangible and engaging.",
+      "features": [
+        "Interactive logic gate selection (AND, OR, NOT, NAND, NOR, XOR, XNOR)",
+        "Real-time input toggling and output visualization",
+        "AI-powered explanations via Gemini 2.5",
+        "Educational content for each gate type",
+        "Responsive design with Tailwind CSS"
+      ],
+      "tech_stack": ["React.js", "TypeScript", "Tailwind CSS", "Gemini 2.5 AI"],
+      "architecture": "React + TypeScript SPA with Tailwind CSS styling and Gemini API for AI explanations.",
+      "apis_used": ["Gemini 2.5 API"],
+      "database": null,
+      "deployment": "Netlify",
+      "github_url": "https://github.com/harshraj677/Gatecraft.git",
+      "live_url": "https://gatecraft.netlify.app/",
+      "category": "Education / Frontend",
+      "status": "live",
+      "year": 2025,
+      "learning_outcomes": [
+        "TypeScript with React",
+        "Gemini API integration",
+        "Educational tool design",
+        "Interactive UI patterns"
+      ],
+      "future_scope": [
+        "Circuit builder combining multiple gates",
+        "Truth table generation",
+        "Boolean algebra simplification",
+        "Quiz mode for students"
+      ],
+      "challenges_faced": [
+        "Making gate logic intuitive through visual design"
+      ],
+      "project_type": "Education / Frontend",
+      "tags": ["React", "TypeScript", "Tailwind CSS", "Gemini AI", "Digital Logic", "Education", "Interactive", "Netlify"]
+    },
+    {
+      "id": 5,
+      "name": "PDF Designer",
+      "slug": "pdf-designer",
+      "description": "The ultimate free online PDF tool for all your needs — create, edit, and export PDF documents from the browser.",
+      "long_description": "PDF Designer is a browser-based PDF creation and editing tool that allows users to design professional PDF documents without any software installation. It features a rich text editor, template management, and multiple export options, all built with vanilla JavaScript, HTML, and CSS.",
+      "problem_statement": "Most PDF tools require paid software or desktop applications, limiting accessibility.",
+      "solution": "A free, browser-based PDF tool that enables creation, editing, and export of professional PDFs directly in the browser.",
+      "features": [
+        "PDF creation from scratch",
+        "Template management",
+        "Export options",
+        "Rich text editor",
+        "Browser-based, no installation required"
+      ],
+      "tech_stack": ["JavaScript", "HTML", "CSS"],
+      "architecture": "Client-side only web application using browser APIs for PDF generation.",
+      "apis_used": [],
+      "database": null,
+      "deployment": "Blogspot",
+      "github_url": "https://github.com/harshraj677/PDFDesigner.git",
+      "live_url": "https://pdfdesigner.blogspot.com/?m=1",
+      "category": "Productivity / Frontend",
+      "status": "live",
+      "year": 2024,
+      "learning_outcomes": [
+        "Browser-based file generation",
+        "Vanilla JavaScript DOM manipulation",
+        "PDF rendering techniques"
+      ],
+      "future_scope": [
+        "React rewrite with improved UI",
+        "Cloud storage integration",
+        "Collaborative editing"
+      ],
+      "challenges_faced": [
+        "Implementing PDF rendering in the browser without server-side dependencies"
+      ],
+      "project_type": "Productivity / Frontend",
+      "tags": ["PDF", "JavaScript", "HTML", "CSS", "Browser Tool", "Free Tool", "Productivity"]
+    },
+    {
+      "id": 6,
+      "name": "Harx Portfolio",
+      "slug": "portfolio",
+      "description": "Personal portfolio website showcasing projects, achievements, and technical skills, built with React and Tailwind CSS.",
+      "long_description": "Harx is a fully responsive personal portfolio website built with React.js, Node.js, Tailwind CSS, and EmailJS. It showcases projects, experience, achievements, skills, and a contact form with email delivery integration.",
+      "problem_statement": "A developer needs a professional online presence to showcase their work and make it easy for recruiters and collaborators to reach them.",
+      "solution": "A modern, animated, fully responsive portfolio website with project showcase, achievements gallery, and a working contact form.",
+      "features": [
+        "Project showcase with filtering",
+        "Achievements gallery with lightbox",
+        "Animated hero section",
+        "Dark/light theme toggle",
+        "Working contact form via EmailJS",
+        "Skills and experience timeline",
+        "Responsive design"
+      ],
+      "tech_stack": ["React.js", "Node.js", "Tailwind CSS", "EmailJS", "Framer Motion", "Vite"],
+      "architecture": "React SPA with Vite build tool, Tailwind CSS for styling, Framer Motion for animations, and EmailJS for contact form.",
+      "apis_used": ["EmailJS"],
+      "database": null,
+      "deployment": "Netlify",
+      "github_url": "https://github.com/harshraj677/Portfolio.git",
+      "live_url": "https://harx.netlify.app/",
+      "category": "Personal / Portfolio",
+      "status": "live",
+      "year": 2024,
+      "learning_outcomes": [
+        "React component architecture",
+        "Framer Motion animations",
+        "Tailwind CSS advanced patterns",
+        "EmailJS integration",
+        "Netlify deployment"
+      ],
+      "future_scope": [
+        "Add AI chatbot powered by RAG",
+        "Blog section",
+        "Animated project case studies"
+      ],
+      "challenges_faced": [
+        "Optimizing animations for performance",
+        "EmailJS CORS handling"
+      ],
+      "project_type": "Personal / Frontend",
+      "tags": ["React", "Tailwind CSS", "Framer Motion", "Portfolio", "Netlify", "EmailJS", "Responsive"]
+    }
+  ]
+}

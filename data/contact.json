@@ -1,0 +1,22 @@
+{
+  "contact": {
+    "phone": "+91-9835251540",
+    "email": "rajharsh7070@gmail.com",
+    "location": "Shivamogga, Karnataka, India",
+    "availability": "Open to internship opportunities and collaborative projects",
+    "preferred_roles": [
+      "Software Engineer Intern",
+      "Backend Engineer Intern",
+      "AI/ML Engineer Intern",
+      "Full-Stack Developer Intern"
+    ],
+    "preferred_work_mode": ["Remote", "Hybrid", "On-site"],
+    "open_to": [
+      "SWE Internships",
+      "AI/ML internships",
+      "Open-source collaboration",
+      "Hackathon team-ups",
+      "Technical mentorship"
+    ]
+  }
+}

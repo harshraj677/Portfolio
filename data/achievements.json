@@ -1,0 +1,125 @@
+{
+  "achievements": [
+    {
+      "id": 1,
+      "title": "Hack for Hire 2026 Winner",
+      "type": "Hackathon",
+      "year": 2026,
+      "position": "1st Place",
+      "description": "Won 1st place out of 50+ teams at the Hack for Hire hackathon organized by Vulcan Learning Collective at the Anvesana & IT-BT Karnataka 36-hour hackathon. This win directly led to an internship offer from Vulcan Learning Collective LLP.",
+      "organizer": "Vulcan Learning Collective / Anvesana & IT-BT Karnataka",
+      "outcome": "Led to internship offer at Vulcan Learning Collective LLP",
+      "category": "Competition"
+    },
+    {
+      "id": 2,
+      "title": "FOSS Hackathon Winner – Xrepo",
+      "type": "Hackathon",
+      "year": 2025,
+      "position": "1st Place",
+      "description": "Won 1st place out of 50+ teams at the FOSS (localhost) Hackathon for Xrepo, an open-source collaborative quantum circuit platform. Represented PESITM at the Pan-India ADVAYA Hackathon at BGSCET Bengaluru.",
+      "organizer": "localhost / FOSS Community",
+      "outcome": "Represented PESITM at Pan-India ADVAYA Hackathon, BGSCET Bengaluru",
+      "category": "Competition"
+    },
+    {
+      "id": 3,
+      "title": "HACK MALENADU National Hackathon Finalist",
+      "type": "Hackathon",
+      "year": 2025,
+      "position": "4th of 150 Finalist Teams",
+      "description": "Secured 4th place among 150 finalist teams selected from 2,346+ national registrations at HACK MALENADU National Hackathon.",
+      "organizer": "HACK MALENADU",
+      "outcome": "Top 4 nationally from 2,346+ registrations",
+      "category": "Competition"
+    },
+    {
+      "id": 4,
+      "title": "100/100 in Mathematics-I (VTU)",
+      "type": "Academic",
+      "year": 2024,
+      "position": "Perfect Score",
+      "description": "Achieved a perfect score of 100/100 in Mathematics-I under Visvesvaraya Technological University.",
+      "organizer": "Visvesvaraya Technological University (VTU)",
+      "outcome": "Perfect academic score",
+      "category": "Academic"
+    },
+    {
+      "id": 5,
+      "title": "100/100 in Mathematics-II (VTU)",
+      "type": "Academic",
+      "year": 2025,
+      "position": "Perfect Score",
+      "description": "Achieved a perfect score of 100/100 in Mathematics-II under Visvesvaraya Technological University.",
+      "organizer": "Visvesvaraya Technological University (VTU)",
+      "outcome": "Perfect academic score",
+      "category": "Academic"
+    },
+    {
+      "id": 6,
+      "title": "Project Exhibition Certification – First Prize",
+      "type": "Academic",
+      "year": 2024,
+      "position": "1st Prize",
+      "description": "Earned first prize at the college project exhibition for exceptional performance.",
+      "organizer": "PESITM",
+      "outcome": "Recognition for technical project excellence",
+      "category": "Achievement"
+    },
+    {
+      "id": 7,
+      "title": "ADVAYA Pan-India Hackathon Representative",
+      "type": "Hackathon",
+      "year": 2025,
+      "position": "Participant / Representative",
+      "description": "Represented PESITM at the ADVAYA Pan-India Hackathon held at BGSCET Bengaluru after winning the FOSS Hackathon.",
+      "organizer": "ADVAYA / BGSCET Bengaluru",
+      "outcome": "College representation at national-level event",
+      "category": "Participated"
+    },
+    {
+      "id": 8,
+      "title": "Monaithon Hackathon Top 40 Finalist",
+      "type": "Hackathon",
+      "year": 2025,
+      "position": "Top 40 Finalist",
+      "description": "Selected as a top 40 finalist team in Monaithon Hackathon 2025.",
+      "organizer": "Monaithon",
+      "outcome": "Top 40 finalist selection",
+      "category": "Participated"
+    },
+    {
+      "id": 9,
+      "title": "Google Cloud Agentic AI Day Certificate",
+      "type": "Certification / Event",
+      "year": 2025,
+      "position": "Participant",
+      "description": "Participated in Google Cloud Agentic AI Day, exploring next-generation AI innovations and agentic AI systems.",
+      "organizer": "Google Cloud",
+      "outcome": "Certificate of participation",
+      "category": "Learning"
+    },
+    {
+      "id": 10,
+      "title": "Hands-On Workshop on RAG Model",
+      "type": "Workshop",
+      "year": 2025,
+      "position": "Participant",
+      "description": "Participated in a hands-on workshop on Retrieval-Augmented Generation (RAG) models, enhancing practical AI skills.",
+      "organizer": "Technical workshop",
+      "outcome": "Practical RAG skills development",
+      "category": "Learning"
+    },
+    {
+      "id": 11,
+      "title": "Leadership Session with Zoho Global Head",
+      "type": "Leadership",
+      "year": 2025,
+      "position": "Participant",
+      "description": "Part of a leadership session with Zoho Global Head Kuppulakshmi Krishnamoorthy.",
+      "organizer": "Zoho / PESITM",
+      "outcome": "Leadership development and industry exposure",
+      "category": "Learning"
+    }
+  ]
+}

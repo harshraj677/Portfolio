@@ -1,0 +1,21 @@
+{
+  "opensource": {
+    "contributions": [
+      {
+        "project": "Xrepo",
+        "description": "Built and open-sourced Xrepo – a collaborative quantum circuit playground with real-time multi-user editing, versioned circuit repository, and Gemini AI assistant.",
+        "role": "Creator / Lead Developer",
+        "year": 2025,
+        "github_url": "https://github.com/harshraj677/Xrepo",
+        "impact": "Won FOSS Hackathon (1st of 50+ teams); represented PESITM at ADVAYA Pan-India Hackathon",
+        "type": "original_project"
+      }
+    ],
+    "philosophy": "Harsh believes in building tools that are open, accessible, and beneficial to the developer community. The FOSS Hackathon win reflects his commitment to open-source values.",
+    "future_plans": [
+      "Open-source AgentVision X as a public AI observability tool",
+      "Contribute to existing AI/ML open-source projects",
+      "Publish reusable backend and RAG utility libraries"
+    ]
+  }
+}

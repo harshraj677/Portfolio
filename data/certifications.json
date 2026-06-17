@@ -1,0 +1,58 @@
+{
+  "certifications": [
+    {
+      "id": 1,
+      "name": "Google Cloud Professional Cloud Architect",
+      "issuer": "Google Cloud",
+      "status": "in_progress",
+      "year": 2026,
+      "description": "Professional-level certification for designing, developing, and managing robust, secure, scalable, highly available, and dynamic solutions on Google Cloud.",
+      "category": "Cloud"
+    },
+    {
+      "id": 2,
+      "name": "Gemini Academy",
+      "issuer": "Google",
+      "status": "completed",
+      "year": 2025,
+      "description": "Certification from Google's Gemini Academy covering Gemini AI models, generative AI capabilities, and practical applications.",
+      "category": "AI / Generative AI"
+    },
+    {
+      "id": 3,
+      "name": "ADCA (Advanced Diploma in Computer Applications)",
+      "issuer": "ADCA Institute",
+      "status": "completed",
+      "year": 2024,
+      "description": "Advanced Diploma in Computer Applications covering computer fundamentals, programming, and software applications.",
+      "category": "Computer Applications"
+    },
+    {
+      "id": 4,
+      "name": "Techzonce It Solution – Certification I",
+      "issuer": "Techzonce It Solution",
+      "status": "completed",
+      "year": 2024,
+      "description": "Technical certification from Techzonce It Solution.",
+      "category": "Technical"
+    },
+    {
+      "id": 5,
+      "name": "Techzonce It Solution – Certification II",
+      "issuer": "Techzonce It Solution",
+      "status": "completed",
+      "year": 2024,
+      "description": "Technical certification from Techzonce It Solution.",
+      "category": "Technical"
+    },
+    {
+      "id": 6,
+      "name": "FOSS Hackathon Participation Certificate",
+      "issuer": "FOSS / localhost",
+      "status": "completed",
+      "year": 2025,
+      "description": "Certificate for participating and winning the FOSS Hackathon with the Xrepo project.",
+      "category": "Hackathon"
+    }
+  ]
+}

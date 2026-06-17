@@ -1,0 +1,76 @@
+{
+  "repositories": [
+    {
+      "name": "AgentVisionX",
+      "description": "AI Agent Observability Dashboard – visualizes Gemini LLM query pipeline stages in real-time over WebSockets.",
+      "language": "Python / JavaScript",
+      "framework": ["React", "FastAPI"],
+      "category": "AI / Observability",
+      "topics": ["AI", "LLM", "Gemini", "WebSockets", "FastAPI", "React", "Observability"],
+      "github_url": null,
+      "live_url": null,
+      "stars": null,
+      "project_status": "completed"
+    },
+    {
+      "name": "Anvesync",
+      "description": "Full-stack workforce management platform with RBAC, location-aware attendance, and admin analytics.",
+      "language": "TypeScript",
+      "framework": ["Next.js", "Prisma", "Tailwind CSS"],
+      "category": "Full-Stack / HR",
+      "topics": ["Next.js", "TypeScript", "Prisma", "RBAC", "Tailwind CSS", "PostgreSQL"],
+      "github_url": null,
+      "live_url": null,
+      "stars": null,
+      "project_status": "completed"
+    },
+    {
+      "name": "Xrepo",
+      "description": "Open-source quantum circuit playground with real-time collaboration, versioned repository, and Gemini AI assistant. FOSS Hackathon Winner.",
+      "language": "JavaScript",
+      "framework": ["React", "Node.js", "Express", "Firebase"],
+      "category": "Open Source / Quantum Computing",
+      "topics": ["Quantum Computing", "Open Source", "React", "Firebase", "MongoDB", "Gemini API", "Collaboration"],
+      "github_url": "https://github.com/harshraj677/Xrepo",
+      "live_url": null,
+      "stars": null,
+      "project_status": "completed"
+    },
+    {
+      "name": "Gatecraft",
+      "description": "Interactive digital logic gate playground with AI-powered explanations via Gemini 2.5.",
+      "language": "TypeScript",
+      "framework": ["React", "Tailwind CSS"],
+      "category": "Education / Frontend",
+      "topics": ["Digital Logic", "Education", "React", "TypeScript", "Gemini AI", "Tailwind CSS"],
+      "github_url": "https://github.com/harshraj677/Gatecraft.git",
+      "live_url": "https://gatecraft.netlify.app/",
+      "stars": null,
+      "project_status": "live"
+    },
+    {
+      "name": "PDFDesigner",
+      "description": "Free browser-based PDF creation and editing tool with templates and export options.",
+      "language": "JavaScript",
+      "framework": [],
+      "category": "Productivity / Frontend",
+      "topics": ["PDF", "JavaScript", "HTML", "CSS", "Browser Tool"],
+      "github_url": "https://github.com/harshraj677/PDFDesigner.git",
+      "live_url": "https://pdfdesigner.blogspot.com/?m=1",
+      "stars": null,
+      "project_status": "live"
+    },
+    {
+      "name": "Portfolio",
+      "description": "Personal portfolio website – harx.netlify.app – built with React, Tailwind CSS, Framer Motion, and EmailJS.",
+      "language": "JavaScript",
+      "framework": ["React", "Tailwind CSS", "Framer Motion", "Vite"],
+      "category": "Personal / Portfolio",
+      "topics": ["React", "Tailwind CSS", "Framer Motion", "Portfolio", "EmailJS", "Netlify"],
+      "github_url": "https://github.com/harshraj677/Portfolio.git",
+      "live_url": "https://harx.netlify.app/",
+      "stars": null,
+      "project_status": "live"
+    }
+  ]
+}

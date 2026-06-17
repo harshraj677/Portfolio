@@ -11,6 +11,7 @@ import Footer from './components/Footer'
 import Preloader from './components/Preloader'
 import CustomCursor from './components/CustomCursor'
 import ThemeProvider from './context/ThemeContext'
+import FloatingButton from './components/chat/FloatingButton'
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -42,6 +43,7 @@ function App() {
         </main>
         
         <Footer />
+        <FloatingButton />
       </div>
     </ThemeProvider>
   )

@@ -1,0 +1,59 @@
+{
+  "positions": [
+    {
+      "id": 1,
+      "organization": "Vulcan Learning Collective LLP",
+      "position": "Software Engineer Intern",
+      "type": "internship",
+      "duration": "March 2026 – Present",
+      "location": "Remote, India",
+      "current": true,
+      "description": "Working on backend services, REST APIs, and software features for the company's learning platform in an agile environment.",
+      "impact": "Delivering backend improvements and API features for a live learning platform"
+    },
+    {
+      "id": 2,
+      "organization": "GeeksforGeeks",
+      "position": "Campus Mantri",
+      "type": "campus_leadership",
+      "duration": "January 2026 – May 2026",
+      "location": "PESITM, Shivamogga",
+      "current": false,
+      "description": "Official GeeksforGeeks campus representative promoting coding culture, DSA, and technical learning at PESITM.",
+      "impact": "Built and engaged a strong on-campus tech community; organized multiple workshops and coding events"
+    },
+    {
+      "id": 3,
+      "organization": "Anvesana Innovation & Entrepreneurial Forum",
+      "position": "Campus Ambassador",
+      "type": "campus_leadership",
+      "duration": "August 2025 – Present",
+      "location": "PESITM, Shivamogga",
+      "current": true,
+      "description": "Representing Anvesana on campus by organizing technical events, promoting entrepreneurship, and connecting students with innovation opportunities.",
+      "impact": "Organized 4+ events with 30+ student participants; drove entrepreneurship awareness campus-wide"
+    },
+    {
+      "id": 4,
+      "organization": "Student-led AI advocacy initiative (PESITM)",
+      "position": "Campus Ambassador – Gemini AI Awareness Program",
+      "type": "campus_role",
+      "duration": "2026 – Present",
+      "location": "PESITM, Shivamogga",
+      "current": true,
+      "description": "Running workshops and campaigns to introduce students to Gemini and generative AI tools.",
+      "impact": "Increased student awareness of generative AI capabilities and tools at PESITM"
+    },
+    {
+      "id": 5,
+      "organization": "Future Intern",
+      "position": "Web Development Intern",
+      "type": "internship",
+      "duration": "May 2025 – July 2025",
+      "location": "Remote",
+      "current": false,
+      "description": "Built responsive web applications using React.js and Node.js for multiple client projects.",
+      "impact": "Delivered multiple client-facing web applications with reusable, maintainable architectures"
+    }
+  ]
+}

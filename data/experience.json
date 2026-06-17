@@ -1,0 +1,73 @@
+{
+  "experience": [
+    {
+      "id": 1,
+      "company": "Vulcan Learning Collective LLP",
+      "role": "Software Engineer Intern",
+      "type": "internship",
+      "duration": "March 2026 – Present",
+      "start_date": "2026-03",
+      "end_date": null,
+      "location": "Remote, India",
+      "current": true,
+      "description": "Working as a Junior Software Developer Intern, developing and improving backend functionalities, building scalable APIs, and contributing to real-world software development projects on the company's learning platform.",
+      "responsibilities": [
+        "Working on backend services and REST APIs for the company's learning platform",
+        "Writing new endpoints, fixing bugs, and adding features alongside the core team",
+        "Improving database queries and contributing to code reviews",
+        "Following standard Git workflows and CI checks before deploys",
+        "Enhancing application performance and optimizing backend systems",
+        "Collaborating with the development team to ensure smooth and efficient product functionality"
+      ],
+      "technologies": ["Node.js", "REST APIs", "Git", "GitHub", "CI/CD", "Backend Development", "Database Management"],
+      "achievements": [
+        "Gained hands-on experience in backend development in an agile environment",
+        "Contributed to real-world product development cycles"
+      ]
+    },
+    {
+      "id": 2,
+      "company": "Future Intern",
+      "role": "Web Development Intern",
+      "type": "internship",
+      "duration": "May 2025 – July 2025",
+      "start_date": "2025-05",
+      "end_date": "2025-07",
+      "location": "Remote",
+      "current": false,
+      "description": "Built responsive web applications using React.js and Node.js across multiple client projects, implementing reusable UI components and MongoDB-backed REST APIs.",
+      "responsibilities": [
+        "Built responsive web applications using React.js and Node.js across multiple client projects",
+        "Implemented reusable UI components and MongoDB-backed REST APIs",
+        "Used Git for version control and participated in code reviews",
+        "Contributed to a clean, maintainable component architecture"
+      ],
+      "technologies": ["React.js", "Node.js", "MongoDB", "REST APIs", "Git", "HTML", "CSS", "JavaScript"],
+      "achievements": [
+        "Delivered multiple client projects with reusable component architectures",
+        "Gained practical experience in full-stack MERN development"
+      ]
+    },
+    {
+      "id": 3,
+      "company": "Student-led AI advocacy initiative (PESITM)",
+      "role": "Campus Ambassador – Gemini AI Awareness Program",
+      "type": "campus_role",
+      "duration": "2026 – Present",
+      "start_date": "2026-01",
+      "end_date": null,
+      "location": "PESITM, Shivamogga, Karnataka",
+      "current": true,
+      "description": "Running workshops and campaigns to introduce students to Gemini and generative AI tools for academic, creative, and problem-solving use cases.",
+      "responsibilities": [
+        "Running workshops and campaigns on Gemini and generative AI",
+        "Introducing students to AI tools for academic and creative use cases",
+        "Promoting awareness of LLM capabilities and applications"
+      ],
+      "technologies": ["Gemini API", "Generative AI", "LLMs"],
+      "achievements": [
+        "Successfully conducted AI awareness sessions on campus"
+      ]
+    }
+  ]
+}

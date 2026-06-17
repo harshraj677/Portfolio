@@ -1,0 +1,183 @@
+{
+  "timeline": [
+    {
+      "year": "pre-2024",
+      "period": "School",
+      "events": [
+        {
+          "title": "Schooling at DAV Public School Chapra Bihar",
+          "type": "education",
+          "description": "Completed secondary school education at DAV Public School, Chapra, Bihar."
+        }
+      ]
+    },
+    {
+      "year": "2024",
+      "period": "College Start",
+      "events": [
+        {
+          "title": "Joined PESITM for B.Tech CSE",
+          "type": "education",
+          "date": "August 2024",
+          "description": "Enrolled in B.Tech Computer Science Engineering at PES Institute of Technology and Management under VTU."
+        },
+        {
+          "title": "100/100 in Mathematics-I (VTU)",
+          "type": "achievement",
+          "date": "2024",
+          "description": "Achieved perfect score in Mathematics-I."
+        },
+        {
+          "title": "Built PDF Designer",
+          "type": "project",
+          "date": "2024",
+          "description": "Created a browser-based free PDF creation and editing tool."
+        },
+        {
+          "title": "ADCA Certification",
+          "type": "certification",
+          "date": "2024",
+          "description": "Completed Advanced Diploma in Computer Applications."
+        },
+        {
+          "title": "Techzonce It Solution Certifications",
+          "type": "certification",
+          "date": "2024",
+          "description": "Completed two certifications from Techzonce It Solution."
+        },
+        {
+          "title": "Project Exhibition First Prize",
+          "type": "achievement",
+          "date": "2024",
+          "description": "Earned first prize at the college project exhibition."
+        }
+      ]
+    },
+    {
+      "year": "2025",
+      "period": "Growth & Hackathons",
+      "events": [
+        {
+          "title": "100/100 in Mathematics-II (VTU)",
+          "type": "achievement",
+          "date": "2025",
+          "description": "Achieved perfect score in Mathematics-II."
+        },
+        {
+          "title": "Web Development Intern at Future Intern",
+          "type": "internship",
+          "date": "May 2025 – July 2025",
+          "description": "Built responsive web applications using React.js and Node.js for multiple client projects."
+        },
+        {
+          "title": "Anvesana Campus Ambassador",
+          "type": "leadership",
+          "date": "August 2025",
+          "description": "Became Campus Ambassador for Anvesana Innovation & Entrepreneurial Forum."
+        },
+        {
+          "title": "Gemini Academy Certification",
+          "type": "certification",
+          "date": "2025",
+          "description": "Completed Google's Gemini Academy certification."
+        },
+        {
+          "title": "FOSS Hackathon Winner – Xrepo",
+          "type": "achievement",
+          "date": "2025",
+          "description": "Won 1st place at FOSS Hackathon with Xrepo out of 50+ teams."
+        },
+        {
+          "title": "ADVAYA Pan-India Hackathon",
+          "type": "achievement",
+          "date": "2025",
+          "description": "Represented PESITM at ADVAYA Pan-India Hackathon, BGSCET Bengaluru."
+        },
+        {
+          "title": "HACK MALENADU National Hackathon – 4th Place",
+          "type": "achievement",
+          "date": "2025",
+          "description": "Finished 4th among 150 finalist teams out of 2,346+ national registrations."
+        },
+        {
+          "title": "Monaithon Hackathon Top 40 Finalist",
+          "type": "achievement",
+          "date": "2025",
+          "description": "Selected as top 40 finalist team."
+        },
+        {
+          "title": "Google Cloud Agentic AI Day",
+          "type": "event",
+          "date": "2025",
+          "description": "Participated in Google Cloud Agentic AI Day."
+        },
+        {
+          "title": "RAG Model Workshop",
+          "type": "learning",
+          "date": "2025",
+          "description": "Participated in hands-on workshop on RAG models."
+        },
+        {
+          "title": "Built GateCraft",
+          "type": "project",
+          "date": "2025",
+          "description": "Built interactive digital logic gate playground with Gemini AI explanations."
+        },
+        {
+          "title": "Leadership Talk with Zoho Global Head",
+          "type": "event",
+          "date": "2025",
+          "description": "Attended leadership session with Kuppulakshmi Krishnamoorthy, Zoho Global Head."
+        }
+      ]
+    },
+    {
+      "year": "2026",
+      "period": "Professional & AI Focus",
+      "events": [
+        {
+          "title": "GeeksforGeeks Campus Mantri",
+          "type": "leadership",
+          "date": "January 2026 – May 2026",
+          "description": "Served as official GFG Campus Mantri at PESITM, organizing workshops and coding sessions."
+        },
+        {
+          "title": "Hack for Hire Winner – Internship Offer",
+          "type": "achievement",
+          "date": "2026",
+          "description": "Won Hack for Hire hackathon (1st of 50+ teams), leading to internship at Vulcan Learning Collective."
+        },
+        {
+          "title": "Software Engineer Intern at Vulcan Learning Collective",
+          "type": "internship",
+          "date": "March 2026 – Present",
+          "description": "Working on backend services and REST APIs for the company's learning platform."
+        },
+        {
+          "title": "Gemini AI Awareness Campus Ambassador",
+          "type": "leadership",
+          "date": "2026",
+          "description": "Running AI awareness workshops and campaigns on campus."
+        },
+        {
+          "title": "Built AgentVision X",
+          "type": "project",
+          "date": "2026",
+          "description": "Built AI Agent Observability Dashboard with Gemini API and WebSocket streaming."
+        },
+        {
+          "title": "Built Anvesync",
+          "type": "project",
+          "date": "2026",
+          "description": "Built full-stack workforce management platform with Next.js, TypeScript, and Prisma."
+        },
+        {
+          "title": "Building Portfolio RAG Knowledge Base",
+          "type": "project",
+          "date": "June 2026",
+          "description": "Building a production-grade RAG knowledge base to power an AI chatbot on the portfolio."
+        }
+      ]
+    }
+  ]
+}

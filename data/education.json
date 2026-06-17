@@ -1,0 +1,40 @@
+{
+  "education": [
+    {
+      "id": 1,
+      "institution": "PES Institute of Technology and Management",
+      "short_name": "PESITM",
+      "degree": "Bachelor of Technology",
+      "degree_short": "B.Tech",
+      "branch": "Computer Science Engineering",
+      "cgpa": "8.95/10.0",
+      "start_year": 2024,
+      "end_year": 2028,
+      "university": "Visvesvaraya Technological University (VTU)",
+      "location": "Shivamogga, Karnataka, India",
+      "current": true,
+      "year_of_study": "2nd Year",
+      "highlights": [
+        "CGPA 8.95/10.0",
+        "100/100 in Mathematics-I (VTU)",
+        "100/100 in Mathematics-II (VTU)",
+        "Active in hackathons, technical workshops, and campus leadership"
+      ]
+    },
+    {
+      "id": 2,
+      "institution": "DAV Public School Chapra Bihar",
+      "short_name": "DAV Chapra",
+      "degree": "Secondary School Education",
+      "degree_short": "SSE",
+      "branch": "Science",
+      "cgpa": null,
+      "start_year": null,
+      "end_year": 2024,
+      "university": null,
+      "location": "Chapra, Bihar, India",
+      "current": false,
+      "highlights": []
+    }
+  ]
+}

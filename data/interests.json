@@ -1,0 +1,54 @@
+{
+  "interests": [
+    {
+      "area": "Artificial Intelligence",
+      "description": "Broadly interested in AI systems, LLMs, generative models, and AI-driven applications.",
+      "specific_topics": ["Gemini API", "OpenAI", "LLM fine-tuning", "Prompt engineering", "AI observability"]
+    },
+    {
+      "area": "Generative AI",
+      "description": "Building applications that leverage generative AI models for content creation, assistance, and automation.",
+      "specific_topics": ["Gemini", "Text generation", "Code generation", "AI assistants"]
+    },
+    {
+      "area": "Retrieval-Augmented Generation (RAG)",
+      "description": "Designing RAG pipelines that combine vector search with LLM generation for accurate, context-aware AI systems.",
+      "specific_topics": ["Vector databases", "Embeddings", "Semantic search", "Knowledge bases", "LangChain", "LlamaIndex"]
+    },
+    {
+      "area": "Agentic AI",
+      "description": "Building autonomous agents that can reason, plan, and execute multi-step tasks with tool use.",
+      "specific_topics": ["Agent pipelines", "Tool use", "Multi-agent systems", "Observability"]
+    },
+    {
+      "area": "Data Analytics",
+      "description": "Using data to drive decisions through analysis, visualization, and statistical modeling.",
+      "specific_topics": ["Pandas", "NumPy", "SQL analytics", "Dashboards", "Data cleaning"]
+    },
+    {
+      "area": "Machine Learning",
+      "description": "Exploring ML algorithms, model training, and deploying intelligent systems.",
+      "specific_topics": ["Supervised learning", "Neural networks", "Model evaluation", "Scikit-learn"]
+    },
+    {
+      "area": "System Design",
+      "description": "Designing scalable, reliable, and maintainable software architectures.",
+      "specific_topics": ["Microservices", "API design", "Database design", "Caching", "Load balancing"]
+    },
+    {
+      "area": "Backend Engineering",
+      "description": "Building robust backend systems with clean APIs, efficient databases, and strong architecture.",
+      "specific_topics": ["FastAPI", "Node.js", "REST APIs", "WebSockets", "Authentication", "RBAC"]
+    },
+    {
+      "area": "Open Source",
+      "description": "Contributing to and building open-source projects that benefit the developer community.",
+      "specific_topics": ["GitHub contributions", "FOSS hackathons", "Xrepo project"]
+    },
+    {
+      "area": "Quantum Computing (Exploratory)",
+      "description": "Explored quantum computing concepts while building Xrepo, interested in the intersection of quantum and AI.",
+      "specific_topics": ["Quantum circuits", "Quantum algorithms"]
+    }
+  ]
+}

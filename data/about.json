@@ -1,0 +1,41 @@
+{
+  "name": "Harsh Raj",
+  "full_name": "Harsh Raj Gupta",
+  "headline": "Computer Science & Engineering Student | Junior Software Developer @ Vulcan Learning Collective | AI & Data Analytics Enthusiast | Python & SQL Developer | Campus Mantri @ GeeksforGeeks",
+  "summary": "Second-year CS student (CGPA 8.95) with backend and full-stack experience across React, Next.js, Node.js, FastAPI, and MongoDB. Built projects with real LLM integrations, RBAC, and real-time WebSocket dashboards. Hackathon finalist (4th of 150 nationally) and FOSS hackathon winner. Looking for SWE internships.",
+  "bio": "Computer Science Engineering student at PES Institute of Technology & Management (VTU) interested in software engineering, data analytics, and AI-powered applications. Skilled in Python, SQL, Java, React, FastAPI, and MongoDB, with hands-on experience building full-stack projects, REST APIs, real-time dashboards, and LLM-based applications. Active in technical communities through GeeksforGeeks and campus initiatives, and regularly participates in hackathons and skill-building programs.",
+  "location": "Shivamogga, Karnataka, India",
+  "college": "PES Institute of Technology and Management",
+  "university": "Visvesvaraya Technological University (VTU)",
+  "degree": "B.Tech, Computer Science Engineering",
+  "cgpa": "8.95/10.0",
+  "current_semester": "2nd Year (Semester 3-4)",
+  "role": "Software Engineer Intern",
+  "current_position": "Software Engineer Intern",
+  "current_company": "Vulcan Learning Collective LLP",
+  "portfolio_url": "https://harx.netlify.app",
+  "github_url": "https://github.com/harshraj677",
+  "linkedin_url": "https://www.linkedin.com/in/harshraj677",
+  "email": "rajharsh7070@gmail.com",
+  "phone": "+91-9835251540",
+  "areas_of_interest": [
+    "Agentic AI",
+    "Retrieval-Augmented Generation (RAG)",
+    "LLM Applications",
+    "Backend Engineering",
+    "Full-Stack Development",
+    "Data Analytics",
+    "Machine Learning",
+    "System Design",
+    "Open Source"
+  ],
+  "current_learning": [
+    "Agentic AI systems",
+    "RAG pipelines",
+    "LLM integrations with FastAPI",
+    "System Design",
+    "Google Cloud Platform",
+    "Advanced Data Structures & Algorithms"
+  ],
+  "mission": "To build intelligent, scalable software solutions that solve real-world problems, contribute to open-source communities, and grow as a backend and AI engineer through hands-on projects and collaborative environments."
+}
