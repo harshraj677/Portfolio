@@ -46,21 +46,33 @@ harx/
 │   ├── functions/
 │   │   └── chat.js            # Serverless endpoint for the AI assistant
 │   └── lib/
-│       └── chatCore.js        # Retrieval + prompt building + LLM calling logic
+│       └── chatCore.js        # BM25 retrieval + prompt building + LLM calling logic
 ├── scripts/
-│   ├── generateChunks.mjs     # Builds the knowledge base used by the assistant
-│   └── generateVectors.mjs    # Generates embeddings for semantic search
+│   ├── generateChunks.mjs     # Compiles data/*.json into data/chunks.json
+│   └── generateVectors.mjs    # Optional: generates data/vectors.json for cosine-similarity search
 ├── data/
-│   └── chunks.json            # Generated knowledge base (build artifact)
+│   ├── about.json, education.json, experience.json,
+│   │   projects.json, skills.json, achievements.json,
+│   │   hackathons.json, certifications.json, leadership.json,
+│   │   goals.json, current_focus.json, timeline.json,
+│   │   socials.json, knowledge.json    # Source content for the AI assistant
+│   ├── chunks.json            # Generated knowledge base (build artifact)
+│   └── vectors.json           # Optional generated embeddings (build artifact)
 ├── src/
 │   ├── components/
 │   │   ├── chat/              # AI chat widget UI (window, input, messages, etc.)
-│   │   ├── ui/                # Shared UI primitives
-│   │   ├── Hero.jsx, About.jsx, Skills.jsx, Projects.jsx, ...
-│   ├── context/                # Theme context
+│   │   ├── ui/                # Shared UI primitives (button, carousel, dock, ...)
+│   │   ├── Hero.jsx, About.jsx, Skills.jsx, Projects.jsx, Achievements.jsx,
+│   │       Experience.jsx, Contact.jsx, Navbar.jsx, Footer.jsx, ...
+│   ├── context/
+│   │   └── ThemeContext.jsx   # Dark/light theme provider
 │   ├── hooks/
+│   │   └── useChatMemory.js   # Persists chat history across sessions
 │   ├── lib/
-│   ├── config.js               # Centralized personal/profile content
+│   │   ├── loadKnowledge.js   # Loads/caches the chat knowledge base client-side
+│   │   ├── search.js          # BM25-style ranking used by the assistant
+│   │   └── utils.js
+│   ├── config.js               # Centralized personal/profile content for the UI
 │   ├── App.jsx
 │   └── main.jsx
 ├── public/
@@ -111,9 +123,10 @@ npm run preview
 
 The chat assistant runs as a Netlify Function (`netlify/functions/chat.js`) backed by a small retrieval pipeline (`netlify/lib/chatCore.js`):
 
-1. Portfolio content is chunked into a knowledge base via `npm run generate:chunks`.
-2. A user query is embedded/matched against those chunks to retrieve relevant context (`npm run generate:vectors` for semantic search data).
+1. Structured profile content in `data/*.json` (about, education, experience, projects, skills, achievements, etc.) is compiled into a flat knowledge base of text chunks via `npm run generate:chunks` — this runs automatically as part of `npm run build`.
+2. At query time, the user's message is ranked against those chunks with a BM25-style search (`src/lib/search.js` on the client, mirrored in `netlify/lib/chatCore.js` on the server) — no external embedding API required.
 3. The retrieved context is passed to an LLM (Groq, OpenRouter, or Cerebras — whichever key is configured) to generate a grounded answer with cited sources.
+4. Optionally, `npm run generate:vectors` can pre-compute cosine-similarity embeddings into `data/vectors.json` for semantic search; this requires `@xenova/transformers` (not installed by default — `npm install --save-dev @xenova/transformers` first).
 
 To enable it locally or in deployment, set one or more of the following environment variables:
 
@@ -160,7 +173,7 @@ It can also be deployed to Vercel or any static host, though the AI assistant fu
 | `npm run preview` | Preview the production build locally |
 | `npm run lint` | Run ESLint across the project |
 | `npm run generate:chunks` | Rebuild the AI assistant's knowledge base |
-| `npm run generate:vectors` | Regenerate embeddings for semantic search |
+| `npm run generate:vectors` | Optional: regenerate embeddings for semantic search (requires `@xenova/transformers`) |
 
 ## License
 
