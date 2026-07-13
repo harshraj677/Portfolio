@@ -1,4 +1,12 @@
 import { search, buildMessages, callLLM } from '../lib/chatCore.js'
+import {
+  deriveConversationState,
+  isFollowUpQuery,
+  isLikelyIncompleteFragment,
+  rewriteQuery,
+  detectIntent,
+  isLowConfidence,
+} from '../lib/conversationContext.js'
 import chunksRaw from '../../data/chunks.json'
 
 // esbuild inlines the JSON at bundle time — no runtime filesystem access needed
@@ -37,10 +45,25 @@ export const handler = async (event) => {
   }
 
   try {
-    const relevant  = search(query.trim(), chunks)
+    const trimmedQuery = query.trim()
+
+    // Conversational layer: figure out what's actually being asked before
+    // handing anything to retrieval — this is what lets "which one?" or
+    // "how does it work?" resolve against the prior turns instead of
+    // being searched for literally.
+    const state        = deriveConversationState(history, chunks)
+    const isFollowUp   = isFollowUpQuery(trimmedQuery)
+    const isIncomplete = isLikelyIncompleteFragment(trimmedQuery)
+    const searchQuery  = rewriteQuery(trimmedQuery, state)
+    const intent       = detectIntent(trimmedQuery, state, isFollowUp)
+
+    const relevant  = search(searchQuery, chunks, 5, { category: state.category, entity: state.entity })
     const context   = relevant.map(c => `[${c.category}] ${c.text}`).join('\n\n---\n\n')
     const sources   = [...new Set(relevant.map(c => c.source))].filter(Boolean)
-    const messages  = buildMessages(context, history, query.trim())
+    const lowConfidence = isLowConfidence(relevant, trimmedQuery)
+    const messages  = buildMessages(context, history, trimmedQuery, {
+      state, intent, isFollowUp, isIncomplete, lowConfidence,
+    })
 
     const answer = await callLLM(messages, {
       groqKey:        process.env.GROQ_API_KEY,

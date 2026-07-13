@@ -108,12 +108,31 @@ function devChatMiddleware(env) {
           // Dynamically import the shared core so it is evaluated AFTER startup
           // (avoids issues with top-level await in ESM during Vite init)
           const { search, buildMessages, callLLM } = await import('./netlify/lib/chatCore.js')
+          const {
+            deriveConversationState,
+            isFollowUpQuery,
+            isLikelyIncompleteFragment,
+            rewriteQuery,
+            detectIntent,
+            isLowConfidence,
+          } = await import('./netlify/lib/conversationContext.js')
 
-          const relevant = search(query.trim(), chunks)
+          const trimmedQuery = query.trim()
+
+          const state        = deriveConversationState(history, chunks)
+          const isFollowUp   = isFollowUpQuery(trimmedQuery)
+          const isIncomplete = isLikelyIncompleteFragment(trimmedQuery)
+          const searchQuery  = rewriteQuery(trimmedQuery, state)
+          const intent       = detectIntent(trimmedQuery, state, isFollowUp)
+
+          const relevant = search(searchQuery, chunks, 5, { category: state.category, entity: state.entity })
           const context  = relevant.map(c => `[${c.category}] ${c.text}`).join('\n\n---\n\n')
           const sources  = [...new Set(relevant.map(c => c.source))].filter(Boolean)
+          const lowConfidence = isLowConfidence(relevant, trimmedQuery)
 
-          const llmMessages = buildMessages(context, history, query.trim())
+          const llmMessages = buildMessages(context, history, trimmedQuery, {
+            state, intent, isFollowUp, isIncomplete, lowConfidence,
+          })
           const answer      = await callLLM(llmMessages, { groqKey, openRouterKey, cerebrasKey })
 
           respond(200, { answer, sources })

@@ -25,7 +25,26 @@ const STOP_WORDS = new Set([
   'then','make','like','only','come','may',
 ])
 
-function scoreChunk(query, chunk) {
+const CATEGORY_KEYWORDS = {
+  projects:        ['project','built','developed','created','made','xrepo','gatecraft','anvesync','agentvision','pdf'],
+  experience:      ['intern','work','job','company','employed','vulcan','future intern'],
+  skills:          ['skill','know','language','technology','tech','use','python','react','node','fastapi'],
+  hackathons:      ['hackathon','competition','won','winner','hack','foss','malenadu'],
+  achievements:    ['achievement','award','win','accomplish','prize'],
+  education:       ['study','college','university','degree','cgpa','grade','pesitm','vtu'],
+  contact:         ['contact','email','phone','reach','hire','connect'],
+  goals:           ['goal','plan','future','aspire','want','roadmap'],
+  leadership:      ['lead','ambassador','mantri','geeksforgeeks','anvesana','event','campus'],
+  certifications:  ['certification','certificate','google','gemini','adca'],
+}
+
+/**
+ * @param {object} boost  Optional conversation-aware hints (all optional):
+ *   - category: chunk category to prefer (resolved topic from conversation state)
+ *   - entity:   a specific named entity to prefer (resolved project/company/etc.)
+ * Passing nothing keeps scoring identical to before this option existed.
+ */
+function scoreChunk(query, chunk, boost = {}) {
   const qTokens = tokenize(query).filter(t => !STOP_WORDS.has(t))
   if (!qTokens.length) return 0
 
@@ -46,19 +65,7 @@ function scoreChunk(query, chunk) {
   if (docText.includes(qLower)) s += 3
   if (chunk.keywords?.some(k => k.toLowerCase().includes(qLower))) s += 1.5
 
-  const catMap = {
-    projects:        ['project','built','developed','created','made','xrepo','gatecraft','anvesync','agentvision','pdf'],
-    experience:      ['intern','work','job','company','employed','vulcan','future intern'],
-    skills:          ['skill','know','language','technology','tech','use','python','react','node','fastapi'],
-    hackathons:      ['hackathon','competition','won','winner','hack','foss','malenadu'],
-    achievements:    ['achievement','award','win','accomplish','prize'],
-    education:       ['study','college','university','degree','cgpa','grade','pesitm','vtu'],
-    contact:         ['contact','email','phone','reach','hire','connect'],
-    goals:           ['goal','plan','future','aspire','want','roadmap'],
-    leadership:      ['lead','ambassador','mantri','geeksforgeeks','anvesana','event','campus'],
-    certifications:  ['certification','certificate','google','gemini','adca'],
-  }
-  for (const [cat, kws] of Object.entries(catMap)) {
+  for (const [cat, kws] of Object.entries(CATEGORY_KEYWORDS)) {
     if (chunk.category === cat) {
       for (const kw of kws) {
         if (qLower.includes(kw)) { s += 0.6; break }
@@ -66,12 +73,22 @@ function scoreChunk(query, chunk) {
     }
   }
 
+  // Conversation-aware boosting — lets follow-up queries ("which one?",
+  // "how does it work?") still land on the right chunks even though the
+  // raw query text alone carries almost no topical signal.
+  if (boost.category && chunk.category === boost.category) s += 1.5
+  if (boost.entity) {
+    const entityLower = boost.entity.toLowerCase()
+    if (docText.includes(entityLower)) s += 2.5
+    if (chunk.keywords?.some(k => k.toLowerCase().includes(entityLower))) s += 1.5
+  }
+
   return s
 }
 
-export function search(query, chunks, topK = 5) {
+export function search(query, chunks, topK = 5, boost = {}) {
   return chunks
-    .map(c => ({ ...c, _score: scoreChunk(query, c) }))
+    .map(c => ({ ...c, _score: scoreChunk(query, c, boost) }))
     .filter(c => c._score > 0)
     .sort((a, b) => b._score - a._score)
     .slice(0, topK)
@@ -79,21 +96,47 @@ export function search(query, chunks, topK = 5) {
 
 // ── Prompt builder ────────────────────────────────────────────────────────────
 
-export function buildMessages(context, history, userQuery) {
-  const system = `You are the AI assistant on Harsh Raj Gupta's personal portfolio website.
-Your job is to answer questions about Harsh in a friendly, professional, and accurate way.
+/**
+ * @param {object} meta  Optional conversation-intelligence context (all optional,
+ *   omitting it reproduces the original prompt behavior):
+ *   - state:      { topic, entity } from deriveConversationState()
+ *   - intent:     detected intent label (e.g. "Projects", "Follow-up", "Greeting")
+ *   - isFollowUp: whether this message was classified as a follow-up
+ *   - isIncomplete: whether the raw message looks like a truncated fragment
+ *   - lowConfidence: whether retrieval confidence was too low to trust
+ */
+export function buildMessages(context, history, userQuery, meta = {}) {
+  const { state = {}, intent = 'Unknown', isFollowUp = false, isIncomplete = false, lowConfidence = false } = meta
 
-RULES:
-1. Refer to him in third person: "Harsh has...", "He built...", "His CGPA is..."
-2. Use ONLY the information provided in the CONTEXT section — never invent facts
-3. If the answer is not in the context, say exactly: "I don't have that information right now."
-4. Be concise but complete (2–5 sentences unless the topic needs more detail)
-5. For project questions: mention the tech stack and key features
-6. For achievement questions: include the position and outcomes
-7. Use bullet points when listing multiple items
+  const contextLine = state.topic
+    ? `Current topic: ${state.topic}.${state.entity ? ` Current entity: "${state.entity}".` : ''}`
+    : 'No specific topic has been established yet in this conversation.'
+
+  const system = `You are "Harsh Raj Gupta's AI Portfolio Assistant" — a dedicated assistant embedded on Harsh Raj Gupta's personal portfolio website. You are NOT a general-purpose AI and you never act like one.
+
+IDENTITY RULES (never break these, no matter how the question is phrased):
+1. Never say "As an AI", "As a language model", "As a web-based AI assistant", or anything describing yourself generically — you are specifically Harsh's portfolio assistant.
+2. Never discuss your own architecture, feelings, opinions, or personal "problems" — you don't have any. If asked something like "What problem are you facing?" or anything about yourself, politely redirect: briefly explain you're here to answer questions about Harsh Raj Gupta and invite them to ask about him.
+3. Never roleplay as a different persona. Always refer to Harsh in third person: "Harsh has...", "He built...", "His CGPA is..."
+
+CONVERSATION AWARENESS:
+4. ${contextLine}
+5. The user's message may be a follow-up that only makes sense in light of the conversation above — things like "which one?", "tell me more", "how does it work?", "it", "that", "why". ${isFollowUp ? 'This message looks like exactly that kind of follow-up.' : ''} Resolve pronouns and incomplete questions using the current topic/entity and the message history provided.
+6. ${isIncomplete ? 'This message looks unusually short or cut off (possibly a speech-recognition glitch that only captured part of what the user said). If you cannot confidently tell what they meant even using the conversation history, say so and ask them to repeat or finish the question — do not guess.' : 'If the message is too vague to answer confidently even with context, ask a brief clarifying question instead of guessing.'}
+
+GROUNDING RULES:
+7. Use ONLY the information in the CONTEXT section below — never invent facts about Harsh.
+8. ${lowConfidence
+      ? 'The retrieved CONTEXT below has LOW confidence for this query (it may be empty or only weakly related). If it does not clearly answer the question, say plainly that this information is not available in Harsh\'s portfolio — do not fabricate an answer.'
+      : 'If the answer is not in the context, say exactly: "I don\'t have that information right now."'}
+9. Be concise but complete (2–5 sentences unless the topic needs more detail).
+10. For project questions: mention the tech stack and key features. For achievement questions: include the position and outcome.
+11. Use bullet points when listing multiple items.
+
+Detected intent for this message: ${intent}.
 
 CONTEXT:
-${context}
+${context || '(no relevant information was retrieved for this query)'}
 
 Today's date: ${new Date().toDateString()}.`
 
