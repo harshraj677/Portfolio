@@ -4,6 +4,7 @@ import ChatMessage from './ChatMessage'
 import ChatInput from './ChatInput'
 import TypingIndicator from './TypingIndicator'
 import SuggestedQuestions from './SuggestedQuestions'
+import VoiceSettingsPanel from './VoiceSettingsPanel'
 import { useSpeechSynthesis } from '../../hooks/useSpeechSynthesis'
 
 const isMicSupported =
@@ -61,6 +62,14 @@ const LoopIcon = () => (
   </svg>
 )
 
+const SettingsIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
+       strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+    <circle cx="12" cy="12" r="3" />
+    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+  </svg>
+)
+
 function toSpeechText(markdown) {
   return markdown
     .replace(/`([^`]+)`/g, '$1')
@@ -77,14 +86,21 @@ const ChatWindow = ({ onClose, messages, isLoading, error, onSend, onClear }) =>
   const isEmpty = messages.length === 0
 
   const [continuousMode, setContinuousMode] = useState(false)
+  const [showVoiceSettings, setShowVoiceSettings] = useState(false)
 
   const {
     isSupported: isTtsSupported,
     isSpeaking,
     isMuted,
+    voices,
+    settings: voiceSettings,
     speak,
     stop: stopSpeaking,
     toggleMute,
+    setVoiceURI,
+    setRate,
+    setPitch,
+    setVolume,
   } = useSpeechSynthesis()
 
   // Speak newly-arrived assistant responses only (not messages restored from history)
@@ -254,6 +270,18 @@ const ChatWindow = ({ onClose, messages, isLoading, error, onSend, onClear }) =>
                   <StopIcon />
                 </span>
               </button>
+              <button
+                onClick={() => setShowVoiceSettings((s) => !s)}
+                title={showVoiceSettings ? 'Hide voice settings' : 'Voice settings'}
+                aria-label={showVoiceSettings ? 'Hide voice settings' : 'Voice settings'}
+                aria-pressed={showVoiceSettings}
+                className={`p-1.5 rounded-lg transition-all duration-200 active:scale-90
+                           ${showVoiceSettings
+                             ? 'text-cyan-400 bg-cyan-500/15'
+                             : 'text-gray-400 hover:text-white hover:bg-gray-700/50'}`}
+              >
+                <SettingsIcon />
+              </button>
             </>
           )}
           {messages.length > 0 && (
@@ -275,6 +303,19 @@ const ChatWindow = ({ onClose, messages, isLoading, error, onSend, onClear }) =>
           </button>
         </div>
       </div>
+
+      <AnimatePresence initial={false}>
+        {showVoiceSettings && isTtsSupported && (
+          <VoiceSettingsPanel
+            voices={voices}
+            settings={voiceSettings}
+            onVoiceChange={setVoiceURI}
+            onRateChange={setRate}
+            onPitchChange={setPitch}
+            onVolumeChange={setVolume}
+          />
+        )}
+      </AnimatePresence>
 
       {/* ── Messages ────────────────────────────────────────────────────────── */}
       <div className="flex-1 overflow-y-auto py-3 space-y-1
