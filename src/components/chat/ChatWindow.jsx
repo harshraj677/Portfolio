@@ -94,30 +94,80 @@ const ChatWindow = ({ onClose, messages, isLoading, error, onSend, onClear }) =>
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, y: 24, scale: 0.97 }}
       transition={{ type: 'spring', stiffness: 320, damping: 30 }}
-      className="fixed bottom-24 right-4 sm:right-6 w-[calc(100vw-2rem)] sm:w-[400px] max-w-[440px]
+      className="fixed bottom-20 sm:bottom-24 right-3 sm:right-6 w-[calc(100vw-1.5rem)] sm:w-[400px] max-w-[440px]
                  z-50 flex flex-col rounded-2xl shadow-2xl overflow-hidden
                  bg-gray-900/95 backdrop-blur-xl border border-gray-700/60"
-      style={{ height: 'min(600px, calc(100dvh - 120px))' }}
+      style={{ height: 'min(600px, calc(100dvh - 100px))' }}
     >
       {/* ── Header ─────────────────────────────────────────────────────────── */}
-      <div className="flex items-center justify-between px-4 py-3
+      <div className="flex items-center justify-between gap-2 px-3 sm:px-4 py-3
                       bg-gradient-to-r from-gray-900 to-gray-800
                       border-b border-gray-700/50 shrink-0">
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2.5 min-w-0">
           <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-purple-600
-                          flex items-center justify-center text-sm font-bold text-white">
+                          flex items-center justify-center text-sm font-bold text-white shrink-0">
             H
           </div>
-          <div>
-            <p className="text-sm font-semibold text-white">Ask about Harsh</p>
-            <div className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-400" />
-              <span className="text-xs text-gray-400">AI-powered portfolio assistant</span>
+          <div className="min-w-0">
+            <p className="text-sm font-semibold text-white truncate">Ask about Harsh</p>
+            <div className="flex items-center gap-1.5 h-4">
+              <motion.span
+                className="w-1.5 h-1.5 rounded-full shrink-0"
+                animate={{
+                  backgroundColor: isSpeaking ? '#22d3ee' : '#4ade80',
+                  scale: isSpeaking ? [1, 1.3, 1] : 1,
+                }}
+                transition={{
+                  duration: 0.8,
+                  repeat: isSpeaking ? Infinity : 0,
+                  ease: 'easeInOut',
+                }}
+              />
+              <AnimatePresence mode="wait">
+                {isSpeaking ? (
+                  <motion.span
+                    key="speaking"
+                    initial={{ opacity: 0, y: 2 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -2 }}
+                    transition={{ duration: 0.18 }}
+                    className="flex items-center gap-1.5 text-xs text-cyan-300 truncate"
+                  >
+                    Speaking
+                    <span className="flex items-end gap-0.5 h-2.5">
+                      {[0, 1, 2].map((i) => (
+                        <motion.span
+                          key={i}
+                          className="w-0.5 rounded-full bg-cyan-300"
+                          animate={{ height: ['30%', '100%', '30%'] }}
+                          transition={{
+                            duration: 0.7,
+                            repeat: Infinity,
+                            delay: i * 0.1,
+                            ease: 'easeInOut',
+                          }}
+                        />
+                      ))}
+                    </span>
+                  </motion.span>
+                ) : (
+                  <motion.span
+                    key="idle"
+                    initial={{ opacity: 0, y: 2 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -2 }}
+                    transition={{ duration: 0.18 }}
+                    className="text-xs text-gray-400 truncate"
+                  >
+                    AI-powered portfolio assistant
+                  </motion.span>
+                )}
+              </AnimatePresence>
             </div>
           </div>
         </div>
 
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-0.5 sm:gap-1 shrink-0">
           {isTtsSupported && (
             <>
               <button
@@ -126,19 +176,39 @@ const ChatWindow = ({ onClose, messages, isLoading, error, onSend, onClear }) =>
                 aria-label={isMuted ? 'Unmute voice replies' : 'Mute voice replies'}
                 aria-pressed={isMuted}
                 className="p-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-gray-700/50
-                           transition-all"
+                           transition-all duration-200 active:scale-90"
               >
-                {isMuted ? <VolumeMuteIcon /> : <VolumeIcon />}
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.span
+                    key={isMuted ? 'muted' : 'unmuted'}
+                    initial={{ opacity: 0, scale: 0.7, rotate: -15 }}
+                    animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                    exit={{ opacity: 0, scale: 0.7, rotate: 15 }}
+                    transition={{ duration: 0.15 }}
+                    className="block"
+                  >
+                    {isMuted ? <VolumeMuteIcon /> : <VolumeIcon />}
+                  </motion.span>
+                </AnimatePresence>
               </button>
               <button
                 onClick={stopSpeaking}
                 disabled={!isSpeaking}
                 title="Stop speaking"
                 aria-label="Stop speaking"
-                className="p-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-gray-700/50
-                           transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                className="relative p-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-gray-700/50
+                           transition-all duration-200 active:scale-90 disabled:opacity-30 disabled:cursor-not-allowed"
               >
-                <StopIcon />
+                {isSpeaking && (
+                  <motion.span
+                    className="absolute inset-0 rounded-lg bg-cyan-500/30"
+                    animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0, 0.5] }}
+                    transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
+                  />
+                )}
+                <span className="relative z-10">
+                  <StopIcon />
+                </span>
               </button>
             </>
           )}
@@ -147,7 +217,7 @@ const ChatWindow = ({ onClose, messages, isLoading, error, onSend, onClear }) =>
               onClick={onClear}
               title="Clear chat"
               className="p-1.5 rounded-lg text-gray-400 hover:text-red-400 hover:bg-red-500/10
-                         transition-all"
+                         transition-all duration-200 active:scale-90"
             >
               <TrashIcon />
             </button>
@@ -155,7 +225,7 @@ const ChatWindow = ({ onClose, messages, isLoading, error, onSend, onClear }) =>
           <button
             onClick={onClose}
             className="p-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-gray-700/50
-                       transition-all"
+                       transition-all duration-200 active:scale-90"
           >
             <CloseIcon />
           </button>

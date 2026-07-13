@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useSpeechRecognition } from '../../hooks/useSpeechRecognition'
 
 const SendIcon = () => (
@@ -61,9 +61,40 @@ const ChatInput = ({ onSend, isLoading, disabled }) => {
   }
 
   return (
-    <div className="p-3 border-t border-gray-700/50">
-      <div className="flex items-end gap-2 bg-gray-800/80 rounded-xl border border-gray-600/50
-                      focus-within:border-cyan-500/60 transition-colors px-3 py-2">
+    <div className="p-2.5 sm:p-3 border-t border-gray-700/50">
+      <AnimatePresence>
+        {isListening && (
+          <motion.div
+            key="listening-indicator"
+            initial={{ opacity: 0, y: 6, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 6, scale: 0.96 }}
+            transition={{ duration: 0.22, ease: 'easeOut' }}
+            className="flex items-center gap-2 mb-2 px-3 py-1.5 rounded-lg
+                       bg-red-500/10 border border-red-500/20"
+          >
+            <span className="flex items-end gap-0.5 h-3 shrink-0">
+              {[0, 1, 2, 3].map((i) => (
+                <motion.span
+                  key={i}
+                  className="w-0.5 rounded-full bg-red-400"
+                  animate={{ height: ['25%', '100%', '25%'] }}
+                  transition={{
+                    duration: 0.9,
+                    repeat: Infinity,
+                    delay: i * 0.12,
+                    ease: 'easeInOut',
+                  }}
+                />
+              ))}
+            </span>
+            <span className="text-xs text-red-300 font-medium">Listening…</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <div className="flex items-end gap-1.5 sm:gap-2 bg-gray-800/80 rounded-xl border border-gray-600/50
+                      focus-within:border-cyan-500/60 transition-colors duration-300 px-3 py-2">
         <textarea
           ref={textareaRef}
           value={value}
@@ -74,7 +105,7 @@ const ChatInput = ({ onSend, isLoading, disabled }) => {
           disabled={isLoading || disabled}
           className="flex-1 bg-transparent text-sm text-gray-100 placeholder-gray-500
                      resize-none outline-none min-h-[24px] max-h-[120px] py-0.5
-                     disabled:opacity-50"
+                     disabled:opacity-50 transition-opacity duration-200"
           style={{ lineHeight: '1.5' }}
         />
         <button
@@ -91,41 +122,79 @@ const ChatInput = ({ onSend, isLoading, disabled }) => {
           aria-label={isListening ? 'Stop voice input' : 'Start voice input'}
           aria-pressed={isListening}
           className={`relative w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mb-0.5
-                     transition-all active:scale-95 disabled:opacity-30 disabled:cursor-not-allowed
+                     transition-all duration-300 active:scale-90 disabled:opacity-30 disabled:cursor-not-allowed
                      ${isListening
                        ? 'bg-red-500/20 text-red-400'
-                       : 'bg-gray-700/60 text-gray-300 hover:text-cyan-400 hover:bg-gray-700'}`}
+                       : 'bg-gray-700/60 text-gray-300 hover:text-cyan-400 hover:bg-gray-700 hover:scale-105'}`}
         >
-          {isListening && (
-            <motion.span
-              className="absolute inset-0 rounded-lg bg-red-500/50"
-              animate={{ scale: [1, 1.5, 1], opacity: [0.6, 0, 0.6] }}
-              transition={{ duration: 1.3, repeat: Infinity, ease: 'easeInOut' }}
-            />
-          )}
-          <span className="relative z-10">
+          <AnimatePresence>
+            {isListening && (
+              <>
+                <motion.span
+                  key="ring-1"
+                  className="absolute inset-0 rounded-lg bg-red-500/50"
+                  initial={{ scale: 1, opacity: 0.6 }}
+                  animate={{ scale: [1, 1.6, 1], opacity: [0.6, 0, 0.6] }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut' }}
+                />
+                <motion.span
+                  key="ring-2"
+                  className="absolute inset-0 rounded-lg bg-red-500/40"
+                  initial={{ scale: 1, opacity: 0.5 }}
+                  animate={{ scale: [1, 1.35, 1], opacity: [0.5, 0, 0.5] }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 1.4, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
+                />
+              </>
+            )}
+          </AnimatePresence>
+          <motion.span
+            className="relative z-10 flex items-center justify-center"
+            animate={{ scale: isListening ? [1, 1.15, 1] : 1 }}
+            transition={{ duration: 1, repeat: isListening ? Infinity : 0, ease: 'easeInOut' }}
+          >
             <MicIcon />
-          </span>
+          </motion.span>
         </button>
         <button
           onClick={() => submit()}
           disabled={!value.trim() || isLoading || disabled}
           className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-purple-600
                      flex items-center justify-center text-white shrink-0 mb-0.5
-                     hover:opacity-90 active:scale-95 transition-all
-                     disabled:opacity-30 disabled:cursor-not-allowed"
+                     hover:opacity-90 hover:scale-105 active:scale-90 transition-all duration-200
+                     disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:scale-100"
           aria-label="Send"
         >
           <SendIcon />
         </button>
       </div>
-      {micError ? (
-        <p className="text-xs text-red-400 mt-1.5 px-1">{micError}</p>
-      ) : (
-        <p className="text-xs text-gray-600 mt-1.5 px-1">
-          Press Enter to send · Shift+Enter for newline
-        </p>
-      )}
+
+      <AnimatePresence mode="wait">
+        {micError ? (
+          <motion.p
+            key="mic-error"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="text-xs text-red-400 mt-1.5 px-1"
+          >
+            {micError}
+          </motion.p>
+        ) : (
+          <motion.p
+            key="mic-hint"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="text-xs text-gray-600 mt-1.5 px-1"
+          >
+            Press Enter to send · Shift+Enter for newline
+          </motion.p>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
