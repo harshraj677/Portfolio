@@ -10,6 +10,7 @@ export function useSpeechRecognition({ onResult } = {}) {
   const isSupported = !!SpeechRecognitionClass
 
   const [isListening, setIsListening] = useState(false)
+  const [isTranscribing, setIsTranscribing] = useState(false)
   const [error, setError] = useState(null)
 
   const recognitionRef = useRef(null)
@@ -38,6 +39,9 @@ export function useSpeechRecognition({ onResult } = {}) {
 
     recognition.onspeechend = () => {
       console.log('[SpeechRecognition] onspeechend — speech in the audio stream ended')
+      // Audio capture is done; the engine is now finalizing the transcript —
+      // this is the "Transcribing…" phase distinct from "Listening…".
+      setIsTranscribing(true)
     }
 
     recognition.onaudioend = () => {
@@ -46,16 +50,24 @@ export function useSpeechRecognition({ onResult } = {}) {
 
     recognition.onnomatch = (event) => {
       console.warn('[SpeechRecognition] onnomatch — recognized audio did not match with sufficient confidence', event)
-      setError("Couldn't understand that. Please try again.")
+      setIsTranscribing(false)
+      setError("Couldn't understand that clearly. Please try again.")
     }
 
     recognition.onresult = (event) => {
       console.log('[SpeechRecognition] onresult:', event)
+      setIsTranscribing(false)
       const transcript = Array.from(event.results)
         .map((result) => result[0].transcript)
         .join(' ')
         .trim()
-      if (transcript) onResultRef.current?.(transcript)
+      if (transcript) {
+        onResultRef.current?.(transcript)
+      } else {
+        // A result event fired but produced no usable text — treat it the
+        // same as a failed transcription rather than silently doing nothing.
+        setError("Couldn't transcribe that. Please try again.")
+      }
     }
 
     recognition.onerror = (event) => {
@@ -63,6 +75,8 @@ export function useSpeechRecognition({ onResult } = {}) {
       // previously being swallowed, making every failure look identical.
       console.error('[SpeechRecognition] onerror — full event:', event)
       console.error('[SpeechRecognition] onerror — event.error:', event.error)
+
+      setIsTranscribing(false)
 
       switch (event.error) {
         case 'not-allowed':
@@ -87,7 +101,7 @@ export function useSpeechRecognition({ onResult } = {}) {
           setError('Voice input failed due to a grammar configuration error.')
           break
         case 'aborted':
-          // Intentional stop (user, continuous-mode interrupt, unmount) — not a real error.
+          // Intentional stop (user pressed Stop, component unmounted) — not a real error.
           break
         default:
           // Surface the real browser-reported code instead of a fully generic message.
@@ -98,6 +112,7 @@ export function useSpeechRecognition({ onResult } = {}) {
     recognition.onend = () => {
       console.log('[SpeechRecognition] onend — recognition session ended')
       setIsListening(false)
+      setIsTranscribing(false)
     }
 
     recognitionRef.current = recognition
@@ -123,6 +138,7 @@ export function useSpeechRecognition({ onResult } = {}) {
       return
     }
     setError(null)
+    setIsTranscribing(false)
     try {
       console.log('[SpeechRecognition] start() calling recognition.start()')
       recognitionRef.current.start()
@@ -143,5 +159,5 @@ export function useSpeechRecognition({ onResult } = {}) {
     else start()
   }, [isListening, start, stop])
 
-  return { isSupported, isListening, error, start, stop, toggle }
+  return { isSupported, isListening, isTranscribing, error, start, stop, toggle }
 }

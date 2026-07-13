@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, forwardRef, useImperativeHandle } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useSpeechRecognition } from '../../hooks/useSpeechRecognition'
 
@@ -20,13 +20,20 @@ const MicIcon = () => (
   </svg>
 )
 
+const SpinnerIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}
+       strokeLinecap="round" className="w-4 h-4">
+    <path d="M12 2a10 10 0 0 1 10 10" />
+  </svg>
+)
+
 const resizeTextarea = (el) => {
   if (!el) return
   el.style.height = 'auto'
   el.style.height = Math.min(el.scrollHeight, 120) + 'px'
 }
 
-const ChatInput = forwardRef(({ onSend, isLoading, disabled, onListeningChange }, ref) => {
+const ChatInput = ({ onSend, isLoading, disabled, onListeningChange }) => {
   const [value, setValue] = useState('')
   const textareaRef = useRef(null)
 
@@ -40,23 +47,30 @@ const ChatInput = forwardRef(({ onSend, isLoading, disabled, onListeningChange }
     }
   }
 
-  const { isSupported: isMicSupported, isListening, error: micError, start: startMic, toggle: toggleMic } =
-    useSpeechRecognition({
-      onResult: (transcript) => {
-        const combined = value ? `${value.trim()} ${transcript}` : transcript
-        submit(combined)
-      },
-    })
+  const {
+    isSupported: isMicSupported,
+    isListening,
+    isTranscribing,
+    error: micError,
+    toggle: toggleMic,
+  } = useSpeechRecognition({
+    // Transcription-first: place the recognized text into the input for the
+    // user to review/edit. Nothing is sent automatically — the user still
+    // presses Send (or Enter) themselves, exactly like typed input.
+    onResult: (transcript) => {
+      setValue((prev) => (prev ? `${prev.trim()} ${transcript}` : transcript))
+      requestAnimationFrame(() => {
+        resizeTextarea(textareaRef.current)
+        textareaRef.current?.focus()
+      })
+    },
+  })
 
-  // Let the parent (continuous voice mode) know when listening starts/stops
+  // Let the parent know when the mic is active so it can interrupt any
+  // in-progress spoken response (avoids the AI talking over the user).
   useEffect(() => {
     onListeningChange?.(isListening)
   }, [isListening, onListeningChange])
-
-  // Let the parent trigger listening imperatively (continuous voice mode)
-  useImperativeHandle(ref, () => ({
-    startListening: startMic,
-  }), [startMic])
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -70,35 +84,55 @@ const ChatInput = forwardRef(({ onSend, isLoading, disabled, onListeningChange }
     resizeTextarea(e.target)
   }
 
+  const placeholder = isTranscribing
+    ? 'Transcribing…'
+    : isListening
+      ? 'Listening…'
+      : 'Ask anything about Harsh…'
+
   return (
     <div className="p-2.5 sm:p-3 border-t border-gray-700/50">
       <AnimatePresence>
-        {isListening && (
+        {(isListening || isTranscribing) && (
           <motion.div
-            key="listening-indicator"
+            key="voice-status"
             initial={{ opacity: 0, y: 6, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 6, scale: 0.96 }}
             transition={{ duration: 0.22, ease: 'easeOut' }}
-            className="flex items-center gap-2 mb-2 px-3 py-1.5 rounded-lg
-                       bg-red-500/10 border border-red-500/20"
+            className={`flex items-center gap-2 mb-2 px-3 py-1.5 rounded-lg border
+                       ${isTranscribing
+                         ? 'bg-amber-500/10 border-amber-500/20'
+                         : 'bg-red-500/10 border-red-500/20'}`}
           >
-            <span className="flex items-end gap-0.5 h-3 shrink-0">
-              {[0, 1, 2, 3].map((i) => (
-                <motion.span
-                  key={i}
-                  className="w-0.5 rounded-full bg-red-400"
-                  animate={{ height: ['25%', '100%', '25%'] }}
-                  transition={{
-                    duration: 0.9,
-                    repeat: Infinity,
-                    delay: i * 0.12,
-                    ease: 'easeInOut',
-                  }}
-                />
-              ))}
+            {isTranscribing ? (
+              <motion.span
+                className="text-amber-400 shrink-0"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 0.8, repeat: Infinity, ease: 'linear' }}
+              >
+                <SpinnerIcon />
+              </motion.span>
+            ) : (
+              <span className="flex items-end gap-0.5 h-3 shrink-0">
+                {[0, 1, 2, 3].map((i) => (
+                  <motion.span
+                    key={i}
+                    className="w-0.5 rounded-full bg-red-400"
+                    animate={{ height: ['25%', '100%', '25%'] }}
+                    transition={{
+                      duration: 0.9,
+                      repeat: Infinity,
+                      delay: i * 0.12,
+                      ease: 'easeInOut',
+                    }}
+                  />
+                ))}
+              </span>
+            )}
+            <span className={`text-xs font-medium ${isTranscribing ? 'text-amber-300' : 'text-red-300'}`}>
+              {isTranscribing ? 'Transcribing…' : 'Listening…'}
             </span>
-            <span className="text-xs text-red-300 font-medium">Listening…</span>
           </motion.div>
         )}
       </AnimatePresence>
@@ -110,7 +144,7 @@ const ChatInput = forwardRef(({ onSend, isLoading, disabled, onListeningChange }
           value={value}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
-          placeholder={isListening ? 'Listening…' : 'Ask anything about Harsh…'}
+          placeholder={placeholder}
           rows={1}
           disabled={isLoading || disabled}
           className="flex-1 bg-transparent text-sm text-gray-100 placeholder-gray-500
@@ -121,21 +155,25 @@ const ChatInput = forwardRef(({ onSend, isLoading, disabled, onListeningChange }
         <button
           type="button"
           onClick={toggleMic}
-          disabled={isLoading || disabled || !isMicSupported}
+          disabled={isLoading || disabled || !isMicSupported || isTranscribing}
           title={
             !isMicSupported
               ? 'Voice input is not supported in this browser'
-              : isListening
-                ? 'Stop listening'
-                : 'Start voice input'
+              : isTranscribing
+                ? 'Transcribing…'
+                : isListening
+                  ? 'Stop recording'
+                  : 'Start recording'
           }
-          aria-label={isListening ? 'Stop voice input' : 'Start voice input'}
+          aria-label={isListening ? 'Stop recording' : 'Start recording'}
           aria-pressed={isListening}
           className={`relative w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mb-0.5
                      transition-all duration-300 active:scale-90 disabled:opacity-30 disabled:cursor-not-allowed
                      ${isListening
                        ? 'bg-red-500/20 text-red-400'
-                       : 'bg-gray-700/60 text-gray-300 hover:text-cyan-400 hover:bg-gray-700 hover:scale-105'}`}
+                       : isTranscribing
+                         ? 'bg-amber-500/20 text-amber-400'
+                         : 'bg-gray-700/60 text-gray-300 hover:text-cyan-400 hover:bg-gray-700 hover:scale-105'}`}
         >
           <AnimatePresence>
             {isListening && (
@@ -161,10 +199,18 @@ const ChatInput = forwardRef(({ onSend, isLoading, disabled, onListeningChange }
           </AnimatePresence>
           <motion.span
             className="relative z-10 flex items-center justify-center"
-            animate={{ scale: isListening ? [1, 1.15, 1] : 1 }}
-            transition={{ duration: 1, repeat: isListening ? Infinity : 0, ease: 'easeInOut' }}
+            animate={
+              isTranscribing
+                ? { rotate: 360 }
+                : { scale: isListening ? [1, 1.15, 1] : 1 }
+            }
+            transition={
+              isTranscribing
+                ? { duration: 0.8, repeat: Infinity, ease: 'linear' }
+                : { duration: 1, repeat: isListening ? Infinity : 0, ease: 'easeInOut' }
+            }
           >
-            <MicIcon />
+            {isTranscribing ? <SpinnerIcon /> : <MicIcon />}
           </motion.span>
         </button>
         <button
@@ -207,8 +253,6 @@ const ChatInput = forwardRef(({ onSend, isLoading, disabled, onListeningChange }
       </AnimatePresence>
     </div>
   )
-})
-
-ChatInput.displayName = 'ChatInput'
+}
 
 export default ChatInput
