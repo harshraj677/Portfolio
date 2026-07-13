@@ -37,6 +37,13 @@ const ChatInput = ({ onSend, isLoading, disabled, onListeningChange }) => {
   const [value, setValue] = useState('')
   const textareaRef = useRef(null)
 
+  // Snapshot of whatever text was already in the box the moment recording
+  // started. The live transcript is appended AFTER this fixed prefix exactly
+  // once per session — it must never be recomputed from the live `value`,
+  // otherwise every re-firing of onResult (interim updates) would glue a
+  // growing transcript onto an already-updated box and duplicate words.
+  const baseValueRef = useRef('')
+
   const submit = (text = value) => {
     const trimmed = text.trim()
     if (!trimmed || isLoading || disabled) return
@@ -57,14 +64,26 @@ const ChatInput = ({ onSend, isLoading, disabled, onListeningChange }) => {
     // Transcription-first: place the recognized text into the input for the
     // user to review/edit. Nothing is sent automatically — the user still
     // presses Send (or Enter) themselves, exactly like typed input.
+    //
+    // `transcript` is always the full current transcript for this recording
+    // session (never a fragment to accumulate), so it REPLACES the portion
+    // of the box this session owns rather than being appended to it.
     onResult: (transcript) => {
-      setValue((prev) => (prev ? `${prev.trim()} ${transcript}` : transcript))
+      const base = baseValueRef.current
+      setValue(base ? `${base.trim()} ${transcript}` : transcript)
       requestAnimationFrame(() => {
         resizeTextarea(textareaRef.current)
         textareaRef.current?.focus()
       })
     },
   })
+
+  const handleMicClick = () => {
+    if (!isListening && !isTranscribing) {
+      baseValueRef.current = value
+    }
+    toggleMic()
+  }
 
   // Let the parent know when the mic is active so it can interrupt any
   // in-progress spoken response (avoids the AI talking over the user).
@@ -154,7 +173,7 @@ const ChatInput = ({ onSend, isLoading, disabled, onListeningChange }) => {
         />
         <button
           type="button"
-          onClick={toggleMic}
+          onClick={handleMicClick}
           disabled={isLoading || disabled || !isMicSupported || isTranscribing}
           title={
             !isMicSupported

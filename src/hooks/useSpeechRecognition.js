@@ -17,12 +17,18 @@ export function useSpeechRecognition({ onResult } = {}) {
   const onResultRef = useRef(onResult)
   onResultRef.current = onResult
 
+  // Tracks the last transcript string emitted for the CURRENT recording
+  // session so an identical/duplicate onresult firing (some browsers fire
+  // more than one per utterance even with the same content) is a no-op
+  // instead of being reprocessed.
+  const lastEmittedRef = useRef('')
+
   useEffect(() => {
     if (!isSupported) return
 
     const recognition = new SpeechRecognitionClass()
     recognition.continuous = false
-    recognition.interimResults = false
+    recognition.interimResults = true
     recognition.lang = 'en-US'
 
     recognition.onstart = () => {
@@ -55,19 +61,34 @@ export function useSpeechRecognition({ onResult } = {}) {
     }
 
     recognition.onresult = (event) => {
-      console.log('[SpeechRecognition] onresult:', event)
-      setIsTranscribing(false)
+      // `event.results` is NOT a running log of separate utterances to
+      // concatenate — it is the SpeechRecognition engine's current, complete
+      // best guess for this one utterance so far. With interimResults=true
+      // this handler fires repeatedly as that guess is refined ("Tell" →
+      // "Tell me" → "Tell me about" → "Tell me about yourself"), and each
+      // firing already contains the FULL text, not just a new fragment.
+      // The transcript computed below must therefore REPLACE whatever was
+      // shown before, never be appended to it — appending is exactly what
+      // produced the "Tell Tell me Tell me about..." duplication bug.
+      const isFinal = event.results[event.results.length - 1]?.isFinal ?? false
       const transcript = Array.from(event.results)
         .map((result) => result[0].transcript)
         .join(' ')
         .trim()
-      if (transcript) {
-        onResultRef.current?.(transcript)
-      } else {
-        // A result event fired but produced no usable text — treat it the
-        // same as a failed transcription rather than silently doing nothing.
-        setError("Couldn't transcribe that. Please try again.")
+
+      console.log('[SpeechRecognition] onresult:', { isFinal, transcript, event })
+
+      if (isFinal) setIsTranscribing(false)
+
+      if (!transcript) {
+        if (isFinal) setError("Couldn't transcribe that. Please try again.")
+        return
       }
+
+      if (transcript === lastEmittedRef.current) return // identical re-fire — nothing changed
+      lastEmittedRef.current = transcript
+
+      onResultRef.current?.(transcript, { isFinal })
     }
 
     recognition.onerror = (event) => {
@@ -139,6 +160,7 @@ export function useSpeechRecognition({ onResult } = {}) {
     }
     setError(null)
     setIsTranscribing(false)
+    lastEmittedRef.current = ''
     try {
       console.log('[SpeechRecognition] start() calling recognition.start()')
       recognitionRef.current.start()
