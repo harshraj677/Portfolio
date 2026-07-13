@@ -5,7 +5,7 @@ function getSpeechRecognitionClass() {
   return window.SpeechRecognition || window.webkitSpeechRecognition || null
 }
 
-export function useSpeechRecognition({ onResult } = {}) {
+export function useSpeechRecognition({ onResult, lang = 'en-IN' } = {}) {
   const SpeechRecognitionClass = getSpeechRecognitionClass()
   const isSupported = !!SpeechRecognitionClass
 
@@ -29,7 +29,7 @@ export function useSpeechRecognition({ onResult } = {}) {
     const recognition = new SpeechRecognitionClass()
     recognition.continuous = false
     recognition.interimResults = true
-    recognition.lang = 'en-US'
+    recognition.lang = lang
 
     recognition.onstart = () => {
       console.log('[SpeechRecognition] onstart — recognition session started, lang:', recognition.lang)
@@ -151,7 +151,11 @@ export function useSpeechRecognition({ onResult } = {}) {
       recognition.abort()
       recognitionRef.current = null
     }
-  }, [isSupported, SpeechRecognitionClass])
+    // Recreate the recognition instance whenever the selected language
+    // changes — recognition.lang must be set before start() is called, and
+    // the cleanup above (abort + nulled handlers) prevents any leak from the
+    // previous instance.
+  }, [isSupported, SpeechRecognitionClass, lang])
 
   const start = useCallback(() => {
     if (!recognitionRef.current || isListening) {

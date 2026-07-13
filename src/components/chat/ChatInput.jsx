@@ -33,7 +33,7 @@ const resizeTextarea = (el) => {
   el.style.height = Math.min(el.scrollHeight, 120) + 'px'
 }
 
-const ChatInput = ({ onSend, isLoading, disabled, onListeningChange }) => {
+const ChatInput = ({ onSend, isLoading, disabled, onListeningChange, voiceLang }) => {
   const [value, setValue] = useState('')
   const textareaRef = useRef(null)
 
@@ -61,6 +61,7 @@ const ChatInput = ({ onSend, isLoading, disabled, onListeningChange }) => {
     error: micError,
     toggle: toggleMic,
   } = useSpeechRecognition({
+    lang: voiceLang,
     // Transcription-first: place the recognized text into the input for the
     // user to review/edit. Nothing is sent automatically — the user still
     // presses Send (or Enter) themselves, exactly like typed input.

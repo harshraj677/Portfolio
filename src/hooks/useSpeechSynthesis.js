@@ -35,7 +35,24 @@ function getSynth() {
   return typeof window !== 'undefined' ? window.speechSynthesis : null
 }
 
-export function useSpeechSynthesis() {
+const FALLBACK_LOCALE = 'en-IN'
+
+// Exact locale match first ("hi-IN" === "hi-IN"), then same primary subtag
+// ("hi-IN" ~ "hi-something-else"), so a close-enough regional voice is still
+// preferred over silently doing nothing.
+function findVoiceForLocale(voices, locale) {
+  if (!locale || !voices.length) return null
+  const lower = locale.toLowerCase()
+  const primary = lower.split('-')[0]
+  return (
+    voices.find((v) => v.lang?.toLowerCase() === lower) ||
+    voices.find((v) => v.lang?.toLowerCase().startsWith(`${primary}-`)) ||
+    voices.find((v) => v.lang?.toLowerCase() === primary) ||
+    null
+  )
+}
+
+export function useSpeechSynthesis(languageLocale = FALLBACK_LOCALE) {
   const synth = getSynth()
   const isSupported = !!synth
 
@@ -68,11 +85,22 @@ export function useSpeechSynthesis() {
     }
   }, [synth])
 
-  // Fall back to the browser default whenever the saved voice isn't
-  // present on this device/browser (never loaded, uninstalled, etc.)
-  const selectedVoice = settings.voiceURI
+  // Manually-picked voice (from the voice dropdown) — only honored while it
+  // still exists AND actually matches the currently selected language, so
+  // switching language doesn't leave a stale, mismatched voice in effect.
+  const manualVoice = settings.voiceURI
     ? voices.find((v) => v.voiceURI === settings.voiceURI) || null
     : null
+  const manualVoiceMatchesLanguage =
+    manualVoice && manualVoice.lang?.toLowerCase().split('-')[0] === languageLocale.toLowerCase().split('-')[0]
+
+  const languageVoice = findVoiceForLocale(voices, languageLocale)
+  const isLanguageVoiceAvailable = !!languageVoice
+
+  // Requirement: if no voice matches the selected language, fall back to en-IN.
+  const fallbackVoice = languageVoice || findVoiceForLocale(voices, FALLBACK_LOCALE)
+
+  const resolvedVoice = manualVoiceMatchesLanguage ? manualVoice : fallbackVoice
 
   const speak = useCallback((text) => {
     if (!isSupported || isMuted || !text) return
@@ -80,7 +108,10 @@ export function useSpeechSynthesis() {
     synth.cancel()
 
     const utterance = new SpeechSynthesisUtterance(text)
-    if (selectedVoice) utterance.voice = selectedVoice
+    // Always set .lang as a hint even when no specific voice object is
+    // available — some engines can still attempt the right pronunciation.
+    utterance.lang = resolvedVoice?.lang || languageLocale
+    if (resolvedVoice) utterance.voice = resolvedVoice
     utterance.rate = settings.rate
     utterance.pitch = settings.pitch
     utterance.volume = settings.volume
@@ -90,7 +121,7 @@ export function useSpeechSynthesis() {
 
     utteranceRef.current = utterance
     synth.speak(utterance)
-  }, [isSupported, isMuted, synth, selectedVoice, settings])
+  }, [isSupported, isMuted, synth, resolvedVoice, languageLocale, settings])
 
   const stop = useCallback(() => {
     if (!isSupported) return
@@ -130,7 +161,8 @@ export function useSpeechSynthesis() {
     isSpeaking,
     isMuted,
     voices,
-    selectedVoice,
+    selectedVoice: resolvedVoice,
+    isLanguageVoiceAvailable,
     settings,
     speak,
     stop,

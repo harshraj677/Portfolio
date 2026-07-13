@@ -6,6 +6,10 @@ import TypingIndicator from './TypingIndicator'
 import SuggestedQuestions from './SuggestedQuestions'
 import VoiceSettingsPanel from './VoiceSettingsPanel'
 import { useSpeechSynthesis } from '../../hooks/useSpeechSynthesis'
+import { useVoiceLanguage } from '../../hooks/useVoiceLanguage'
+
+const isMicSupported =
+  typeof window !== 'undefined' && !!(window.SpeechRecognition || window.webkitSpeechRecognition)
 
 const TrashIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
@@ -73,11 +77,14 @@ const ChatWindow = ({ onClose, messages, isLoading, error, onSend, onClear }) =>
 
   const [showVoiceSettings, setShowVoiceSettings] = useState(false)
 
+  const { language, languageId, setLanguage, languages } = useVoiceLanguage()
+
   const {
     isSupported: isTtsSupported,
     isSpeaking,
     isMuted,
     voices,
+    isLanguageVoiceAvailable,
     settings: voiceSettings,
     speak,
     stop: stopSpeaking,
@@ -86,7 +93,7 @@ const ChatWindow = ({ onClose, messages, isLoading, error, onSend, onClear }) =>
     setRate,
     setPitch,
     setVolume,
-  } = useSpeechSynthesis()
+  } = useSpeechSynthesis(language.locale)
 
   // Speak newly-arrived assistant responses only (not messages restored from history)
   const spokenCountRef = useRef(messages.length)
@@ -185,11 +192,34 @@ const ChatWindow = ({ onClose, messages, isLoading, error, onSend, onClear }) =>
                   </motion.span>
                 )}
               </AnimatePresence>
+              {(isMicSupported || isTtsSupported) && (
+                <span
+                  title={`Voice language: ${language.label}`}
+                  className="px-1.5 py-0.5 rounded text-[10px] font-semibold tracking-wide
+                             text-cyan-300 bg-cyan-500/10 border border-cyan-500/20 shrink-0"
+                >
+                  {language.short}
+                </span>
+              )}
             </div>
           </div>
         </div>
 
         <div className="flex items-center gap-0.5 sm:gap-1 shrink-0">
+          {(isMicSupported || isTtsSupported) && (
+            <button
+              onClick={() => setShowVoiceSettings((s) => !s)}
+              title={showVoiceSettings ? 'Hide voice settings' : 'Voice settings'}
+              aria-label={showVoiceSettings ? 'Hide voice settings' : 'Voice settings'}
+              aria-pressed={showVoiceSettings}
+              className={`p-1.5 rounded-lg transition-all duration-200 active:scale-90
+                         ${showVoiceSettings
+                           ? 'text-cyan-400 bg-cyan-500/15'
+                           : 'text-gray-400 hover:text-white hover:bg-gray-700/50'}`}
+            >
+              <SettingsIcon />
+            </button>
+          )}
           {isTtsSupported && (
             <>
               <button
@@ -232,18 +262,6 @@ const ChatWindow = ({ onClose, messages, isLoading, error, onSend, onClear }) =>
                   <StopIcon />
                 </span>
               </button>
-              <button
-                onClick={() => setShowVoiceSettings((s) => !s)}
-                title={showVoiceSettings ? 'Hide voice settings' : 'Voice settings'}
-                aria-label={showVoiceSettings ? 'Hide voice settings' : 'Voice settings'}
-                aria-pressed={showVoiceSettings}
-                className={`p-1.5 rounded-lg transition-all duration-200 active:scale-90
-                           ${showVoiceSettings
-                             ? 'text-cyan-400 bg-cyan-500/15'
-                             : 'text-gray-400 hover:text-white hover:bg-gray-700/50'}`}
-              >
-                <SettingsIcon />
-              </button>
             </>
           )}
           {messages.length > 0 && (
@@ -267,8 +285,13 @@ const ChatWindow = ({ onClose, messages, isLoading, error, onSend, onClear }) =>
       </div>
 
       <AnimatePresence initial={false}>
-        {showVoiceSettings && isTtsSupported && (
+        {showVoiceSettings && (isMicSupported || isTtsSupported) && (
           <VoiceSettingsPanel
+            languages={languages}
+            languageId={languageId}
+            onLanguageChange={setLanguage}
+            isTtsSupported={isTtsSupported}
+            isLanguageVoiceAvailable={isLanguageVoiceAvailable}
             voices={voices}
             settings={voiceSettings}
             onVoiceChange={setVoiceURI}
@@ -343,6 +366,7 @@ const ChatWindow = ({ onClose, messages, isLoading, error, onSend, onClear }) =>
         onSend={onSend}
         isLoading={isLoading}
         onListeningChange={handleListeningChange}
+        voiceLang={language.locale}
       />
     </motion.div>
   )
