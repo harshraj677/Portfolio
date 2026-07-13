@@ -4,6 +4,7 @@ import ChatMessage from './ChatMessage'
 import ChatInput from './ChatInput'
 import TypingIndicator from './TypingIndicator'
 import SuggestedQuestions from './SuggestedQuestions'
+import { useSpeechSynthesis } from '../../hooks/useSpeechSynthesis'
 
 const TrashIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
@@ -23,9 +24,64 @@ const CloseIcon = () => (
   </svg>
 )
 
+const VolumeIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
+       strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+    <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+    <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+  </svg>
+)
+
+const VolumeMuteIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
+       strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+    <line x1="23" y1="9" x2="17" y2="15" />
+    <line x1="17" y1="9" x2="23" y2="15" />
+  </svg>
+)
+
+const StopIcon = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5">
+    <rect x="4" y="4" width="16" height="16" rx="1.5" />
+  </svg>
+)
+
+function toSpeechText(markdown) {
+  return markdown
+    .replace(/`([^`]+)`/g, '$1')
+    .replace(/\*\*([^*]+)\*\*/g, '$1')
+    .replace(/^#{1,6}\s+/gm, '')
+    .replace(/^[-•]\s+/gm, '')
+    .replace(/\n+/g, ' ')
+    .trim()
+}
+
 const ChatWindow = ({ onClose, messages, isLoading, error, onSend, onClear }) => {
   const bottomRef = useRef(null)
   const isEmpty = messages.length === 0
+
+  const {
+    isSupported: isTtsSupported,
+    isSpeaking,
+    isMuted,
+    speak,
+    stop: stopSpeaking,
+    toggleMute,
+  } = useSpeechSynthesis()
+
+  // Speak newly-arrived assistant responses only (not messages restored from history)
+  const spokenCountRef = useRef(messages.length)
+  useEffect(() => {
+    if (isTtsSupported && messages.length > spokenCountRef.current) {
+      const latest = messages[messages.length - 1]
+      if (latest.role === 'assistant') {
+        speak(toSpeechText(latest.content))
+      }
+    }
+    spokenCountRef.current = messages.length
+  }, [messages, isTtsSupported, speak])
 
   // Scroll to bottom on new messages
   useEffect(() => {
@@ -62,6 +118,30 @@ const ChatWindow = ({ onClose, messages, isLoading, error, onSend, onClear }) =>
         </div>
 
         <div className="flex items-center gap-1">
+          {isTtsSupported && (
+            <>
+              <button
+                onClick={toggleMute}
+                title={isMuted ? 'Unmute voice replies' : 'Mute voice replies'}
+                aria-label={isMuted ? 'Unmute voice replies' : 'Mute voice replies'}
+                aria-pressed={isMuted}
+                className="p-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-gray-700/50
+                           transition-all"
+              >
+                {isMuted ? <VolumeMuteIcon /> : <VolumeIcon />}
+              </button>
+              <button
+                onClick={stopSpeaking}
+                disabled={!isSpeaking}
+                title="Stop speaking"
+                aria-label="Stop speaking"
+                className="p-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-gray-700/50
+                           transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+              >
+                <StopIcon />
+              </button>
+            </>
+          )}
           {messages.length > 0 && (
             <button
               onClick={onClear}
