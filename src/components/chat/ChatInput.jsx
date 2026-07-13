@@ -30,19 +30,8 @@ const ChatInput = ({ onSend, isLoading, disabled }) => {
   const [value, setValue] = useState('')
   const textareaRef = useRef(null)
 
-  const { isSupported: isMicSupported, isListening, error: micError, toggle: toggleMic } =
-    useSpeechRecognition({
-      onResult: (transcript) => {
-        setValue((prev) => (prev ? `${prev.trim()} ${transcript}` : transcript))
-        requestAnimationFrame(() => {
-          resizeTextarea(textareaRef.current)
-          textareaRef.current?.focus()
-        })
-      },
-    })
-
-  const submit = () => {
-    const trimmed = value.trim()
+  const submit = (text = value) => {
+    const trimmed = text.trim()
     if (!trimmed || isLoading || disabled) return
     onSend(trimmed)
     setValue('')
@@ -50,6 +39,14 @@ const ChatInput = ({ onSend, isLoading, disabled }) => {
       textareaRef.current.style.height = 'auto'
     }
   }
+
+  const { isSupported: isMicSupported, isListening, error: micError, toggle: toggleMic } =
+    useSpeechRecognition({
+      onResult: (transcript) => {
+        const combined = value ? `${value.trim()} ${transcript}` : transcript
+        submit(combined)
+      },
+    })
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -111,7 +108,7 @@ const ChatInput = ({ onSend, isLoading, disabled }) => {
           </span>
         </button>
         <button
-          onClick={submit}
+          onClick={() => submit()}
           disabled={!value.trim() || isLoading || disabled}
           className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-purple-600
                      flex items-center justify-center text-white shrink-0 mb-0.5
