@@ -1,4 +1,6 @@
 import { useState, useRef } from 'react'
+import { motion } from 'framer-motion'
+import { useSpeechRecognition } from '../../hooks/useSpeechRecognition'
 
 const SendIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
@@ -8,9 +10,36 @@ const SendIcon = () => (
   </svg>
 )
 
+const MicIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
+       strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+    <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+    <line x1="12" y1="19" x2="12" y2="23" />
+    <line x1="8" y1="23" x2="16" y2="23" />
+  </svg>
+)
+
+const resizeTextarea = (el) => {
+  if (!el) return
+  el.style.height = 'auto'
+  el.style.height = Math.min(el.scrollHeight, 120) + 'px'
+}
+
 const ChatInput = ({ onSend, isLoading, disabled }) => {
   const [value, setValue] = useState('')
   const textareaRef = useRef(null)
+
+  const { isSupported: isMicSupported, isListening, error: micError, toggle: toggleMic } =
+    useSpeechRecognition({
+      onResult: (transcript) => {
+        setValue((prev) => (prev ? `${prev.trim()} ${transcript}` : transcript))
+        requestAnimationFrame(() => {
+          resizeTextarea(textareaRef.current)
+          textareaRef.current?.focus()
+        })
+      },
+    })
 
   const submit = () => {
     const trimmed = value.trim()
@@ -31,10 +60,7 @@ const ChatInput = ({ onSend, isLoading, disabled }) => {
 
   const handleChange = (e) => {
     setValue(e.target.value)
-    // Auto-resize
-    const el = e.target
-    el.style.height = 'auto'
-    el.style.height = Math.min(el.scrollHeight, 120) + 'px'
+    resizeTextarea(e.target)
   }
 
   return (
@@ -46,7 +72,7 @@ const ChatInput = ({ onSend, isLoading, disabled }) => {
           value={value}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
-          placeholder="Ask anything about Harsh…"
+          placeholder={isListening ? 'Listening…' : 'Ask anything about Harsh…'}
           rows={1}
           disabled={isLoading || disabled}
           className="flex-1 bg-transparent text-sm text-gray-100 placeholder-gray-500
@@ -54,6 +80,36 @@ const ChatInput = ({ onSend, isLoading, disabled }) => {
                      disabled:opacity-50"
           style={{ lineHeight: '1.5' }}
         />
+        <button
+          type="button"
+          onClick={toggleMic}
+          disabled={isLoading || disabled || !isMicSupported}
+          title={
+            !isMicSupported
+              ? 'Voice input is not supported in this browser'
+              : isListening
+                ? 'Stop listening'
+                : 'Start voice input'
+          }
+          aria-label={isListening ? 'Stop voice input' : 'Start voice input'}
+          aria-pressed={isListening}
+          className={`relative w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mb-0.5
+                     transition-all active:scale-95 disabled:opacity-30 disabled:cursor-not-allowed
+                     ${isListening
+                       ? 'bg-red-500/20 text-red-400'
+                       : 'bg-gray-700/60 text-gray-300 hover:text-cyan-400 hover:bg-gray-700'}`}
+        >
+          {isListening && (
+            <motion.span
+              className="absolute inset-0 rounded-lg bg-red-500/50"
+              animate={{ scale: [1, 1.5, 1], opacity: [0.6, 0, 0.6] }}
+              transition={{ duration: 1.3, repeat: Infinity, ease: 'easeInOut' }}
+            />
+          )}
+          <span className="relative z-10">
+            <MicIcon />
+          </span>
+        </button>
         <button
           onClick={submit}
           disabled={!value.trim() || isLoading || disabled}
@@ -66,9 +122,13 @@ const ChatInput = ({ onSend, isLoading, disabled }) => {
           <SendIcon />
         </button>
       </div>
-      <p className="text-xs text-gray-600 mt-1.5 px-1">
-        Press Enter to send · Shift+Enter for newline
-      </p>
+      {micError ? (
+        <p className="text-xs text-red-400 mt-1.5 px-1">{micError}</p>
+      ) : (
+        <p className="text-xs text-gray-600 mt-1.5 px-1">
+          Press Enter to send · Shift+Enter for newline
+        </p>
+      )}
     </div>
   )
 }
