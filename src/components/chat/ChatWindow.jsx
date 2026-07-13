@@ -1,10 +1,13 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import ChatMessage from './ChatMessage'
 import ChatInput from './ChatInput'
 import TypingIndicator from './TypingIndicator'
 import SuggestedQuestions from './SuggestedQuestions'
 import { useSpeechSynthesis } from '../../hooks/useSpeechSynthesis'
+
+const isMicSupported =
+  typeof window !== 'undefined' && !!(window.SpeechRecognition || window.webkitSpeechRecognition)
 
 const TrashIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
@@ -48,6 +51,16 @@ const StopIcon = () => (
   </svg>
 )
 
+const LoopIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
+       strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+    <path d="M17 1l4 4-4 4" />
+    <path d="M3 11V9a4 4 0 0 1 4-4h14" />
+    <path d="M7 23l-4-4 4-4" />
+    <path d="M21 13v2a4 4 0 0 1-4 4H3" />
+  </svg>
+)
+
 function toSpeechText(markdown) {
   return markdown
     .replace(/`([^`]+)`/g, '$1')
@@ -60,7 +73,10 @@ function toSpeechText(markdown) {
 
 const ChatWindow = ({ onClose, messages, isLoading, error, onSend, onClear }) => {
   const bottomRef = useRef(null)
+  const chatInputRef = useRef(null)
   const isEmpty = messages.length === 0
+
+  const [continuousMode, setContinuousMode] = useState(false)
 
   const {
     isSupported: isTtsSupported,
@@ -82,6 +98,20 @@ const ChatWindow = ({ onClose, messages, isLoading, error, onSend, onClear }) =>
     }
     spokenCountRef.current = messages.length
   }, [messages, isTtsSupported, speak])
+
+  // Interrupt AI speech as soon as the user starts talking
+  const handleListeningChange = useCallback((listening) => {
+    if (listening) stopSpeaking()
+  }, [stopSpeaking])
+
+  // Continuous voice mode: reopen the mic right after the AI finishes speaking
+  const wasSpeakingRef = useRef(false)
+  useEffect(() => {
+    if (wasSpeakingRef.current && !isSpeaking && continuousMode && !isLoading) {
+      chatInputRef.current?.startListening()
+    }
+    wasSpeakingRef.current = isSpeaking
+  }, [isSpeaking, continuousMode, isLoading])
 
   // Scroll to bottom on new messages
   useEffect(() => {
@@ -168,6 +198,20 @@ const ChatWindow = ({ onClose, messages, isLoading, error, onSend, onClear }) =>
         </div>
 
         <div className="flex items-center gap-0.5 sm:gap-1 shrink-0">
+          {isMicSupported && isTtsSupported && (
+            <button
+              onClick={() => setContinuousMode((c) => !c)}
+              title={continuousMode ? 'Turn off continuous voice mode' : 'Turn on continuous voice mode'}
+              aria-label={continuousMode ? 'Turn off continuous voice mode' : 'Turn on continuous voice mode'}
+              aria-pressed={continuousMode}
+              className={`p-1.5 rounded-lg transition-all duration-200 active:scale-90
+                         ${continuousMode
+                           ? 'text-cyan-400 bg-cyan-500/15'
+                           : 'text-gray-400 hover:text-white hover:bg-gray-700/50'}`}
+            >
+              <LoopIcon />
+            </button>
+          )}
           {isTtsSupported && (
             <>
               <button
@@ -292,7 +336,12 @@ const ChatWindow = ({ onClose, messages, isLoading, error, onSend, onClear }) =>
       </div>
 
       {/* ── Input ───────────────────────────────────────────────────────────── */}
-      <ChatInput onSend={onSend} isLoading={isLoading} />
+      <ChatInput
+        ref={chatInputRef}
+        onSend={onSend}
+        isLoading={isLoading}
+        onListeningChange={handleListeningChange}
+      />
     </motion.div>
   )
 }

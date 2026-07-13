@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect, forwardRef, useImperativeHandle } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useSpeechRecognition } from '../../hooks/useSpeechRecognition'
 
@@ -26,7 +26,7 @@ const resizeTextarea = (el) => {
   el.style.height = Math.min(el.scrollHeight, 120) + 'px'
 }
 
-const ChatInput = ({ onSend, isLoading, disabled }) => {
+const ChatInput = forwardRef(({ onSend, isLoading, disabled, onListeningChange }, ref) => {
   const [value, setValue] = useState('')
   const textareaRef = useRef(null)
 
@@ -40,13 +40,23 @@ const ChatInput = ({ onSend, isLoading, disabled }) => {
     }
   }
 
-  const { isSupported: isMicSupported, isListening, error: micError, toggle: toggleMic } =
+  const { isSupported: isMicSupported, isListening, error: micError, start: startMic, toggle: toggleMic } =
     useSpeechRecognition({
       onResult: (transcript) => {
         const combined = value ? `${value.trim()} ${transcript}` : transcript
         submit(combined)
       },
     })
+
+  // Let the parent (continuous voice mode) know when listening starts/stops
+  useEffect(() => {
+    onListeningChange?.(isListening)
+  }, [isListening, onListeningChange])
+
+  // Let the parent trigger listening imperatively (continuous voice mode)
+  useImperativeHandle(ref, () => ({
+    startListening: startMic,
+  }), [startMic])
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -197,6 +207,8 @@ const ChatInput = ({ onSend, isLoading, disabled }) => {
       </AnimatePresence>
     </div>
   )
-}
+})
+
+ChatInput.displayName = 'ChatInput'
 
 export default ChatInput
