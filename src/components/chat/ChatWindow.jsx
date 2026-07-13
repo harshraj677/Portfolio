@@ -38,15 +38,6 @@ const VolumeIcon = () => (
   </svg>
 )
 
-const VolumeMuteIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}
-       strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
-    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
-    <line x1="23" y1="9" x2="17" y2="15" />
-    <line x1="17" y1="9" x2="23" y2="15" />
-  </svg>
-)
-
 const StopIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5">
     <rect x="4" y="4" width="16" height="16" rx="1.5" />
@@ -82,30 +73,36 @@ const ChatWindow = ({ onClose, messages, isLoading, error, onSend, onClear }) =>
   const {
     isSupported: isTtsSupported,
     isSpeaking,
-    isMuted,
     voices,
     isLanguageVoiceAvailable,
     settings: voiceSettings,
     speak,
     stop: stopSpeaking,
-    toggleMute,
     setVoiceURI,
     setRate,
     setPitch,
     setVolume,
   } = useSpeechSynthesis(language.locale)
 
-  // Speak newly-arrived assistant responses only (not messages restored from history)
-  const spokenCountRef = useRef(messages.length)
-  useEffect(() => {
-    if (isTtsSupported && messages.length > spokenCountRef.current) {
-      const latest = messages[messages.length - 1]
-      if (latest.role === 'assistant') {
-        speak(toSpeechText(latest.content))
-      }
+  // TTS is manual-only: nothing here ever calls speak() on its own. The
+  // hook stays initialized (voices load, settings persist) but idle until
+  // the user explicitly presses the speaker button below.
+  const hasAssistantMessage = messages.some((m) => m.role === 'assistant')
+
+  const handleSpeakClick = useCallback(() => {
+    if (isSpeaking) {
+      stopSpeaking()
+      return
     }
-    spokenCountRef.current = messages.length
-  }, [messages, isTtsSupported, speak])
+    const latestAssistant = [...messages].reverse().find((m) => m.role === 'assistant')
+    if (latestAssistant) speak(toSpeechText(latestAssistant.content))
+  }, [isSpeaking, stopSpeaking, speak, messages])
+
+  // Stop any playing response the moment the user sends a new message.
+  const handleSend = useCallback((text) => {
+    stopSpeaking()
+    onSend(text)
+  }, [stopSpeaking, onSend])
 
   // Interrupt AI speech as soon as the user starts talking
   const handleListeningChange = useCallback((listening) => {
@@ -221,48 +218,38 @@ const ChatWindow = ({ onClose, messages, isLoading, error, onSend, onClear }) =>
             </button>
           )}
           {isTtsSupported && (
-            <>
-              <button
-                onClick={toggleMute}
-                title={isMuted ? 'Unmute voice replies' : 'Mute voice replies'}
-                aria-label={isMuted ? 'Unmute voice replies' : 'Mute voice replies'}
-                aria-pressed={isMuted}
-                className="p-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-gray-700/50
-                           transition-all duration-200 active:scale-90"
-              >
-                <AnimatePresence mode="wait" initial={false}>
-                  <motion.span
-                    key={isMuted ? 'muted' : 'unmuted'}
-                    initial={{ opacity: 0, scale: 0.7, rotate: -15 }}
-                    animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                    exit={{ opacity: 0, scale: 0.7, rotate: 15 }}
-                    transition={{ duration: 0.15 }}
-                    className="block"
-                  >
-                    {isMuted ? <VolumeMuteIcon /> : <VolumeIcon />}
-                  </motion.span>
-                </AnimatePresence>
-              </button>
-              <button
-                onClick={stopSpeaking}
-                disabled={!isSpeaking}
-                title="Stop speaking"
-                aria-label="Stop speaking"
-                className="relative p-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-gray-700/50
-                           transition-all duration-200 active:scale-90 disabled:opacity-30 disabled:cursor-not-allowed"
-              >
-                {isSpeaking && (
-                  <motion.span
-                    className="absolute inset-0 rounded-lg bg-cyan-500/30"
-                    animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0, 0.5] }}
-                    transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
-                  />
-                )}
-                <span className="relative z-10">
-                  <StopIcon />
-                </span>
-              </button>
-            </>
+            <button
+              onClick={handleSpeakClick}
+              disabled={!hasAssistantMessage}
+              title={isSpeaking ? 'Stop speaking' : 'Read the latest response aloud'}
+              aria-label={isSpeaking ? 'Stop speaking' : 'Read the latest response aloud'}
+              aria-pressed={isSpeaking}
+              className={`relative p-1.5 rounded-lg transition-all duration-200 active:scale-90
+                         disabled:opacity-30 disabled:cursor-not-allowed
+                         ${isSpeaking
+                           ? 'text-cyan-400 bg-cyan-500/15'
+                           : 'text-gray-400 hover:text-white hover:bg-gray-700/50'}`}
+            >
+              {isSpeaking && (
+                <motion.span
+                  className="absolute inset-0 rounded-lg bg-cyan-500/30"
+                  animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0, 0.5] }}
+                  transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
+                />
+              )}
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.span
+                  key={isSpeaking ? 'stop' : 'speak'}
+                  initial={{ opacity: 0, scale: 0.7 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.7 }}
+                  transition={{ duration: 0.15 }}
+                  className="relative z-10 block"
+                >
+                  {isSpeaking ? <StopIcon /> : <VolumeIcon />}
+                </motion.span>
+              </AnimatePresence>
+            </button>
           )}
           {messages.length > 0 && (
             <button
@@ -276,6 +263,8 @@ const ChatWindow = ({ onClose, messages, isLoading, error, onSend, onClear }) =>
           )}
           <button
             onClick={onClose}
+            title="Close chat"
+            aria-label="Close chat"
             className="p-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-gray-700/50
                        transition-all duration-200 active:scale-90"
           >
@@ -320,7 +309,7 @@ const ChatWindow = ({ onClose, messages, isLoading, error, onSend, onClear }) =>
                 I can answer anything about Harsh's projects, experience, skills, and more.
               </p>
             </div>
-            <SuggestedQuestions onSelect={onSend} />
+            <SuggestedQuestions onSelect={handleSend} />
           </>
         ) : (
           <>
@@ -363,7 +352,7 @@ const ChatWindow = ({ onClose, messages, isLoading, error, onSend, onClear }) =>
 
       {/* ── Input ───────────────────────────────────────────────────────────── */}
       <ChatInput
-        onSend={onSend}
+        onSend={handleSend}
         isLoading={isLoading}
         onListeningChange={handleListeningChange}
         voiceLang={language.locale}
