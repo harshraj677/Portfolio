@@ -16,7 +16,8 @@ This repository contains the source code for my personal portfolio website — a
 ## Features
 
 - **3D Hero Animation** — Interactive 3D visuals powered by React Three Fiber and Three.js
-- **AI Assistant (RAG)** — Floating chat widget backed by a retrieval-augmented generation pipeline that answers questions about me using my own portfolio data
+- **AI Assistant (RAG)** — Floating chat widget backed by a retrieval-augmented generation pipeline that answers questions about me using my own portfolio data, with conversational context and follow-up resolution across turns
+- **Voice Input & Output** — Transcription-first voice input (Web Speech API) and manual text-to-speech playback via a per-message speaker toggle, with multilingual support (English India, Hindi, Hinglish, Kannada)
 - **Dark / Light Mode** — Theme toggle with persisted preference via Context API + localStorage
 - **Fully Responsive** — Mobile-first layout that adapts cleanly across devices
 - **Smooth Animations** — Scroll-triggered transitions, hover effects, and staggered reveals via Framer Motion
@@ -60,14 +61,17 @@ harx/
 │   └── vectors.json           # Optional generated embeddings (build artifact)
 ├── src/
 │   ├── components/
-│   │   ├── chat/              # AI chat widget UI (window, input, messages, etc.)
+│   │   ├── chat/              # AI chat widget UI (window, input, messages, voice settings, etc.)
 │   │   ├── ui/                # Shared UI primitives (button, carousel, dock, ...)
 │   │   ├── Hero.jsx, About.jsx, Skills.jsx, Projects.jsx, Achievements.jsx,
 │   │       Experience.jsx, Contact.jsx, Navbar.jsx, Footer.jsx, ...
 │   ├── context/
 │   │   └── ThemeContext.jsx   # Dark/light theme provider
 │   ├── hooks/
-│   │   └── useChatMemory.js   # Persists chat history across sessions
+│   │   ├── useChatMemory.js         # Persists chat history across sessions
+│   │   ├── useSpeechRecognition.js  # Voice input transcription (Web Speech API)
+│   │   ├── useSpeechSynthesis.js    # Manual text-to-speech playback per message
+│   │   └── useVoiceLanguage.js      # Language selection for voice input/output
 │   ├── lib/
 │   │   ├── loadKnowledge.js   # Loads/caches the chat knowledge base client-side
 │   │   ├── search.js          # BM25-style ranking used by the assistant
@@ -125,8 +129,10 @@ The chat assistant runs as a Netlify Function (`netlify/functions/chat.js`) back
 
 1. Structured profile content in `data/*.json` (about, education, experience, projects, skills, achievements, etc.) is compiled into a flat knowledge base of text chunks via `npm run generate:chunks` — this runs automatically as part of `npm run build`.
 2. At query time, the user's message is ranked against those chunks with a BM25-style search (`src/lib/search.js` on the client, mirrored in `netlify/lib/chatCore.js` on the server) — no external embedding API required.
-3. The retrieved context is passed to an LLM (Groq, OpenRouter, or Cerebras — whichever key is configured) to generate a grounded answer with cited sources.
+3. The retrieved context is passed to an LLM (Groq, OpenRouter, or Cerebras — whichever key is configured) to generate a grounded answer with cited sources. Recent conversation turns are included so the assistant can resolve follow-up questions (e.g. "and what about that one?") and stays locked to its assistant persona.
 4. Optionally, `npm run generate:vectors` can pre-compute cosine-similarity embeddings into `data/vectors.json` for semantic search; this requires `@xenova/transformers` (not installed by default — `npm install --save-dev @xenova/transformers` first).
+
+Voice input is transcription-first: speech is transcribed into the input box via the Web Speech API, and the user reviews/edits the text before sending — it is not auto-sent. Text-to-speech playback is manual only, triggered per message via a speaker toggle button (no auto-speak), and supports English (India), Hindi, Hinglish, and Kannada.
 
 To enable it locally or in deployment, set one or more of the following environment variables:
 
